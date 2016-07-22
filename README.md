@@ -5,7 +5,9 @@ Examples of payline-php-sdk use. Each web service of Payline API is available vi
 Usage
 -----
 
-Put this content on your web server. Go to Home > Configuration form to fill your Payline account information and general settings.
+Upload content on your web server.
+Run composer install in order to import payline-php-sdk.
+Go to Home > Configuration form to fill your Payline account information and general settings.
 Browse through example forms to discover Payline API and learn how to use payline-php-sdk.
 
 About
