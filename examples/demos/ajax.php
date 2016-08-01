@@ -159,6 +159,53 @@
 								$doAuthorizationRequest['order']['amount'] = $doAuthorizationRequest['payment']['amount'];
 								$doAuthorizationRequest['order']['date'] = date('d/m/Y H:i');
 								$doAuthorizationRequest['order']['currency'] = $doAuthorizationRequest['payment']['currency'];
+								
+								// BUYER
+								$doAuthorizationRequest['buyer']['legalStatus'] = $_SESSION['buyerLegalStatus'];
+								$doAuthorizationRequest['buyer']['title'] = $_SESSION['buyerTitle'];
+								$doAuthorizationRequest['buyer']['lastName'] = $_SESSION['buyerLastName'];
+								$doAuthorizationRequest['buyer']['firstName'] = $_SESSION['buyerFirstName'];
+								$doAuthorizationRequest['buyer']['email'] = $_SESSION['buyerEmail'];
+								$doAuthorizationRequest['buyer']['mobilePhone'] = $_SESSION['mobilePhone'];
+								$doAuthorizationRequest['buyer']['customerId'] = $_SESSION['customerId'];
+								$doAuthorizationRequest['buyer']['accountCreateDate'] = $_SESSION['buyerAccountCreateDate'];
+								$doAuthorizationRequest['buyer']['accountAverageAmount'] = $_SESSION['buyerAverageAmount'];
+								$doAuthorizationRequest['buyer']['accountOrderCount'] = $_SESSION['buyerOrderCount'];
+								$doAuthorizationRequest['buyer']['walletId'] = $_SESSION['buyerWalletId'];
+								$doAuthorizationRequest['buyer']['ip'] = $_SESSION['buyerIp'];
+								$doAuthorizationRequest['buyer']['legalDocument'] = $_SESSION['legalDocument'];
+								$doAuthorizationRequest['buyer']['birthDate'] = $_SESSION['birthDate'];
+								$doAuthorizationRequest['buyer']['fingerprintID'] = $_SESSION['fingerprintID'];
+								
+								// BILLING ADDRESS
+								$doAuthorizationRequest['billingAddress']['title'] = $_SESSION['billingAddressTitle'];
+								$doAuthorizationRequest['billingAddress']['firstName'] = $_SESSION['billingAddressFirstName'];
+								$doAuthorizationRequest['billingAddress']['lastName'] = $_SESSION['billingAddressLastName'];
+								$doAuthorizationRequest['billingAddress']['name'] = $_SESSION['billingAddressName'];
+								$doAuthorizationRequest['billingAddress']['street1'] = $_SESSION['billingAddressStreet1'];
+								$doAuthorizationRequest['billingAddress']['street2'] = $_SESSION['billingAddressStreet2'];
+								$doAuthorizationRequest['billingAddress']['county'] = $_SESSION['billingAddressCounty'];
+								$doAuthorizationRequest['billingAddress']['cityName'] = $_SESSION['billingAddressCity'];
+								$doAuthorizationRequest['billingAddress']['zipCode'] = $_SESSION['billingAddressZipCode'];
+								$doAuthorizationRequest['billingAddress']['country'] = $_SESSION['billingAddressCountry'];
+								$doAuthorizationRequest['billingAddress']['state'] = $_SESSION['billingAddressState'];
+								$doAuthorizationRequest['billingAddress']['phoneType'] = $_SESSION['billingAddressPhoneType'];
+								$doAuthorizationRequest['billingAddress']['phone'] = $_SESSION['billingAddressPhone'];
+								
+								// SHIPPING ADDRESS
+								$doAuthorizationRequest['shippingAddress']['title'] = $_SESSION['shippingAddressTitle'];
+								$doAuthorizationRequest['shippingAddress']['firstName'] = $_SESSION['shippingAddressFirstName'];
+								$doAuthorizationRequest['shippingAddress']['lastName'] = $_SESSION['shippingAddressLastName'];
+								$doAuthorizationRequest['shippingAddress']['name'] = $_SESSION['shippingAddressName'];
+								$doAuthorizationRequest['shippingAddress']['street1'] = $_SESSION['shippingAddressStreet1'];
+								$doAuthorizationRequest['shippingAddress']['street2'] = $_SESSION['shippingAddressStreet2'];
+								$doAuthorizationRequest['shippingAddress']['county'] = $_SESSION['shippingAddressCounty'];
+								$doAuthorizationRequest['shippingAddress']['cityName'] = $_SESSION['shippingAddressCity'];
+								$doAuthorizationRequest['shippingAddress']['zipCode'] = $_SESSION['shippingAddressZipCode'];
+								$doAuthorizationRequest['shippingAddress']['country'] = $_SESSION['shippingAddressCountry'];
+								$doAuthorizationRequest['shippingAddress']['state'] = $_SESSION['shippingAddressState'];
+								$doAuthorizationRequest['shippingAddress']['phoneType'] = $_SESSION['shippingAddressPhoneType'];
+								$doAuthorizationRequest['shippingAddress']['phone'] = $_SESSION['shippingAddressPhone'];
                     			
                     			// RESPONSE
                     			$doAuthorizationResponse = $payline->doAuthorization($doAuthorizationRequest);
@@ -202,6 +249,53 @@
                     	$doAuthorization3DSRequest['order']['amount'] = $doAuthorization3DSRequest['payment']['amount'];
                     	$doAuthorization3DSRequest['order']['date'] = date('d/m/Y H:i');
                     	$doAuthorization3DSRequest['order']['currency'] = $_SESSION['ORDER_CURRENCY'];
+                    	
+                    	// BUYER
+                    	$doAuthorizationRequest['buyer']['legalStatus'] = $_SESSION['buyerLegalStatus'];
+                    	$doAuthorizationRequest['buyer']['title'] = $_SESSION['buyerTitle'];
+                    	$doAuthorizationRequest['buyer']['lastName'] = $_SESSION['buyerLastName'];
+                    	$doAuthorizationRequest['buyer']['firstName'] = $_SESSION['buyerFirstName'];
+                    	$doAuthorizationRequest['buyer']['email'] = $_SESSION['buyerEmail'];
+                    	$doAuthorizationRequest['buyer']['mobilePhone'] = $_SESSION['mobilePhone'];
+                    	$doAuthorizationRequest['buyer']['customerId'] = $_SESSION['customerId'];
+                    	$doAuthorizationRequest['buyer']['accountCreateDate'] = $_SESSION['buyerAccountCreateDate'];
+                    	$doAuthorizationRequest['buyer']['accountAverageAmount'] = $_SESSION['buyerAverageAmount'];
+                    	$doAuthorizationRequest['buyer']['accountOrderCount'] = $_SESSION['buyerOrderCount'];
+                    	$doAuthorizationRequest['buyer']['walletId'] = $_SESSION['buyerWalletId'];
+                    	$doAuthorizationRequest['buyer']['ip'] = $_SESSION['buyerIp'];
+                    	$doAuthorizationRequest['buyer']['legalDocument'] = $_SESSION['legalDocument'];
+                    	$doAuthorizationRequest['buyer']['birthDate'] = $_SESSION['birthDate'];
+                    	$doAuthorizationRequest['buyer']['fingerprintID'] = $_SESSION['fingerprintID'];
+                    	
+                    	// BILLING ADDRESS
+                    	$doAuthorizationRequest['billingAddress']['title'] = $_SESSION['billingAddressTitle'];
+                    	$doAuthorizationRequest['billingAddress']['firstName'] = $_SESSION['billingAddressFirstName'];
+                    	$doAuthorizationRequest['billingAddress']['lastName'] = $_SESSION['billingAddressLastName'];
+                    	$doAuthorizationRequest['billingAddress']['name'] = $_SESSION['billingAddressName'];
+                    	$doAuthorizationRequest['billingAddress']['street1'] = $_SESSION['billingAddressStreet1'];
+                    	$doAuthorizationRequest['billingAddress']['street2'] = $_SESSION['billingAddressStreet2'];
+                    	$doAuthorizationRequest['billingAddress']['county'] = $_SESSION['billingAddressCounty'];
+                    	$doAuthorizationRequest['billingAddress']['cityName'] = $_SESSION['billingAddressCity'];
+                    	$doAuthorizationRequest['billingAddress']['zipCode'] = $_SESSION['billingAddressZipCode'];
+                    	$doAuthorizationRequest['billingAddress']['country'] = $_SESSION['billingAddressCountry'];
+                    	$doAuthorizationRequest['billingAddress']['state'] = $_SESSION['billingAddressState'];
+                    	$doAuthorizationRequest['billingAddress']['phoneType'] = $_SESSION['billingAddressPhoneType'];
+                    	$doAuthorizationRequest['billingAddress']['phone'] = $_SESSION['billingAddressPhone'];
+                    	
+                    	// SHIPPING ADDRESS
+                    	$doAuthorizationRequest['shippingAddress']['title'] = $_SESSION['shippingAddressTitle'];
+                    	$doAuthorizationRequest['shippingAddress']['firstName'] = $_SESSION['shippingAddressFirstName'];
+                    	$doAuthorizationRequest['shippingAddress']['lastName'] = $_SESSION['shippingAddressLastName'];
+                    	$doAuthorizationRequest['shippingAddress']['name'] = $_SESSION['shippingAddressName'];
+                    	$doAuthorizationRequest['shippingAddress']['street1'] = $_SESSION['shippingAddressStreet1'];
+                    	$doAuthorizationRequest['shippingAddress']['street2'] = $_SESSION['shippingAddressStreet2'];
+                    	$doAuthorizationRequest['shippingAddress']['county'] = $_SESSION['shippingAddressCounty'];
+                    	$doAuthorizationRequest['shippingAddress']['cityName'] = $_SESSION['shippingAddressCity'];
+                    	$doAuthorizationRequest['shippingAddress']['zipCode'] = $_SESSION['shippingAddressZipCode'];
+                    	$doAuthorizationRequest['shippingAddress']['country'] = $_SESSION['shippingAddressCountry'];
+                    	$doAuthorizationRequest['shippingAddress']['state'] = $_SESSION['shippingAddressState'];
+                    	$doAuthorizationRequest['shippingAddress']['phoneType'] = $_SESSION['shippingAddressPhoneType'];
+                    	$doAuthorizationRequest['shippingAddress']['phone'] = $_SESSION['shippingAddressPhone'];
                     	
                     	//AUTHENTICATION 3DSECURE
                     	$doAuthorization3DSRequest['3DSecure']['md'] = $_POST['MD'];

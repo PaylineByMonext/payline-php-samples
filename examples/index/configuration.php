@@ -49,7 +49,7 @@ use Monolog\Logger;
 		<div class="row">
 			<label for="WS_VERSION">Version</label>			
 			<select name="WS_VERSION" id="WS_VERSION">				
-				<option value=''>- select -</option>
+				<option value='0'>- select -</option>
 				<?php
 				for($v=1;$v<16;$v++){
 				    echo "<option value='$v'"; if($_SESSION['WS_VERSION']==$v) echo "selected"; echo ">$v</option>";				    
@@ -60,7 +60,6 @@ use Monolog\Logger;
 		<div class="row">
 			<label for="LOG_LEVEL">log level</label>			
 			<select name="LOG_LEVEL" id="LOG_LEVEL">								
-				<option value=''>- select -</option>
 				<?php
 				    echo "<option value='Logger::DEBUG'"; if($_SESSION['LOG_LEVEL']==Logger::DEBUG) echo "selected"; echo ">DEBUG</option>";
 				    echo "<option value='Logger::INFO'"; if($_SESSION['LOG_LEVEL']==Logger::INFO) echo "selected"; echo ">INFO</option>";
@@ -97,7 +96,7 @@ use Monolog\Logger;
 		<div class="row">
 			<label for="PAYMENT_CURRENCY">Payment currency</label>
 			<select name="PAYMENT_CURRENCY" id="PAYMENT_CURRENCY">								
-				<option value=''>- select -</option>
+				<option value="">- select -</option>
 				<?php
 				echo "<option value='784'"; if($_SESSION['PAYMENT_CURRENCY']=='784') echo "selected"; echo ">784 (United Arab Emirates dirham - AED)</option>";
 				echo "<option value='971'"; if($_SESSION['PAYMENT_CURRENCY']=='971') echo "selected"; echo ">971 (Afghan afghani - AFN)</option>";
@@ -285,7 +284,7 @@ use Monolog\Logger;
 		<div class="row">
 			<label for="ORDER_CURRENCY">Order currency</label>
 			<select name="ORDER_CURRENCY" id="ORDER_CURRENCY">								
-				<option value=''>- select -</option>
+				<option value="">- select -</option>
 				<?php
 				echo "<option value='784'"; if($_SESSION['ORDER_CURRENCY']=='784') echo "selected"; echo ">784 (United Arab Emirates dirham - AED)</option>";
 				echo "<option value='971'"; if($_SESSION['ORDER_CURRENCY']=='971') echo "selected"; echo ">971 (Afghan afghani - AFN)</option>";
@@ -473,7 +472,7 @@ use Monolog\Logger;
 		<div class="row">
 			<label for="PAYMENT_ACTION">Payment action</label>
 			<select name="PAYMENT_ACTION" id="PAYMENT_ACTION">				
-				<option value=''>- select -</option>
+				<option value="">- select -</option>
     			<option value="100" <?php if($_SESSION['PAYMENT_ACTION']=='100') echo "selected"; ?>>100 (Autorisation)</option>
     			<option value="101" <?php if($_SESSION['PAYMENT_ACTION']=='101') echo "selected"; ?>>101 (Autorisation+Validation)</option>
     			<option value="108" <?php if($_SESSION['PAYMENT_ACTION']=='108') echo "selected"; ?>>108 (Demande information)</option>
@@ -493,7 +492,7 @@ use Monolog\Logger;
 		<div class="row">
 			<label for="PAYMENT_MODE">Payment mode</label>
 			<select	name="PAYMENT_MODE" id="PAYMENT_MODE">				
-				<option value=''>- select -</option>
+				<option value="">- select -</option>
     			<option value="CPT" <?php if($_SESSION['PAYMENT_MODE']=='CPT') echo "selected"; ?>>CPT (Comptant)</option>
     			<option value="DIF" <?php if($_SESSION['PAYMENT_MODE']=='DIF') echo "selected"; ?>>DIF (Diff&#233;r&#233;)</option>
     			<option value="NX" <?php if($_SESSION['PAYMENT_MODE']=='NX') echo "selected"; ?>>NX (N fois)</option>

@@ -27,7 +27,8 @@ if(isset($_POST['submit'])){
 		fwrite($handle, $nextLine.'// demo settings'.$nextLine);
 		$parsedUrl = parse_url($_SERVER['HTTP_REFERER']);
 		$parsedPath = explode('examples', $parsedUrl['path']);
-		fwrite($handle, '$_SESSION[\'KIT_ROOT\'] = \''.$parsedUrl['scheme'].'://'.$parsedUrl['host'].$parsedPath[0].'\';'.$nextLine);
+		$kitRoot = $parsedUrl['scheme'].'://'.$parsedUrl['host'].$parsedPath[0];
+		fwrite($handle, '$_SESSION[\'KIT_ROOT\'] = \''.$kitRoot.'\';'.$nextLine);
 		$logPath = realpath(dirname(dirname(dirname(__FILE__)))) . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR;
 		$logPath = str_replace('\\', '\\\\', $logPath);
 		fwrite($handle, '$_SESSION[\'LOG_PATH\'] = \''.$logPath.'\';'.$nextLine);
@@ -45,9 +46,18 @@ if(isset($_POST['submit'])){
 		fwrite($handle, '$_SESSION[\'CONTRACT_NUMBER_LIST\'] = \''.$_POST['CONTRACT_NUMBER_LIST'].'\';'.$nextLine);
 		fwrite($handle, '$_SESSION[\'SECOND_CONTRACT_NUMBER_LIST\'] = \''.$_POST['SECOND_CONTRACT_NUMBER_LIST'].'\';'.$nextLine);
 		fwrite($handle, '$_SESSION[\'WALLET_CONTRACT_NUMBER_LIST\'] = \''.$_POST['WALLET_CONTRACT_NUMBER_LIST'].'\';'.$nextLine);
-		fwrite($handle, '$_SESSION[\'RETURN_URL\'] = \''.$_POST['returnURL'].'\';'.$nextLine);
+		if($_POST['returnURL'] == ''){
+		    fwrite($handle, '$_SESSION[\'RETURN_URL\'] = \''.$kitRoot.'examples/demos/web.php?e=getWebPaymentDetails'.'\';'.$nextLine);
+		}else{
+		    fwrite($handle, '$_SESSION[\'RETURN_URL\'] = \''.$_POST['returnURL'].'\';'.$nextLine);
+		}
 		fwrite($handle, '$_SESSION[\'NOTIFICATION_URL\'] = \''.$_POST['notificationURL'].'\';'.$nextLine);
-		fwrite($handle, '$_SESSION[\'CANCEL_URL\'] = \''.$_POST['cancelURL'].'\';'.$nextLine);
+		if($_POST['cancelURL'] == ''){
+		    fwrite($handle, '$_SESSION[\'CANCEL_URL\'] = \''.$kitRoot.'examples/demos/web.php?e=getWebPaymentDetails'.'\';'.$nextLine);
+		}else{
+		    fwrite($handle, '$_SESSION[\'CANCEL_URL\'] = \''.$_POST['cancelURL'].'\';'.$nextLine);
+		}
+		
 		
 		fwrite($handle, $nextLine.'// buyer info'.$nextLine);
 		fwrite($handle, '$_SESSION[\'buyerLegalStatus\'] = \''.$_POST['buyerLegalStatus'].'\';'.$nextLine);
