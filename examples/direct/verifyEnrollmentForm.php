@@ -35,5 +35,15 @@
 				<input type="text" name="walletCardInd" id="walletCardInd" value="">
 			</div>
 		</fieldset>
+		<fieldset>
+			<div class="row">
+				<label for="generateVirtualCvx">Generate virtual CVX</label>
+        		<select	name="generateVirtualCvx" id="generateVirtualCvx">
+        			<option value=""></option>
+        			<option value="true">true</option>
+        			<option value="false">false</option>
+        		</select>
+			</div>
+		</fieldset>
 	<input type="submit" name="submit" class="submit" value="verifyEnrollment">
 </form>
