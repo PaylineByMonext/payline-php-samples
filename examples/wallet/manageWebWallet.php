@@ -1,5 +1,6 @@
 <?php
 include '../initSDK.php';
+use Payline\PaylineSDK;
 
 // VERSION
 $array['version'] = $_POST['version'];

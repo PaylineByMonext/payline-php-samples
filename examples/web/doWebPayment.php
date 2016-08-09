@@ -1,5 +1,6 @@
 <?php
 include '../initSDK.php';
+use Payline\PaylineSDK;
 
 //VERSION
 $array['version'] = $_SESSION['WS_VERSION'];
@@ -95,7 +96,7 @@ if(isset($response) && $response['result']['code'] == '00000'){
         echo "<meta http-equiv='X-UA-Compatible' content='IE=edge'>";
         echo "<meta charset='UTF-8'>";
         echo "<!--SCRIPTS-->";
-        switch (ENVIRONMENT){
+        switch ($_SESSION['ENVIRONMENT']){
             case PaylineSDK::ENV_DEV:
                 echo "<script src='".PaylineSDK::DEV_WDGT_JS."'></script>";
                 break;
@@ -108,7 +109,7 @@ if(isset($response) && $response['result']['code'] == '00000'){
         }
         echo "<!--SCRIPTS END-->";
         echo "<!--STYLES -->";
-        switch (ENVIRONMENT){
+        switch ($_SESSION['ENVIRONMENT']){
             case PaylineSDK::ENV_DEV:
                 echo "<link rel='stylesheet' href='".PaylineSDK::DEV_WDGT_CSS."'>";
                 break;
