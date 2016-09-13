@@ -3,6 +3,8 @@ include '../initSDK.php';
 
 $array['AlertId'] = $_POST['AlertId'];
 $array['TransactionId'] = $_POST['TransactionId'];
+$array['version'] = $_POST['version'];
+$array['TransactionDate'] = $_POST['TransactionDate'];
 
 // EXECUTE
 $response = $payline->getAlertDetails($array);
