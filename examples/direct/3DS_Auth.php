@@ -3,13 +3,13 @@ include '../initSDK.php';
 $doAuthorization3DSRequest = array();
                     	
 //VERSION
-$doAuthorization3DSRequest['version'] = 4;
+$doAuthorization3DSRequest['version'] = $_SESSION['WS_VERSION'];
                     	 
 //PAYMENT
 $doAuthorization3DSRequest['payment']['amount'] = 1000;
-$doAuthorization3DSRequest['payment']['currency'] = PAYMENT_CURRENCY;
-$doAuthorization3DSRequest['payment']['action'] = PAYMENT_ACTION;
-$doAuthorization3DSRequest['payment']['mode'] =  PAYMENT_MODE;
+$doAuthorization3DSRequest['payment']['currency'] = $_SESSION['PAYMENT_CURRENCY'];
+$doAuthorization3DSRequest['payment']['action'] = $_SESSION['PAYMENT_ACTION'];
+$doAuthorization3DSRequest['payment']['mode'] =  $_SESSION['PAYMENT_MODE'];
 $doAuthorization3DSRequest['payment']['contractNumber'] = $_SESSION['3DS_AUTH_CONTRACT'];
                     	
 // CARD INFO

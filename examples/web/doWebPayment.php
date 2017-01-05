@@ -23,6 +23,8 @@ $contracts = explode(";",$_SESSION['CONTRACT_NUMBER_LIST']);
 $array['contracts'] = $contracts;
 $secondContracts = explode(";",$_SESSION['SECOND_CONTRACT_NUMBER_LIST']);
 $array['secondContracts'] = $secondContracts;
+$walletContracts = explode(";",$_SESSION['WALLET_CONTRACT_NUMBER_LIST']);
+$array['walletContracts'] = $walletContracts;
 
 // URLS
 $array['notificationURL'] = $_SESSION['NOTIFICATION_URL'];

@@ -544,5 +544,6 @@ use Monolog\Logger;
 	</fieldset>
 	<?php include '../fieldset/urls.php';?>
 	<?php include '../fieldset/buyer.php';?>
+	<?php include '../fieldset/privateDataList.php'?>
   <input type="submit" name="submit" class="submit" value="Sauvegarder">
 </form>

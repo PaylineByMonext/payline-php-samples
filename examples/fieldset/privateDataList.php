@@ -4,44 +4,44 @@
 		<td>
 			<fieldset>
 				<div class="row">
-					<label>key 1</label>
-					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="key 1" />
+					<label>key</label>
+					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="<?php echo $_SESSION['pvdKey1'] ?>" />
 				</div>
 				<div class="row">
-					<label>value 1</label>
-					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="value 1" />
+					<label>value</label>
+					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="<?php echo $_SESSION['pvdValue1'] ?>" />
 				</div>
 			</fieldset>
 			<fieldset>
 				<div class="row">
-					<label>key 3</label>
-					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="key 3" />
+					<label>key</label>
+					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="<?php echo $_SESSION['pvdKey2'] ?>" />
 				</div>
 				<div class="row">
-					<label>value 3</label>
-					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="value 3" />
+					<label>value</label>
+					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="<?php echo $_SESSION['pvdValue2'] ?>" />
 				</div>
 			</fieldset>
 		</td>
 		<td>
 			<fieldset>
 				<div class="row">
-					<label>key 2</label>
-					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="key 2" />
+					<label>key</label>
+					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="<?php echo $_SESSION['pvdKey3'] ?>" />
 				</div>
 				<div class="row">
-					<label>value 2</label>
-					<input type="text" name="privateDataValue[]" id="privateDataValue(]" value="value 2" />
+					<label>value</label>
+					<input type="text" name="privateDataValue[]" id="privateDataValue(]" value="<?php echo $_SESSION['pvdValue4'] ?>" />
 				</div>
 			</fieldset>
 			<fieldset>
 				<div class="row">
-					<label>key 4</label>
-					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="key 4" />
+					<label>key</label>
+					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="<?php echo $_SESSION['pvdKey5'] ?>" />
 				</div>
 				<div class="row">
-					<label>value 4</label>
-					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="value 4" />
+					<label>value</label>
+					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="<?php echo $_SESSION['pvdValue5'] ?>" />
 				</div>
 			</fieldset>
 			
@@ -51,44 +51,44 @@
 		<td>
 			<fieldset>
 				<div class="row">
-					<label>key 5</label>
-					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="key 5" />
+					<label>key</label>
+					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="<?php echo $_SESSION['pvdKey6'] ?>" />
 				</div>
 				<div class="row">
-					<label>value 5</label>
-					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="value 5" />
+					<label>value</label>
+					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="<?php echo $_SESSION['pvdValue6'] ?>" />
 				</div>
 			</fieldset>
 			<fieldset>
 				<div class="row">
-					<label>key 7</label>
-					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="key 7" />
+					<label>key</label>
+					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="<?php echo $_SESSION['pvdKey7'] ?>" />
 				</div>
 				<div class="row">
-					<label>value 7</label>
-					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="value 7" />
+					<label>value</label>
+					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="<?php echo $_SESSION['pvdValue7'] ?>" />
 				</div>
 			</fieldset>
 		</td>
 		<td>
 			<fieldset>
 				<div class="row">
-					<label>key 6</label>
-					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="key 6" />
+					<label>key</label>
+					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="<?php echo $_SESSION['pvdKey7'] ?>" />
 				</div>
 				<div class="row">
-					<label>value 6</label>
-					<input type="text" name="privateDataValue[]" id="privateDataValue(]" value="value 6" />
+					<label>value</label>
+					<input type="text" name="privateDataValue[]" id="privateDataValue(]" value="<?php echo $_SESSION['pvdValue7'] ?>" />
 				</div>
 			</fieldset>
 			<fieldset>
 				<div class="row">
-					<label>key 8</label>
-					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="key 8" />
+					<label>key</label>
+					<input type="text" name="privateDataKey[]" id="privateDataKey[]" value="<?php echo $_SESSION['pvdKey8'] ?>" />
 				</div>
 				<div class="row">
-					<label>value 8</label>
-					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="value 8" />
+					<label>value</label>
+					<input type="text" name="privateDataValue[]" id="privateDataValue[]" value="<?php echo $_SESSION['pvdValue8'] ?>" />
 				</div>
 			</fieldset>
 			

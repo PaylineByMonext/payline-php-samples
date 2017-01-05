@@ -3,13 +3,13 @@ include '../initSDK.php';
 $doImmediateWalletPaymentRequest = array();
                     	
 // VERSION
-$doImmediateWalletPaymentRequest['version'] = 10;
+$doImmediateWalletPaymentRequest['version'] = $_SESSION['WS_VERSION'];
                     	 
 // PAYMENT
 $doImmediateWalletPaymentRequest['payment']['amount'] = 1000;
-$doImmediateWalletPaymentRequest['payment']['currency'] = PAYMENT_CURRENCY;
-$doImmediateWalletPaymentRequest['payment']['action'] = PAYMENT_ACTION;
-$doImmediateWalletPaymentRequest['payment']['mode'] =  PAYMENT_MODE;
+$doImmediateWalletPaymentRequest['payment']['currency'] = $_SESSION['PAYMENT_CURRENCY'];
+$doImmediateWalletPaymentRequest['payment']['action'] = $_SESSION['PAYMENT_ACTION'];
+$doImmediateWalletPaymentRequest['payment']['mode'] =  $_SESSION['PAYMENT_MODE'];
 $doImmediateWalletPaymentRequest['payment']['contractNumber'] = $_SESSION['3DS_AUTH_CONTRACT'];
                     	
 // ORDER

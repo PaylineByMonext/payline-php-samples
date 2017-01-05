@@ -85,7 +85,11 @@
 						   include('../direct/'.$_POST['submit'].'.php');
                                                 }
 					}elseif(isset($_POST['PaRes'])){ // back from ACS with 3D Secure authentication data
-						include('../direct/3DS_Auth.php');
+					    if(isset($_GET['rawDisplay'])){
+					        include('../direct/displayACSResponse.php');
+					    }else{
+					        include('../direct/3DS_Auth.php');
+					    }
 					}else{
 						?>
 						<div class="code" id="php">

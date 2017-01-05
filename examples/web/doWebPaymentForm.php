@@ -13,7 +13,7 @@
 		</div>
 		<div class="row">
 			<label for="currency">Currency</label>
-			<input type="text" name="currency" id="currency" value="978">
+			<input type="text" name="currency" id="currency" value="<?php echo $_SESSION['PAYMENT_CURRENCY'];?>">
 			<span class="help">(required)</span>
 		</div>
 	</fieldset>

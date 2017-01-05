@@ -56,7 +56,7 @@
 		</div>
 		<div class="row">
 			<label for="walletDefault">Set this card as default</label>
-			<input type="checkbox" name="walletDefault" id="walletDefault" value="1">
+			<input type="checkbox" name="walletDefault" id="walletDefault" value="Y">
 		</div>
 		<div class="row">
 			<label for="cardBrand">Card brand</label>

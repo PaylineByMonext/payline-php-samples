@@ -56,8 +56,7 @@ if(isset($_POST['submit'])){
 		    fwrite($handle, '$_SESSION[\'CANCEL_URL\'] = \''.$kitRoot.'examples/demos/web.php?e=getWebPaymentDetails'.'\';'.$nextLine);
 		}else{
 		    fwrite($handle, '$_SESSION[\'CANCEL_URL\'] = \''.$_POST['cancelURL'].'\';'.$nextLine);
-		}
-		
+		}		
 		
 		fwrite($handle, $nextLine.'// buyer info'.$nextLine);
 		fwrite($handle, '$_SESSION[\'buyerLegalStatus\'] = \''.$_POST['buyerLegalStatus'].'\';'.$nextLine);
@@ -112,6 +111,14 @@ if(isset($_POST['submit'])){
 		fwrite($handle, '$_SESSION[\'isEmulator\'] = \''.$_POST['isEmulator'].'\';'.$nextLine);
 		fwrite($handle, '$_SESSION[\'isRooted\'] = \''.$_POST['isRooted'].'\';'.$nextLine);
 		fwrite($handle, '$_SESSION[\'hasTimezoneMismatch\'] = \''.$_POST['hasTimezoneMismatch'].'\';'.$nextLine);
+		fwrite($handle, $nextLine.'// private data'.$nextLine);
+		$i = 0;
+		foreach ($_POST['privateDataKey'] as $privateDataKey) {
+		    $n=$i+1;
+		    fwrite($handle, '$_SESSION[\'pvdKey'.$n.'\'] = \''.$privateDataKey.'\';'.$nextLine);
+		    fwrite($handle, '$_SESSION[\'pvdValue'.$n.'\'] = \''.$_POST['privateDataValue'][$i].'\';'.$nextLine);
+		    $i ++;
+		}		
 
 		fwrite($handle, "?> \n");
 		fclose($handle);

@@ -38,7 +38,8 @@
 			<option value="202" <?php if($displayedPage == 'doCapture' && strcmp ("202",PAYMENT_ACTION) == 0) echo "selected"; ?>>202 (R&#233;autorisation)</option>
 			<option value="204" <?php if($displayedPage == 'doDebit') echo "selected"; ?>>204 (D&#233;bit)</option>
 			<option value="421" <?php if($displayedPage == 'doRefund') echo "selected"; ?>>421 (Remboursement)</option>
-			<option value="422" <?php if($displayedPage == 'doCredit') echo "selected"; ?>>422 (Recr&#233;dit)</option>			
+			<option value="422" <?php if($displayedPage == 'doCredit') echo "selected"; ?>>422 (Recr&#233;dit)</option>
+			<option value="500">500 (Signature mandat)</option>				
 		</select>
 	</div>
 
