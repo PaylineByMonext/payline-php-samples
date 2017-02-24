@@ -221,3 +221,16 @@ div#docs ol {
 #log_res {
 	overflow: auto;
 }
+
+#widgetLifeCycle {
+	background: #000000;
+			
+}
+
+.widgetLifeSign{
+	display: block;
+	color: #FFFFFF;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11px;	
+    margin-left: 5px;
+}

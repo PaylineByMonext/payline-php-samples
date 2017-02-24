@@ -67,6 +67,7 @@
 	<div class="row">
 		<label for="cardBrand">Card brand</label>
 		<select	name="cardBrand" id="cardBrand">
+			<option value=""></option>
 			<option value="0">0 (CB)</option>
 			<option value="1">1 (VISA)</option>
 			<option value="4">4 (MASTERCARD)</option>
