@@ -41,7 +41,7 @@
 
 <fieldset>
 	<h4>Informations about buyer</h4>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerLegalStatus">Legal status</label>
 		<select	name="buyerLegalStatus" id="buyerLegalStatus">
 			<option value=""></option>
@@ -50,20 +50,20 @@
 		</select>
 		<input type="button" class="submit" value="clear buyer data" onclick="clearSampleBuyer()" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerTitle">Title</label>
 		<input type="text" name="buyerTitle" id="buyerTitle" value="<?php echo $_SESSION['buyerTitle'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerLastName">Last name</label>
 		<input type="text" name="buyerLastName" id="buyerLastName" value="<?php echo $_SESSION['buyerLastName'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerFirstName">First name</label>
 		<input type="text" name="buyerFirstName" id="buyerFirstName" value="<?php echo $_SESSION['buyerFirstName'] ?>" />
 		<span class="help">(required unique wallet ID if is set)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerEmail">email</label>
 		<input type="text" name="buyerEmail" id="buyerEmail" value="<?php echo $_SESSION['buyerEmail'] ?>" />
 	</div>
@@ -208,24 +208,24 @@
 			</td>
 		</tr>
 	</table>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerAccountCreateDate">Account create date</label>
 		<input type="text" name="buyerAccountCreateDate" id="buyerAccountCreateDate" value="<?php echo $_SESSION['buyerAccountCreateDate'] ?>" />
 		<span class="help">(format : "dd/mm/yy")</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerAverageAmount">Average amount</label>
 		<input type="text" name="buyerAverageAmount" id="buyerAverageAmount" value="<?php echo $_SESSION['buyerAverageAmount'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerOrderCount">Order count</label>
 		<input type="text" name="buyerOrderCount" id="buyerOrderCount" value="<?php echo $_SESSION['buyerOrderCount'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerWalletId">Wallet ID</label>
 		<input type="text" name="buyerWalletId" id="buyerWalletId" value="<?php echo $_SESSION['buyerWalletId'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerWalletDisplayed">Display Wallet</label>
 		<select	name="buyerWalletDisplayed" id="buyerWalletDisplayed">
 			<option value="">yes</option>
@@ -233,7 +233,7 @@
 		</select>
 		<span class="help">(choose wether to display wallet on web payment page or not)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerWalletSecured">Wallet security</label>
 		<select	name="buyerWalletSecured" id="buyerWalletSecured">
 			<option value=""></option>
@@ -243,23 +243,23 @@
 		</select>
 		<span class="help">(corresponding CVV will have to be filled by the buyer)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerWalletCardInd">Wallet card index</label>
 		<input type="text" name="buyerWalletCardInd" id="buyerWalletCardInd" value="<?php echo $_SESSION['buyerWalletCardInd'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerIp">IP</label>
 		<input type="text" name="buyerIp" id="buyerIp" value="<?php echo $_SESSION['buyerIp'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="mobilePhone">Mobile phone</label>
 		<input type="text" name="mobilePhone" id="mobilePhone" value="<?php echo $_SESSION['mobilePhone'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="customerId">Customer ID</label>
 		<input type="text" name="customerId" id="customerId" value="<?php echo $_SESSION['customerId'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="legalDocument">Legal document</label>
 		<select	name="legalDocument" id="legalDocument">
 			<option value=""></option>
@@ -272,50 +272,50 @@
 			<option value="7" <?php if($_SESSION['legalDocument'] == "7") echo "selected";?>>7 (Voter ID Card)</option>
 		</select>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="birthDate">Birth date</label>
 		<input type="text" name="birthDate" id="birthDate" value="<?php echo $_SESSION['birthDate'] ?>" />
 		<span class="help">(format : "yyyy-mm-dd")</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="fingerprintID">Finger print ID</label>
 		<input type="text" name="fingerprintID" id="fingerprintID" value="<?php echo $_SESSION['fingerprintID'] ?>" />
 	</div>	
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="deviceFingerprint">deviceFingerprint</label>
 		<input type="text" name="deviceFingerprint" id="deviceFingerprint" value="<?php echo $_SESSION['deviceFingerprint'] ?>" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="isBot">isBot</label>
 		<input type="text" name="isBot" id="isBot" value="<?php echo $_SESSION['isBot'] ?>" />
 		<span class="help">(Y/N)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="isIncognito">isIncognito</label>
 		<input type="text" name="isIncognito" id="isIncognito" value="<?php echo $_SESSION['isIncognito'] ?>" />
 		<span class="help">(Y/N)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="isBehindProxy">isBehindProxy</label>
 		<input type="text" name="isBehindProxy" id="isBehindProxy" value="<?php echo $_SESSION['isBehindProxy'] ?>" />
 		<span class="help">(Y/N)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="isFromTor">isFromTor</label>
 		<input type="text" name="isFromTor" id="isFromTor" value="<?php echo $_SESSION['isFromTor'] ?>" />
 		<span class="help">(Y/N)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="isEmulator">isEmulator</label>
 		<input type="text" name="isEmulator" id="isEmulator" value="<?php echo $_SESSION['isEmulator'] ?>" />
 		<span class="help">(Y/N)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="isRooted">isRooted</label>
 		<input type="text" name="isRooted" id="isRooted" value="<?php echo $_SESSION['isRooted'] ?>" />
 		<span class="help">(Y/N)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="hasTimezoneMismatch">hasTimezoneMismatch</label>
 		<input type="text" name="hasTimezoneMismatch" id="hasTimezoneMismatch" value="<?php echo $_SESSION['hasTimezoneMismatch'] ?>" />
 		<span class="help">(Y/N)</span>

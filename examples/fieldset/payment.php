@@ -5,8 +5,8 @@
 		<label for="paymentAmount">Payment amount</label>
 		<input type="text" name="paymentAmount" id="paymentAmount" value="<?php  if(isset($_GET['amount'])) echo $_GET['amount']; else echo 1000; ?>">
 	</div>
-
-	<div class="row">
+		
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="paymentMode">Payment mode</label>
 		<select	name="paymentMode" id="paymentMode">
 			<option value="CPT" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment')) && strcmp ("CPT",$_SESSION['PAYMENT_MODE']) == 0) echo "selected"; ?>>CPT (Comptant)</option>
@@ -23,9 +23,9 @@
 		</select>
 	</div>
 
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="paymentAction">Payment action</label>
-    <select name="paymentAction" id="paymentAction">
+    	<select name="paymentAction" id="paymentAction">
 			<option value="100" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment','doRecurrentWalletPayment')) && strcmp ("100",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>100 (Autorisation)</option>
 			<option value="101" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment','doRecurrentWalletPayment')) && strcmp ("101",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>101 (Autorisation+Validation)</option>
 			<option value="108">108 (Demande information)</option>
@@ -48,23 +48,23 @@
 		<input type="text" name="paymentCurrency" id="paymentCurrency" value="<?php  if(isset($_GET['currency'])) echo $_GET['currency']; else echo $_SESSION['PAYMENT_CURRENCY']; ?>">
 	</div>
 
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="paymentContractNumber">Contract number</label>
 		<input type="text" name="paymentContractNumber" id="paymentContractNumber" value="<?php  if(isset($_GET['contractNumber'])) echo $_GET['contractNumber']; else echo $_SESSION['CONTRACT_NUMBER']; ?>">
 	</div>
 
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="differedActionDate">Differed action date</label>
 		<input type="text" name="differedActionDate" id="differedActionDate" value="">
 		<span class="help">(format : "dd/mm/yy")</span>
 	</div>
 
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="paymentSoftDescriptor">Soft descriptor</label>
 		<input type="text" name="paymentSoftDescriptor" id="paymentSoftDescriptor" value="">
 	</div>
 	
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="cardBrand">Card brand</label>
 		<select	name="cardBrand" id="cardBrand">
 			<option value=""></option>

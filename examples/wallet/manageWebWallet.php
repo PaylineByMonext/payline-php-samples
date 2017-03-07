@@ -35,43 +35,13 @@ include '../arraySet/privateDataList.php';
 $response = $payline->manageWebWallet($array);
 if(isset($response) && $response['result']['code'] == '00000'){
 	if ($_POST['data-template']=="redirect") {
-		header("location:".$response['redirectURL']);
-		exit();
+	    echo "<span>Redirect to secure page...</span><br/>";
+	    echo "<span>If redirect fails clic <a href='".$response['redirectURL']."'>here</a></span>";
+	    echo "<script type='text/javascript'>document.location.href='".$response['redirectURL']."';</script>";	    
 	} else { // affichage du wigdet
-	    echo "<!DOCTYPE html><html><head><title>Payline API Widget</title>";
-	    echo "<meta name='viewport' content='width=device-width, initial-scale=1'>";
-        echo "<meta http-equiv='X-UA-Compatible' content='IE=edge'>";
-        echo "<meta charset='UTF-8'>";
-        echo "<!--SCRIPTS-->";
-        switch (ENVIRONMENT){
-            case PaylineSDK::ENV_DEV:
-                echo "<script src='".PaylineSDK::DEV_WDGT_JS."'></script>";
-                break;
-            case PaylineSDK::ENV_HOMO:
-                echo "<script src='".PaylineSDK::HOMO_WDGT_JS."'></script>";
-                break;
-            case PaylineSDK::ENV_PROD:
-                echo "<script src='".PaylineSDK::PROD_WDGT_JS."'></script>";
-                break;
-        }
-        echo "<!--SCRIPTS END-->";
-        echo "<!--STYLES -->";
-        switch (ENVIRONMENT){
-            case PaylineSDK::ENV_DEV:
-                echo "<link rel='stylesheet' href='".PaylineSDK::DEV_WDGT_CSS."'>";
-                break;
-            case PaylineSDK::ENV_HOMO:
-                echo "<link rel='stylesheet' href='".PaylineSDK::HOMO_WDGT_CSS."'>";
-                break;
-            case PaylineSDK::ENV_PROD:
-                echo "<link rel='stylesheet' href='".PaylineSDK::PROD_WDGT_CSS."'>";
-                break;
-        }
-        echo "<!--STYLES END-->";
-        echo "</head><body>";
+        echo "<span>&nbsp;</span>";
         echo "<div id='PaylineWidget' data-token='".$response['token']."' data-template='".$_POST['data-template']."' ></div>";
-        echo "</body></html>";
 	}
 } elseif(isset($response)) {
-    echo 'ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' <BR/>';
+    echo '<span>ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' </span>';
 }

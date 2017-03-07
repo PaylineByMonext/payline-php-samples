@@ -41,12 +41,42 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, user-scalable=no" />
 		<title><?php echo "Payline - ".PaylineSDK::SDK_RELEASE ?></title>
+		<!--STYLES -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/header.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="css/forms.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/forms.css" />        
+        <?php
+        switch ($_SESSION['ENVIRONMENT']){
+            case PaylineSDK::ENV_DEV:
+                echo "<link rel='stylesheet' href='".PaylineSDK::DEV_WDGT_CSS."'>";
+                break;
+            case PaylineSDK::ENV_HOMO:
+                echo "<link rel='stylesheet' href='".PaylineSDK::HOMO_WDGT_CSS."'>";
+                break;
+            case PaylineSDK::ENV_PROD:
+                echo "<link rel='stylesheet' href='".PaylineSDK::PROD_WDGT_CSS."'>";
+                break;
+        }
+        ?>
+        <!--STYLES END-->
+        <!--SCRIPTS-->
         <script type="text/javascript" src="scripts/mootools-1.11.js"></script>
         <script type="text/javascript" src="scripts/demos.js"></script>
+        <?php
+        switch ($_SESSION['ENVIRONMENT']){
+            case PaylineSDK::ENV_DEV:
+                echo "<script src='".PaylineSDK::DEV_WDGT_JS."'></script>";
+                break;
+            case PaylineSDK::ENV_HOMO:
+                echo "<script src='".PaylineSDK::HOMO_WDGT_JS."'></script>";
+                break;
+            case PaylineSDK::ENV_PROD:
+                echo "<script src='".PaylineSDK::PROD_WDGT_JS."'></script>";
+                break;
+        }
+        ?>        
+        <!--SCRIPTS END-->
 	</head>
 
 	<body>

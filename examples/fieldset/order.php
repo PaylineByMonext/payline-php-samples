@@ -1,15 +1,15 @@
 <fieldset>
 	<h4>Informations about order</h4>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="orderRef">Order reference</label>
 		<input type="text" name="orderRef" id="orderRef" value="<?php echo 'PHP-'.time()?>" />
 		<span class="help">(required)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="orderOrigin">Order origin</label>
 		<input type="text" name="orderOrigin" id="orderOrigin" value="1" maxlength="3" />
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="orderCountry">Order country</label>
 		<input type="text" name="orderCountry" id="orderCountry" value="FR" />
 	</div>
@@ -27,7 +27,7 @@
 		<input type="text" name="orderAmount" id="orderAmount" value="1000" />
 		<span class="help">(required)</span>
 	</div>
-	<div class="row">
+	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="orderDate">Order date</label>
 		<input type="text" name="orderDate" id="orderDate" value="<?php echo date('d/m/Y H:i')?>" />
 		<span class="help">(format : "dd/mm/yyyy HH24:MM")</span>

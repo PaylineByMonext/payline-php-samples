@@ -58,7 +58,8 @@ $array['languageCode'] = $_SESSION['LANGUAGE_CODE'];
 
 // Create session and init widget
 $response = $payline->doWebPayment($array);
-if(isset($response) && $response['result']['code'] == '00000'){    
+if(isset($response) && $response['result']['code'] == '00000'){
+    echo "<span>&nbsp;</span><br/>";
     echo "<div id='PaylineWidget' data-auto-init=false data-token='".$response['token']."' data-template='tab' data-event-willinit='widgetWillInit' data-event-willshow='widgetWillShow' data-event-didshowstate='widgetDidShowState' data-event-finalstatehasbeenreached='widgetFinalStateHasBeenReached'></div>";
     echo "<script type='text/javascript'>
             var console = document.getElementById('widgetLifeCycle');
@@ -68,14 +69,14 @@ if(isset($response) && $response['result']['code'] == '00000'){
     			document.getElementById('widgetLifeCycle').innerHTML = \"<span class='widgetLifeSign'>[\"+horo+\"] payment session ".$response['token']." created</span>\";
     		}    			    
         </script>";
-    echo "<div id='widgetPaymentForm' class='payline-form'>";
+    echo "<div id='widgetPaymentForm' class='payline-form'><br/>";
     $displayedPage = 'widgetPayment';
     include '../fieldset/payment.php';
     include '../fieldset/order.php';
     include '../fieldset/buyer.php';
 
     echo "<div class='row'>";
-    echo "<button onclick=\"updatePaymentSession('".$response['token']."')\">update payment session</button>";
+    echo "<button onclick=\"updatePaymentSession('".$response['token']."')\">update payment session and show widget</button>";
     echo "</div>";
     echo "</div>";
 } elseif(isset($response)) {

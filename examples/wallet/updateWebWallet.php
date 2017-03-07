@@ -33,9 +33,10 @@ include '../arraySet/privateDataList.php';
 // EXECUTE
 $response = $payline->updateWebWallet($array);
 if(isset($response) && $response['result']['code'] == '00000'){
-  header("location:".$response['redirectURL']);
-  exit();
+	    echo "<span>Redirect to secure page...</span><br/>";
+	    echo "<span>If redirect fails clic <a href='".$response['redirectURL']."'>here</a></span>";
+	    echo "<script type='text/javascript'>document.location.href='".$response['redirectURL']."';</script>";	    
 }elseif(isset($response)) {
-	echo 'ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' <BR/>';
+	echo '<span>ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' </span>';
 }
 ?>
