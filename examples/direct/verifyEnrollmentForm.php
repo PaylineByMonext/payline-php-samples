@@ -1,6 +1,6 @@
 <form action="../demos/direct.php" method="post" class="payline-form">
 		<?php
-    $displayedPage = 'verifyEnrollment';
+        $displayedPage = 'verifyEnrollment';
 		include '../fieldset/version.php';
 		include '../fieldset/card.php';
 		include '../fieldset/payment.php';

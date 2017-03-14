@@ -79,11 +79,7 @@
 					<div id="source">
 					<?php
 					if(isset($_POST['submit'])){
-                                                if("getMerchantSettingsToArray" == $_POST['submit']){
-						   include('../direct/getMerchantSettings.php');
-                                                }else{
-						   include('../direct/'.$_POST['submit'].'.php');
-                                                }
+                        include('../direct/'.$_POST['submit'].'.php');
 					}elseif(isset($_POST['PaRes'])){ // back from ACS with 3D Secure authentication data
 					    if(isset($_GET['rawDisplay'])){
 					        include('../direct/displayACSResponse.php');

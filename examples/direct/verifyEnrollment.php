@@ -43,13 +43,16 @@ $_SESSION['3DS_AUTH_PAYMENT_DATA']['CVV'] = $_POST['cardCrypto'];
 $_SESSION['3DS_AUTH_PAYMENT_DATA']['cardTokenPan'] = $_POST['cardToken'];
 $_SESSION['3DS_AUTH_PAYMENT_DATA']['walletId'] = $_POST['walletId'];
 $_SESSION['3DS_AUTH_PAYMENT_DATA']['walletCardInd'] = $_POST['walletCardInd'];
+$_SESSION['3DS_AUTH_PAYMENT_DATA']['paymentAmount'] = $_POST['paymentAmount'];
 
 echo "<br/><form method='POST' action='".$response['actionUrl']."'>";
 echo "	<input type='hidden' name='".$response['pareqFieldName']."' value='".$response['pareqFieldValue']."'>";
 echo "	<input type='hidden' name='".$response['mdFieldName']."' value='".$response['mdFieldValue']."'>";
 echo "	Back from ACS<br/>";
 echo "	<input type='radio' name='".$response['termUrlName']."' value='".$_SESSION['KIT_ROOT']."examples/demos/direct.php' checked>call doAuthorization<br/>";
-echo "	<input type='radio' name='".$response['termUrlName']."' value='".$_SESSION['KIT_ROOT']."examples/demos/wallet.php'>call doImmediateWalletPayment<br/>";
+if(!isset($_POST['doAuthorization'])){
+    echo "	<input type='radio' name='".$response['termUrlName']."' value='".$_SESSION['KIT_ROOT']."examples/demos/wallet.php'>call doImmediateWalletPayment<br/>";
+}
 echo "	<input type='radio' name='".$response['termUrlName']."' value='".$_SESSION['KIT_ROOT']."examples/demos/direct.php?rawDisplay=1'>just display MD ans PaRes<br/>";
 echo "	<input type='submit' value='redirect to ACS'>";
 echo "</form>";
