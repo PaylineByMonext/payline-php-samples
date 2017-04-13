@@ -4,6 +4,7 @@
 		include '../fieldset/version.php';
 		include '../fieldset/card.php';
 		include '../fieldset/payment.php';
+        include '../fieldset/merchantName.php';
 		?>
 		<fieldset>
 			<div class="row">

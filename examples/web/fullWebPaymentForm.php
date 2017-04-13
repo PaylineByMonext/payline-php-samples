@@ -1,6 +1,6 @@
 <form action="../demos/web.php" method="post" name="fullWebPayment" id="fullWebPayment" class="payline-form">
 	<?php
-  $displayedPage = 'fullWebPayment';
+    $displayedPage = 'fullWebPayment';
 	include '../fieldset/version.php';
 	include '../fieldset/payment.php';
 	include '../fieldset/order.php';
@@ -10,6 +10,7 @@
 	include '../fieldset/buyer.php';
 	include '../fieldset/owner.php';
 	include '../fieldset/recurring.php';
+	include '../fieldset/merchantName.php';	
 	?>
     <fieldset>
     	<h4>Contrats</h4>
@@ -31,7 +32,7 @@
     </fieldset>
 	<fieldset>
     	<h4>User Experience : redirection / lightbox / inside the shop</h4>
-    		<div class="row">
+    	<div class="row">
 		<label for="data-template">template</label>
     			<select name="data-template" id="data-template">
 			<option value="redirect" selected>redirect</option>

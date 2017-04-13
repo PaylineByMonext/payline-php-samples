@@ -31,6 +31,9 @@ include '../arraySet/urls.php';
 // PRIVATE DATA (optional)
 include '../arraySet/privateDataList.php';
 
+// MERCHANT NAME
+$array['merchantName'] = $_POST['merchantName'];
+
 // EXECUTE
 $response = $payline->manageWebWallet($array);
 if(isset($response) && $response['result']['code'] == '00000'){

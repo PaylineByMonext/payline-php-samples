@@ -30,6 +30,7 @@
 	include '../fieldset/webOptions.php';
 	include '../fieldset/privateDataList.php';
 	include '../fieldset/urls.php';
+	include '../fieldset/merchantName.php';
 	?>
 	<fieldset>
     	<h4>User Experience : redirection / lightbox / inside the shop</h4>

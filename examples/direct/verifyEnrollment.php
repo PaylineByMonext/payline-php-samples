@@ -20,6 +20,9 @@ $array['orderRef'] = $_POST['orderRef'];
 $array['walletId'] = $_POST['walletId'];
 $array['walletCardInd'] = $_POST['walletCardInd'];
 
+// MERCHANT NAME
+$array['merchantName'] = $_POST['merchantName'];
+
 // RESPONSE
 $response = $payline->verifyEnrollment($array);
 

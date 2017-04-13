@@ -86,6 +86,9 @@ $array['shippingAddress']['state'] = $_SESSION['shippingAddressState'];
 $array['shippingAddress']['phoneType'] = $_SESSION['shippingAddressPhoneType'];
 $array['shippingAddress']['phone'] = $_SESSION['shippingAddressPhone'];
 
+// MERCHANT NAME
+$array['merchantName'] = $_SESSION['MERCHANT_NAME'];
+
 // EXECUTE
 $response = $payline->doWebPayment($array);
 if(isset($response) && $response['result']['code'] == '00000'){

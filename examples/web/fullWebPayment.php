@@ -32,6 +32,9 @@ if (isset($_POST['contractNumberWalletList'])){
 	$array['walletContracts'] = $walletContracts;
 }
 
+// MERCHANT NAME
+$array['merchantName'] = $_POST['merchantName'];
+
 // EXECUTE
 $response = $payline->doWebPayment($array);
 
