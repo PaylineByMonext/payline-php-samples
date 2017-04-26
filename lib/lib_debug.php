@@ -549,7 +549,7 @@ if ( !defined('__LIB_DEBUG_PHP') )
 	}
 	
     function insertTransactionData($contractNumber,$orderRef,$transactionId,$paymentAction,$amount,$currency,$resultCode,$token=null){
-		if(defined(DB_HOST)){
+		if(defined('DB_HOST')){
 			$link = mysql_connect(DB_HOST, DB_OWNER, DB_PASS);
 			if(!$link){
 				return false;
@@ -575,7 +575,7 @@ if ( !defined('__LIB_DEBUG_PHP') )
 		}else{
 			$transactionsFile = '../index/transactions.dat';
 			$handle = fopen($transactionsFile, 'a+');
-			fwrite($handle, 'ENVIRONMENT='.$_SESSION['ENVIRONMENT'].'#'.'MERCHANT_ID='.$_SESSION['MERCHANT_ID']."#CONTRACT=$contractNumber#ORDER_REF=$orderRef#TRANSACTION_ID=$transactionId#ACTION=$paymentAction#TOKEN=$token#AMOUNT=$amount#CURRENCY=$currency#DATE=".time()."#RESULT=$resultCode#\n");
+			fwrite($handle, 'ENVIRONMENT='.$_SESSION['ENVIRONMENT'].'#'.'MERCHANT_ID='.$_SESSION['MERCHANT_ID']."#CONTRACT=$contractNumber#ORDER_REF=$orderRef#TRANSACTION_ID=$transactionId#ACTION=$paymentAction#TOKEN=$token#AMOUNT=$amount#CURRENCY=$currency#DATE=".time()."#RESULT=$resultCode\n");
 			fclose($handle);
 			return 1;
 		}

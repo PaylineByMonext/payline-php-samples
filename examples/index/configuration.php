@@ -1,5 +1,6 @@
 <?php
 use Monolog\Logger;
+$displayedPage = 'configuration';
 ?>
 <form action="../index/updateConfig.php" method="post" class="payline-form">
 	<input type="hidden" name="configForm" value="1">
