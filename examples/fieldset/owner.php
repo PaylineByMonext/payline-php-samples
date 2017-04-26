@@ -17,7 +17,7 @@
 	</div>
 	<div class="row">
 		<label for="ownerStreet">Street</label>
-		<input type="text" name="ownerStreet" id="ownerStreet" value="<?php echo $_SESSION['billingAddressStreet1'] ?>" />
+		<input type="text" name="ownerStreet" id="ownerStreet" value="<?php echo substr($_SESSION['billingAddressStreet1'],0,20) ?>" />
 	</div>
 	<div class="row">
 		<label for="ownerCityName">City name</label>
