@@ -14,3 +14,4 @@ $payline = new PaylineSDK(
     $_SESSION['LOG_PATH'],
     $_SESSION['LOG_LEVEL']
 );
+$payline->usedBy("demo");

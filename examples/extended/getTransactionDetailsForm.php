@@ -6,7 +6,7 @@
 	<fieldset>
         <div class="row">
             <label for="transactionID">Transaction ID</label>
-            <input type="text" name="transactionID" id="transactionID" value="<?php echo $_GET['transactionId']?>" />
+            <input type="text" name="transactionID" id="transactionID" value="<?php if(isset($_GET['transactionId'])) echo $_GET['transactionId'];?>" />
         </div>
         <div class="row">
             <label for="orderRef">Order reference</label>

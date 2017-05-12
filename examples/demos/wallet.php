@@ -61,8 +61,6 @@
         ?>
         <!--STYLES END-->
         <!--SCRIPTS-->
-        <script type="text/javascript" src="scripts/mootools-1.11.js"></script>
-        <script type="text/javascript" src="scripts/demos.js"></script>
         <?php
         switch ($_SESSION['ENVIRONMENT']){
             case PaylineSDK::ENV_DEV:
@@ -80,8 +78,6 @@
 	</head>
 
 	<body>
-		<?php include_once('scripts/geshi.php'); ?>
-
 		<div id="header">
 			<div id="header-inside">
 				<div id="logo">
@@ -109,12 +105,6 @@
                     	Demo that shows the usage of Payline classes for wallet (both webPayment and Direct API)<br/>
                     	<font size='2' color='red'>(*) </font><b>createWebWallet</b> and <b>updateWebWallet</b> are deprecated. Please use <b>manageWebWallet</b>
                     </p>
-                    <?php if(!isset($_POST['submit'])){?>
-                    <p id="sourcelinks">
-						<a href="#" id="exampleonly">display example only</a>
-						<a href="#" id="htmlcode">html code</a> | <a href="#" id="phpcode">php code</a> | <a href="#" id="csscode">css code</a>
-					</p>
-					<?php } ?>
 					<div id="source">
 					<?php
 					if(isset($_POST['submit'])){
@@ -123,38 +113,6 @@
 						include('../wallet/3DS_walletPayment.php');
 					}else{
 						?>
-
-						<div class="code" id="php">
-							<?php
-                            $filename = "../wallet/{$selected}.php";
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-                            $geshi = new GeSHi($source, 'php');
-                            echo $geshi->parse_code();
-                            ?>
-						</div>
-
-						<div class="code" id="html">
-							<?php
-                            $filename = "../wallet/{$selected}Form.php";
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-							$geshi = new GeSHi($source, 'html4strict');
-                            $geshi->enable_keyword_links(false);
-							echo $geshi->parse_code();
-                            ?>
-						</div>
-
-						<div class="code" id="css">
-							<?php
-                            $filename = 'css/forms.css';
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-                            $geshi = new GeSHi($source, 'css');
-                            echo $geshi->parse_code();
-                            ?>
-						</div>
-
 						<div id="demo">
 							<?php
 							include("../wallet/{$selected}Form.php");

@@ -38,13 +38,9 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/header.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/forms.css" />
-        <script type="text/javascript" src="scripts/mootools-1.11.js"></script>
-        <script type="text/javascript" src="scripts/demos.js"></script>
 	</head>
 
 	<body>
-		<?php include_once('scripts/geshi.php'); ?>
-
 		<div id="header">
 			<div id="header-inside">
 				<div id="logo">
@@ -69,13 +65,6 @@
 					<h2>Direct Payment</h2>
 					<?php echo $links; ?>
                     <p id="info">Demo that shows the usage of Payline direct API</p>
-                    <?php if(!isset($_POST['submit'])){?>
-                    <p id="sourcelinks">
-						<a href="#" id="exampleonly">display example only</a>
-						<a href="#" id="htmlcode">html code</a> | <a href="#" id="phpcode">php code</a> | <a href="#" id="csscode">css code</a>
-					</p>
-					<?php }?>
-
 					<div id="source">
 					<?php
 					if(isset($_POST['submit'])){
@@ -88,37 +77,6 @@
 					    }
 					}else{
 						?>
-						<div class="code" id="php">
-							<?php
-                            $filename = "../direct/{$selected}.php";
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-                            $geshi = new GeSHi($source, 'php');
-                            echo $geshi->parse_code();
-                            ?>
-						</div>
-
-						<div class="code" id="html">
-							<?php
-                            $filename = "../direct/{$selected}Form.php";
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-							$geshi = new GeSHi($source, 'html4strict');
-                            $geshi->enable_keyword_links(false);
-							echo $geshi->parse_code();
-                            ?>
-						</div>
-
-						<div class="code" id="css">
-							<?php
-                            $filename = 'css/forms.css';
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-                            $geshi = new GeSHi($source, 'css');
-                            echo $geshi->parse_code();
-                            ?>
-						</div>
-
 						<div id="demo">
 							<?php
 							include("../direct/{$selected}Form.php");

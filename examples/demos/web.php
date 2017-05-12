@@ -46,8 +46,6 @@
         ?>
         <!--STYLES END-->
         <!--SCRIPTS-->
-        <script type="text/javascript" src="scripts/mootools-1.11.js"></script>
-        <script type="text/javascript" src="scripts/demos.js"></script>
         <?php
         switch ($_SESSION['ENVIRONMENT']){
             case PaylineSDK::ENV_DEV:
@@ -182,8 +180,6 @@
 	</head>
 
 	<body>
-		<?php include_once('scripts/geshi.php'); ?>
-
 		<div id="header">
 			<div id="header-inside">
 				<div id="logo">
@@ -208,14 +204,7 @@
 					<h2>Web Payment</h2>
 					<?php echo $links; ?>
                     <p id="info">Demo that shows the usage of Payline webPayment API</p>
-                    <?php if(!isset($_POST['submit'])){?>
-                    <p id="sourcelinks">
-						<a href="#" id="exampleonly">display example only</a>
-						<a href="#" id="htmlcode">html code</a> | <a href="#" id="phpcode">php code</a> | <a href="#" id="csscode">css code</a>
-					</p>
-					<?php } ?>
 					<div id="source">
-					<div id=""
 					<?php
 					if(isset($_POST['submit'])){ // validation d'un formulaire
 						include('../web/'.$_POST['submit'].'.php');
@@ -225,38 +214,6 @@
                         echo "<div id='PaylineWidget' data-token='".$_GET['paylinetoken']."'></div>";
 					}else{
 						?>
-
-						<div class="code" id="php">
-							<?php
-                            $filename = "../web/{$selected}.php";
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-                            $geshi = new GeSHi($source, 'php');
-                            echo $geshi->parse_code();
-                            ?>
-						</div>
-
-						<div class="code" id="html">
-							<?php
-                            $filename = "../web/{$selected}Form.php";
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-							$geshi = new GeSHi($source, 'html4strict');
-                            $geshi->enable_keyword_links(false);
-							echo $geshi->parse_code();
-                            ?>
-						</div>
-
-						<div class="code" id="css">
-							<?php
-                            $filename = 'css/forms.css';
-                            $handle = fopen( $filename , 'r' );
-                            $source =  fread ($handle, filesize ($filename));
-                            $geshi = new GeSHi($source, 'css');
-                            echo $geshi->parse_code();
-                            ?>
-						</div>
-
 						<div id="demo">
 							<div id="widgetLifeCycle"></div>
 							<?php

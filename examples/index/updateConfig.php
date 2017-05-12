@@ -1,5 +1,12 @@
 <?php
 $update_config_status = 0;
+/*
+echo '<pre>';
+var_dump($_FILES);
+echo '</pre>';
+exit;
+*/
+
 if(isset($_POST['submit'])){
 	$configFile = '../../lib/CONFIG.php';
 	$nextLine = "\n";
@@ -56,7 +63,28 @@ if(isset($_POST['submit'])){
 		    fwrite($handle, '$_SESSION[\'CANCEL_URL\'] = \''.$kitRoot.'examples/demos/web.php?e=getWebPaymentDetails'.'\';'.$nextLine);
 		}else{
 		    fwrite($handle, '$_SESSION[\'CANCEL_URL\'] = \''.$_POST['cancelURL'].'\';'.$nextLine);
-		}		
+		}
+		
+		if($_FILES['inCss']){
+		    if($_FILES['inCss']['error'] > 0){ // transfert KO
+		        
+		    }else{
+		       $destCss = $kitRoot.DIRECTORY_SEPARATOR.'examples'.DIRECTORY_SEPARATOR.'demos'.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.$_POST['ENVIRONMENT'].'_'.trim($_POST['MERCHANT_ID']).'_widget.css';
+		       if(move_uploaded_file($_FILES['inCss']['tmp_name'], $destCss)){
+		           fwrite($handle, '$_SESSION[\'CUSTOM_WIDGET_CSS\'] = 1;'.$nextLine);
+		       }
+		    }
+		}
+		if($_FILES['inJs']){
+		    if($_FILES['inJs']['error'] > 0){ // transfert OK
+		    
+		    }else{
+		       $destJs = $kitRoot.DIRECTORY_SEPARATOR.'examples'.DIRECTORY_SEPARATOR.'demos'.DIRECTORY_SEPARATOR.'scripts'.DIRECTORY_SEPARATOR.$_POST['ENVIRONMENT'].'_'.trim($_POST['MERCHANT_ID']).'_widget.js';
+		       if(move_uploaded_file($_FILES['inCss']['tmp_name'], $destCss)){
+		           fwrite($handle, '$_SESSION[\'CUSTOM_WIDGET_JS\'] = 1;'.$nextLine);
+		       }
+		    }
+		}
 		
 		fwrite($handle, $nextLine.'// buyer info'.$nextLine);
 		fwrite($handle, '$_SESSION[\'buyerLegalStatus\'] = \''.$_POST['buyerLegalStatus'].'\';'.$nextLine);
@@ -118,7 +146,7 @@ if(isset($_POST['submit'])){
 		    fwrite($handle, '$_SESSION[\'pvdKey'.$n.'\'] = \''.$privateDataKey.'\';'.$nextLine);
 		    fwrite($handle, '$_SESSION[\'pvdValue'.$n.'\'] = \''.$_POST['privateDataValue'][$i].'\';'.$nextLine);
 		    $i ++;
-		}		
+		}			
 
 		fwrite($handle, "?> \n");
 		fclose($handle);

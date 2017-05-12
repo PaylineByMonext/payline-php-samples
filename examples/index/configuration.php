@@ -2,7 +2,7 @@
 use Monolog\Logger;
 $displayedPage = 'configuration';
 ?>
-<form action="../index/updateConfig.php" method="post" class="payline-form">
+<form action="../index/updateConfig.php" method="post" class="payline-form" enctype="multipart/form-data">
 	<input type="hidden" name="configForm" value="1">
 	<fieldset>
 		<h4>Global settings</h4>
@@ -544,6 +544,17 @@ $displayedPage = 'configuration';
 		</div>
 	</fieldset>
 	<?php include '../fieldset/urls.php';?>
+	<fieldset>		
+		<h4>Widget overload</h4>
+		<div class="row">
+		<label for="inCss">CSS</label>
+		<input type="file" id="inCss" name="inCss" size="40"> 
+		</div>
+		<div class="row">		
+		<label for="inJs">JavaScript</label>
+		<input type="file" id="inJs" name="inJs" size="40"> 
+		</div>
+	</fieldset>
 	<?php include '../fieldset/buyer.php';?>
 	<?php include '../fieldset/privateDataList.php'?>
   <input type="submit" name="submit" class="submit" value="Sauvegarder">

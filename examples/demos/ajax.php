@@ -14,8 +14,6 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="css/header.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/forms.css" />
         <script type="text/javascript" src="scripts/mootools-1.11.js"></script>
-        <script type="text/javascript" src="scripts/demos.js"></script>
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	</head>
 
 	<body>
