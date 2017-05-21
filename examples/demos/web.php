@@ -43,6 +43,9 @@
                 echo "<link rel='stylesheet' href='".PaylineSDK::PROD_WDGT_CSS."'>";
                 break;
         }
+        if(isset($_SESSION['CUSTOM_WIDGET_CSS']) && $_SESSION['CUSTOM_WIDGET_CSS'] != null){
+            echo "<link rel='stylesheet' href='".$_SESSION['KIT_ROOT']."examples/demos/css/".$_SESSION['CUSTOM_WIDGET_CSS']."'>";
+        }
         ?>
         <!--STYLES END-->
         <!--SCRIPTS-->
@@ -57,6 +60,9 @@
             case PaylineSDK::ENV_PROD:
                 echo "<script src='".PaylineSDK::PROD_WDGT_JS."'></script>";
                 break;
+        }
+        if(isset($_SESSION['CUSTOM_WIDGET_JS']) && $_SESSION['CUSTOM_WIDGET_JS'] != null){
+            echo "<script src='".$_SESSION['KIT_ROOT']."examples/demos/scripts/".$_SESSION['CUSTOM_WIDGET_JS']."'></script>"; 
         }
         ?>
         <script type='text/javascript'>

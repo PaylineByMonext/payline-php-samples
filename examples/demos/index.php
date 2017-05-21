@@ -66,6 +66,12 @@ $links = substr($links, 0, - 2) . '</h3>';
             echo "<h4 style='color:red'>Erreur de connexion &agrave; la base</h4>";
         } elseif ($_GET['res_upd'] == 3) {
             echo "<h4 style='color:red'>Erreur lors de la mise &agrave; jour</h4>";
+        } elseif ($_GET['res_upd'] == 4) {
+            echo "<h4 style='color:red'>Erreur lors de la suppression du fichier</h4>";
+        }elseif ($_GET['res_upd'] == 5) {
+            echo "<h4 style='color:green'>Fichier supprim&eacute;</h4>";
+        }elseif ($_GET['res_upd'] == 6) {
+            echo "<h4 style='color:red'>Erreur lors de l'upload du fichier</h4>";
         }
     }
     ?>

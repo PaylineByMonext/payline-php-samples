@@ -2,7 +2,23 @@
 use Monolog\Logger;
 $displayedPage = 'configuration';
 ?>
-<form action="../index/updateConfig.php" method="post" class="payline-form" enctype="multipart/form-data">
+<script type='text/javascript'>
+function deleteJs(){
+	if(confirm('supprimer le JavaScript ?')){
+		document.getElementById('inJs').value = '';
+		document.getElementById('deleteFile').value = "JS";
+		document.getElementById("configForm").submit();
+	}			
+}
+function deleteCss(){
+	if(confirm('supprimer la feuille de style ?')){
+		document.getElementById('inCss').value = '';
+		document.getElementById('deleteFile').value = "CSS";
+		document.getElementById("configForm").submit();
+	}			
+}
+</script>
+<form id="configForm" action="../index/updateConfig.php" method="post" class="payline-form" enctype="multipart/form-data">
 	<input type="hidden" name="configForm" value="1">
 	<fieldset>
 		<h4>Global settings</h4>
@@ -545,17 +561,34 @@ $displayedPage = 'configuration';
 	</fieldset>
 	<?php include '../fieldset/urls.php';?>
 	<fieldset>		
-		<h4>Widget overload</h4>
+		<h4>Widget customization</h4>
 		<div class="row">
 		<label for="inCss">CSS</label>
-		<input type="file" id="inCss" name="inCss" size="40"> 
+		<?php
+		if(isset($_SESSION['CUSTOM_WIDGET_CSS']) && $_SESSION['CUSTOM_WIDGET_CSS'] != null){
+		    echo "<input type='text' value='".$_SESSION['CUSTOM_WIDGET_CSS']."' disabled>";
+		    echo "<input type='hidden' id='inCss' name='inCss' value='".$_SESSION['CUSTOM_WIDGET_CSS']."'>";
+		    echo "<a class='help' href='#' onClick='deleteCss();'>supprimer</a>";
+		}else{
+		    echo "<input type='file' id='inCss' name='inCss'>";
+		}
+		?>	
 		</div>
 		<div class="row">		
 		<label for="inJs">JavaScript</label>
-		<input type="file" id="inJs" name="inJs" size="40"> 
+		<?php
+		if(isset($_SESSION['CUSTOM_WIDGET_JS']) && $_SESSION['CUSTOM_WIDGET_JS'] != null){
+		    echo "<input type='text' value='".$_SESSION['CUSTOM_WIDGET_JS']."' disabled>";
+		    echo "<input type='hidden' id='inJs' name='inJs' value='".$_SESSION['CUSTOM_WIDGET_JS']."'>";
+		    echo "<a class='help' href='#' onClick='deleteJs();'>supprimer</a>";
+		}else{
+		    echo "<input type='file' id='inJs' name='inJs'>";		    
+		}
+		?>		
 		</div>
+		<input type='hidden' id='deleteFile' name='deleteFile' value=0>		
 	</fieldset>
 	<?php include '../fieldset/buyer.php';?>
 	<?php include '../fieldset/privateDataList.php'?>
-  <input type="submit" name="submit" class="submit" value="Sauvegarder">
+  <input type="submit" class="submit" value="Sauvegarder">
 </form>
