@@ -2,20 +2,18 @@
 use Payline\PaylineSDK;
 ?>
 <script type="text/javascript">
-	//Requ�te AJAX pour sauvegarder l'adresse das le serveur commer�ant et appeler Payline
-	$(document).ready( function () { 
-		$("#paymentForm").submit( function() {	// � la soumission du formulaire
-			jQuery.support.cors = true; // requ�te ajax cross-domain
+	Payline.jQuery(document).ready( function () {
+		Payline.jQuery("#paymentForm").submit( function() {	// form submit
+			Payline.jQuery.support.cors = true; // cross-domain ajax request
 			var url = '<?php if($_SESSION['ENVIRONMENT'] == PaylineSDK::ENV_PROD){echo PaylineSDK::PROD_GET_TOKEN_SERVLET;}elseif($_SESSION['ENVIRONMENT'] == PaylineSDK::ENV_HOMO){echo PaylineSDK::HOMO_GET_TOKEN_SERVLET;}elseif($_SESSION['ENVIRONMENT'] == PaylineSDK::ENV_INT){echo PaylineSDK::INT_GET_TOKEN_SERVLET;}elseif($_SESSION['ENVIRONMENT'] == PaylineSDK::ENV_DEV){echo PaylineSDK::DEV_GET_TOKEN_SERVLET;} ?> ';
-			var data = "data="+$("#data").val() + "&accessKeyRef=<?php echo $_SESSION['ACCESS_KEY_REF']?>&cardNumber=" + $("#cardNumber").val() + "&cardExpirationDate=" + $("#cardExp").val() + ((document.getElementById("cardCvx").disabled == false) ? "&cardCvx=" + $("#cardCvx").val() : "");
-
+			var data = "data="+Payline.jQuery("#data").val() + "&accessKeyRef=<?php echo $_SESSION['ACCESS_KEY_REF']?>&cardNumber=" + Payline.jQuery("#cardNumber").val() + "&cardExpirationDate=" + Payline.jQuery("#cardExp").val() + ((document.getElementById("cardCvx").disabled == false) ? "&cardCvx=" + Payline.jQuery("#cardCvx").val() : "");
 			console.log(url);
 			console.log(data);
-			$.ajax({
+			Payline.jQuery.ajax({				
 				type: "POST",
          		url: url,
 				data: data,             
-				success: function(msg){ // si l'appel a bien fonctionn�
+				success: function(msg){ // AJAX call success
 					document.getElementById("returnedData").value=msg;
 					if(document.getElementById("3DSCheck").checked){
 						document.getElementById("3DS").value = 1;
@@ -30,7 +28,7 @@ use Payline\PaylineSDK;
 					alert("Erreur lors de l'appel de Payline : " + xhr.responseText + " (" + status + " - " + error + ")");
 				}
 			});
-			return false; // permet de rester sur la m�me page � la soumission du formulaire
+			return false; // stay on same page when form is submited
 		});
 	});
 

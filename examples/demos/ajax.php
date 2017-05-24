@@ -13,7 +13,24 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/header.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/forms.css" />
-        <script type="text/javascript" src="scripts/mootools-1.11.js"></script>
+        <!--SCRIPTS-->
+        <?php
+        switch ($_SESSION['ENVIRONMENT']){
+            case PaylineSDK::ENV_DEV:
+                echo "<script src='".PaylineSDK::DEV_WDGT_JS."'></script>";
+                break;
+            case PaylineSDK::ENV_HOMO:
+                echo "<script src='".PaylineSDK::HOMO_WDGT_JS."'></script>";
+                break;
+            case PaylineSDK::ENV_PROD:
+                echo "<script src='".PaylineSDK::PROD_WDGT_JS."'></script>";
+                break;
+        }
+        if(isset($_SESSION['CUSTOM_WIDGET_JS']) && $_SESSION['CUSTOM_WIDGET_JS'] != null){
+            echo "<script src='".$_SESSION['KIT_ROOT']."examples/demos/scripts/".$_SESSION['CUSTOM_WIDGET_JS']."'></script>"; 
+        }
+        ?>
+        <!--SCRIPTS END-->        
 	</head>
 
 	<body>
@@ -82,7 +99,7 @@
                     		);
                     		$_SESSION['AJAX_RAW_PAYMENT_DATA']=$returnedData[1];
                     		$_SESSION['AJAX_DECRYPTED_PAYMENT_DATA']=$paymentData;
-                        $_SESSION['AJAX_DECRYPTED_PAYMENT_DATA']['paymentAction']=$_POST['paymentAction'];
+                    		$_SESSION['AJAX_DECRYPTED_PAYMENT_DATA']['paymentAction']=$_POST['paymentAction'];
                         if($_POST['doAuth'] == 1){
                     		if($_POST['3DS'] == 1){
                     			$verifyEnrollmentRequest = array();
