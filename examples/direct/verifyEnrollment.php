@@ -23,6 +23,9 @@ $array['walletCardInd'] = $_POST['walletCardInd'];
 // MERCHANT NAME
 $array['merchantName'] = $_POST['merchantName'];
 
+// VIRTUAL CVX
+$array['generateVirtualCvx'] = $_POST['generateVirtualCvx'];
+
 // RESPONSE
 $response = $payline->verifyEnrollment($array);
 
