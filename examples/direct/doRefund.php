@@ -10,6 +10,7 @@ $array['comment'] = $_POST['comment'];
 
 include '../arraySet/payment.php';
 include '../arraySet/privateDataList.php';
+include '../arraySet/orderDetails.php';
 
 //SEQUENCE NUMBER
 $array['sequenceNumber'] = $_POST['sequenceNumber'];

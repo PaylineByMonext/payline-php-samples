@@ -6,6 +6,7 @@
 	include '../fieldset/payment.php';
 	include '../fieldset/comment.php';
 	include '../fieldset/privateDataList.php';
+	include '../fieldset/orderDetails.php';
 	include '../fieldset/sequenceNumber.php';
 	include '../fieldset/media.php';
 	?>
