@@ -214,8 +214,37 @@ if(is_writable($configFile)){
 	    fwrite($handle, '$_SESSION[\'pvdKey'.$n.'\'] = \''.$privateDataKey.'\';'.$nextLine);
 	    fwrite($handle, '$_SESSION[\'pvdValue'.$n.'\'] = \''.$_POST['privateDataValue'][$i].'\';'.$nextLine);
 	    $i ++;
-	}			
-
+	}
+	
+	fwrite($handle, $nextLine.'// order info'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderOrigin\'] = \''.$_POST['orderOrigin'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderCountry\'] = \''.$_POST['orderCountry'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderTaxes\'] = \''.$_POST['orderTaxes'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderCurrency\'] = \''.$_POST['orderCurrency'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderAmount\'] = \''.$_POST['orderAmount'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'deliveryTime\'] = \''.$_POST['deliveryTime'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'deliveryMode\'] = \''.$_POST['deliveryMode'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailRef1\'] = \''.$_POST['orderDetailRef1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailPrice1\'] = \''.$_POST['orderDetailPrice1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailQuantity1\'] = \''.$_POST['orderDetailQuantity1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailComment1\'] = \''.$_POST['orderDetailComment1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailCategory1\'] = \''.$_POST['orderDetailCategory1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailSubcategory1_1\'] = \''.$_POST['orderDetailSubcategory1_1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailSubcategory2_1\'] = \''.$_POST['orderDetailSubcategory2_1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailBrand1\'] = \''.$_POST['orderDetailBrand1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailAdditionalData1\'] = \''.$_POST['orderDetailAdditionalData1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailTaxRate1\'] = \''.$_POST['orderDetailTaxRate1'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailRef2\'] = \''.$_POST['orderDetailRef2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailPrice2\'] = \''.$_POST['orderDetailPrice2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailQuantity2\'] = \''.$_POST['orderDetailQuantity2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailComment2\'] = \''.$_POST['orderDetailComment2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailCategory2\'] = \''.$_POST['orderDetailCategory2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailSubcategory1_2\'] = \''.$_POST['orderDetailSubcategory1_2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailSubcategory2_2\'] = \''.$_POST['orderDetailSubcategory2_2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailBrand2\'] = \''.$_POST['orderDetailBrand2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailAdditionalData2\'] = \''.$_POST['orderDetailAdditionalData2'].'\';'.$nextLine);
+	fwrite($handle, '$_SESSION[\'orderDetailTaxRate2\'] = \''.$_POST['orderDetailTaxRate2'].'\';'.$nextLine);
+	
 	fwrite($handle, "?> \n");
 	fclose($handle);
 }else{

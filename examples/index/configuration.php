@@ -25,6 +25,7 @@ function deleteCss(){
 		<div class="row">
 			<label for="ENVIRONMENT">Environment</label>
 			<select name="ENVIRONMENT" id="ENVIRONMENT">
+				<option value="DEV" <?php if($_SESSION['ENVIRONMENT']=="DEV") echo "selected";?>>DEV</option>
 				<option value="HOMO" <?php if($_SESSION['ENVIRONMENT']=="HOMO") echo "selected";?>>HOMO</option>
 				<option value="PROD" <?php if($_SESSION['ENVIRONMENT']=="PROD") echo "selected";?>>PROD</option>
 			</select>
@@ -589,6 +590,7 @@ function deleteCss(){
 		<input type='hidden' id='deleteFile' name='deleteFile' value=0>		
 	</fieldset>
 	<?php include '../fieldset/buyer.php';?>
+	<?php include '../fieldset/order.php'?>
 	<?php include '../fieldset/privateDataList.php'?>
   <input type="submit" class="submit" value="Sauvegarder">
 </form>
