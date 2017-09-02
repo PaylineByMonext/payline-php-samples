@@ -156,7 +156,7 @@
                     			$doAuthorizationRequest['version'] = 4;
                     			
                     			//PAYMENT
-								$doAuthorizationRequest['payment']['amount'] = 3000;
+								$doAuthorizationRequest['payment']['amount'] = $_SESSION['PAYMENT_AMOUNT'];
 								$doAuthorizationRequest['payment']['currency'] = $_SESSION['PAYMENT_CURRENCY'];
 								$doAuthorizationRequest['payment']['action'] = $_SESSION['AJAX_DECRYPTED_PAYMENT_DATA']['paymentAction'];
 								$doAuthorizationRequest['payment']['mode'] =  $_SESSION['PAYMENT_MODE'];
@@ -170,10 +170,42 @@
 								$doAuthorizationRequest['card']['cardholder'] = 'MONEXT';
 								
                     			//ORDER
-								$doAuthorizationRequest['order']['ref'] = $_SESSION['AJAX_DECRYPTED_PAYMENT_DATA']['orderRef'];
-								$doAuthorizationRequest['order']['amount'] = $doAuthorizationRequest['payment']['amount'];
-								$doAuthorizationRequest['order']['date'] = date('d/m/Y H:i');
-								$doAuthorizationRequest['order']['currency'] = $doAuthorizationRequest['payment']['currency'];
+                            	$doAuthorizationRequest['order']['ref'] = $_SESSION['AJAX_DECRYPTED_PAYMENT_DATA']['orderRef'];
+                            	$doAuthorizationRequest['order']['amount'] = $_SESSION['orderAmount'];
+                            	$doAuthorizationRequest['order']['date'] = date('d/m/Y H:i');
+                            	$doAuthorizationRequest['order']['currency'] = $_SESSION['orderCurrency'];
+                            	$doAuthorizationRequest['order']['origin'] = $_SESSION['orderOrigin'];
+                            	$doAuthorizationRequest['order']['country'] = $_SESSION['orderCountry'];
+                            	$doAuthorizationRequest['order']['taxes'] = $_SESSION['orderTaxes'];
+                            	$doAuthorizationRequest['order']['deliveryTime'] = $_SESSION['deliveryTime'];
+                            	$doAuthorizationRequest['order']['deliveryMode'] = $_SESSION['deliveryMode'];
+                            	
+                            	// ORDER DETAILS
+                            	$item1 = array();
+                            	$item1['ref'] = $_SESSION['orderDetailRef1'];
+                            	$item1['price'] = $_SESSION['orderDetailPrice1'];
+                            	$item1['quantity'] = $_SESSION['orderDetailQuantity1'];
+                            	$item1['comment'] = $_SESSION['orderDetailComment1'];
+                            	$item1['category'] = $_SESSION['orderDetailCategory1'];
+                            	$item1['brand'] = $_SESSION['orderDetailBrand1'];
+                            	$item1['subcategory1'] = $_SESSION['orderDetailSubcategory1_1'];
+                            	$item1['subcategory2'] = $_SESSION['orderDetailSubcategory2_1'];
+                            	$item1['additionalData'] = $_SESSION['orderDetailAdditionalData1'];
+                            	$item1['taxRate'] = $_SESSION['orderDetailTaxRate1'];
+                            	$payline->addOrderDetail($item1);
+                            	
+                            	$item2 = array();
+                            	$item2['ref'] = $_SESSION['orderDetailRef2'];
+                            	$item2['price'] = $_SESSION['orderDetailPrice2'];
+                            	$item2['quantity'] = $_SESSION['orderDetailQuantity2'];
+                            	$item2['comment'] = $_SESSION['orderDetailComment2'];
+                            	$item2['category'] = $_SESSION['orderDetailCategory2'];
+                            	$item2['brand'] = $_SESSION['orderDetailBrand2'];
+                            	$item2['subcategory1'] = $_SESSION['orderDetailSubcategory1_2'];
+                            	$item2['subcategory2'] = $_SESSION['orderDetailSubcategory2_2'];
+                            	$item2['additionalData'] = $_SESSION['orderDetailAdditionalData2'];
+                            	$item2['taxRate'] = $_SESSION['orderDetailTaxRate2'];
+                            	$payline->addOrderDetail($item2);
 								
 								// BUYER
 								$doAuthorizationRequest['buyer']['legalStatus'] = $_SESSION['buyerLegalStatus'];
@@ -222,6 +254,14 @@
 								$doAuthorizationRequest['shippingAddress']['phoneType'] = $_SESSION['shippingAddressPhoneType'];
 								$doAuthorizationRequest['shippingAddress']['phone'] = $_SESSION['shippingAddressPhone'];
                     			
+								//PRIVATE DATA
+								for($i=1;$i<=8;$i++){
+								    $privateData = array();
+								    $privateData['key'] = $_SESSION['pvdKey'.$i] ;
+								    $privateData['value'] = $_SESSION['pvdValue'.$i];
+								    $payline->addPrivateData($privateData);
+								}
+								
                     			// RESPONSE
                     			$doAuthorizationResponse = $payline->doAuthorization($doAuthorizationRequest);
                     			
@@ -246,7 +286,7 @@
                     	$doAuthorization3DSRequest['version'] = 4;
                     	 
                     	//PAYMENT
-                    	$doAuthorization3DSRequest['payment']['amount'] = 1000;
+                    	$doAuthorization3DSRequest['payment']['amount'] = $_SESSION['PAYMENT_AMOUNT'];
                     	$doAuthorization3DSRequest['payment']['currency'] = $_SESSION['PAYMENT_CURRENCY'];
                     	$doAuthorization3DSRequest['payment']['action'] = $_SESSION['AJAX_DECRYPTED_PAYMENT_DATA']['paymentAction'];
                     	$doAuthorization3DSRequest['payment']['mode'] =  $_SESSION['PAYMENT_MODE'];
@@ -261,60 +301,100 @@
                     	
                     	//ORDER
                     	$doAuthorization3DSRequest['order']['ref'] = $_SESSION['AJAX_DECRYPTED_PAYMENT_DATA']['orderRef'];
-                    	$doAuthorization3DSRequest['order']['amount'] = $doAuthorization3DSRequest['payment']['amount'];
+                    	$doAuthorization3DSRequest['order']['amount'] = $_SESSION['orderAmount'];
                     	$doAuthorization3DSRequest['order']['date'] = date('d/m/Y H:i');
-                    	$doAuthorization3DSRequest['order']['currency'] = $_SESSION['ORDER_CURRENCY'];
+                    	$doAuthorization3DSRequest['order']['currency'] = $_SESSION['orderCurrency'];
+                    	$doAuthorization3DSRequest['order']['origin'] = $_SESSION['orderOrigin'];
+                    	$doAuthorization3DSRequest['order']['country'] = $_SESSION['orderCountry'];
+                    	$doAuthorization3DSRequest['order']['taxes'] = $_SESSION['orderTaxes'];
+                    	$doAuthorization3DSRequest['order']['deliveryTime'] = $_SESSION['deliveryTime'];
+                    	$doAuthorization3DSRequest['order']['deliveryMode'] = $_SESSION['deliveryMode'];
+                    	
+                    	// ORDER DETAILS
+                    	$item1 = array();
+                    	$item1['ref'] = $_SESSION['orderDetailRef1'];
+                    	$item1['price'] = $_SESSION['orderDetailPrice1'];
+                    	$item1['quantity'] = $_SESSION['orderDetailQuantity1'];
+                    	$item1['comment'] = $_SESSION['orderDetailComment1'];
+                    	$item1['category'] = $_SESSION['orderDetailCategory1'];
+                    	$item1['brand'] = $_SESSION['orderDetailBrand1'];
+                    	$item1['subcategory1'] = $_SESSION['orderDetailSubcategory1_1'];
+                    	$item1['subcategory2'] = $_SESSION['orderDetailSubcategory2_1'];
+                    	$item1['additionalData'] = $_SESSION['orderDetailAdditionalData1'];
+                    	$item1['taxRate'] = $_SESSION['orderDetailTaxRate1'];
+                    	$payline->addOrderDetail($item1);
+                    	
+                    	$item2 = array();
+                    	$item2['ref'] = $_SESSION['orderDetailRef2'];
+                    	$item2['price'] = $_SESSION['orderDetailPrice2'];
+                    	$item2['quantity'] = $_SESSION['orderDetailQuantity2'];
+                    	$item2['comment'] = $_SESSION['orderDetailComment2'];
+                    	$item2['category'] = $_SESSION['orderDetailCategory2'];
+                    	$item2['brand'] = $_SESSION['orderDetailBrand2'];
+                    	$item2['subcategory1'] = $_SESSION['orderDetailSubcategory1_2'];
+                    	$item2['subcategory2'] = $_SESSION['orderDetailSubcategory2_2'];
+                    	$item2['additionalData'] = $_SESSION['orderDetailAdditionalData2'];
+                    	$item2['taxRate'] = $_SESSION['orderDetailTaxRate2'];
+                    	$payline->addOrderDetail($item2);
                     	
                     	// BUYER
-                    	$doAuthorizationRequest['buyer']['legalStatus'] = $_SESSION['buyerLegalStatus'];
-                    	$doAuthorizationRequest['buyer']['title'] = $_SESSION['buyerTitle'];
-                    	$doAuthorizationRequest['buyer']['lastName'] = $_SESSION['buyerLastName'];
-                    	$doAuthorizationRequest['buyer']['firstName'] = $_SESSION['buyerFirstName'];
-                    	$doAuthorizationRequest['buyer']['email'] = $_SESSION['buyerEmail'];
-                    	$doAuthorizationRequest['buyer']['mobilePhone'] = $_SESSION['mobilePhone'];
-                    	$doAuthorizationRequest['buyer']['customerId'] = $_SESSION['customerId'];
-                    	$doAuthorizationRequest['buyer']['accountCreateDate'] = $_SESSION['buyerAccountCreateDate'];
-                    	$doAuthorizationRequest['buyer']['accountAverageAmount'] = $_SESSION['buyerAverageAmount'];
-                    	$doAuthorizationRequest['buyer']['accountOrderCount'] = $_SESSION['buyerOrderCount'];
-                    	$doAuthorizationRequest['buyer']['walletId'] = $_SESSION['buyerWalletId'];
-                    	$doAuthorizationRequest['buyer']['ip'] = $_SESSION['buyerIp'];
-                    	$doAuthorizationRequest['buyer']['legalDocument'] = $_SESSION['legalDocument'];
-                    	$doAuthorizationRequest['buyer']['birthDate'] = $_SESSION['birthDate'];
-                    	$doAuthorizationRequest['buyer']['fingerprintID'] = $_SESSION['fingerprintID'];
+                    	$doAuthorization3DSRequest['buyer']['legalStatus'] = $_SESSION['buyerLegalStatus'];
+                    	$doAuthorization3DSRequest['buyer']['title'] = $_SESSION['buyerTitle'];
+                    	$doAuthorization3DSRequest['buyer']['lastName'] = $_SESSION['buyerLastName'];
+                    	$doAuthorization3DSRequest['buyer']['firstName'] = $_SESSION['buyerFirstName'];
+                    	$doAuthorization3DSRequest['buyer']['email'] = $_SESSION['buyerEmail'];
+                    	$doAuthorization3DSRequest['buyer']['mobilePhone'] = $_SESSION['mobilePhone'];
+                    	$doAuthorization3DSRequest['buyer']['customerId'] = $_SESSION['customerId'];
+                    	$doAuthorization3DSRequest['buyer']['accountCreateDate'] = $_SESSION['buyerAccountCreateDate'];
+                    	$doAuthorization3DSRequest['buyer']['accountAverageAmount'] = $_SESSION['buyerAverageAmount'];
+                    	$doAuthorization3DSRequest['buyer']['accountOrderCount'] = $_SESSION['buyerOrderCount'];
+                    	$doAuthorization3DSRequest['buyer']['walletId'] = $_SESSION['buyerWalletId'];
+                    	$doAuthorization3DSRequest['buyer']['ip'] = $_SESSION['buyerIp'];
+                    	$doAuthorization3DSRequest['buyer']['legalDocument'] = $_SESSION['legalDocument'];
+                    	$doAuthorization3DSRequest['buyer']['birthDate'] = $_SESSION['birthDate'];
+                    	$doAuthorization3DSRequest['buyer']['fingerprintID'] = $_SESSION['fingerprintID'];
                     	
                     	// BILLING ADDRESS
-                    	$doAuthorizationRequest['billingAddress']['title'] = $_SESSION['billingAddressTitle'];
-                    	$doAuthorizationRequest['billingAddress']['firstName'] = $_SESSION['billingAddressFirstName'];
-                    	$doAuthorizationRequest['billingAddress']['lastName'] = $_SESSION['billingAddressLastName'];
-                    	$doAuthorizationRequest['billingAddress']['name'] = $_SESSION['billingAddressName'];
-                    	$doAuthorizationRequest['billingAddress']['street1'] = $_SESSION['billingAddressStreet1'];
-                    	$doAuthorizationRequest['billingAddress']['street2'] = $_SESSION['billingAddressStreet2'];
-                    	$doAuthorizationRequest['billingAddress']['county'] = $_SESSION['billingAddressCounty'];
-                    	$doAuthorizationRequest['billingAddress']['cityName'] = $_SESSION['billingAddressCity'];
-                    	$doAuthorizationRequest['billingAddress']['zipCode'] = $_SESSION['billingAddressZipCode'];
-                    	$doAuthorizationRequest['billingAddress']['country'] = $_SESSION['billingAddressCountry'];
-                    	$doAuthorizationRequest['billingAddress']['state'] = $_SESSION['billingAddressState'];
-                    	$doAuthorizationRequest['billingAddress']['phoneType'] = $_SESSION['billingAddressPhoneType'];
-                    	$doAuthorizationRequest['billingAddress']['phone'] = $_SESSION['billingAddressPhone'];
+                    	$doAuthorization3DSRequest['billingAddress']['title'] = $_SESSION['billingAddressTitle'];
+                    	$doAuthorization3DSRequest['billingAddress']['firstName'] = $_SESSION['billingAddressFirstName'];
+                    	$doAuthorization3DSRequest['billingAddress']['lastName'] = $_SESSION['billingAddressLastName'];
+                    	$doAuthorization3DSRequest['billingAddress']['name'] = $_SESSION['billingAddressName'];
+                    	$doAuthorization3DSRequest['billingAddress']['street1'] = $_SESSION['billingAddressStreet1'];
+                    	$doAuthorization3DSRequest['billingAddress']['street2'] = $_SESSION['billingAddressStreet2'];
+                    	$doAuthorization3DSRequest['billingAddress']['county'] = $_SESSION['billingAddressCounty'];
+                    	$doAuthorization3DSRequest['billingAddress']['cityName'] = $_SESSION['billingAddressCity'];
+                    	$doAuthorization3DSRequest['billingAddress']['zipCode'] = $_SESSION['billingAddressZipCode'];
+                    	$doAuthorization3DSRequest['billingAddress']['country'] = $_SESSION['billingAddressCountry'];
+                    	$doAuthorization3DSRequest['billingAddress']['state'] = $_SESSION['billingAddressState'];
+                    	$doAuthorization3DSRequest['billingAddress']['phoneType'] = $_SESSION['billingAddressPhoneType'];
+                    	$doAuthorization3DSRequest['billingAddress']['phone'] = $_SESSION['billingAddressPhone'];
                     	
                     	// SHIPPING ADDRESS
-                    	$doAuthorizationRequest['shippingAddress']['title'] = $_SESSION['shippingAddressTitle'];
-                    	$doAuthorizationRequest['shippingAddress']['firstName'] = $_SESSION['shippingAddressFirstName'];
-                    	$doAuthorizationRequest['shippingAddress']['lastName'] = $_SESSION['shippingAddressLastName'];
-                    	$doAuthorizationRequest['shippingAddress']['name'] = $_SESSION['shippingAddressName'];
-                    	$doAuthorizationRequest['shippingAddress']['street1'] = $_SESSION['shippingAddressStreet1'];
-                    	$doAuthorizationRequest['shippingAddress']['street2'] = $_SESSION['shippingAddressStreet2'];
-                    	$doAuthorizationRequest['shippingAddress']['county'] = $_SESSION['shippingAddressCounty'];
-                    	$doAuthorizationRequest['shippingAddress']['cityName'] = $_SESSION['shippingAddressCity'];
-                    	$doAuthorizationRequest['shippingAddress']['zipCode'] = $_SESSION['shippingAddressZipCode'];
-                    	$doAuthorizationRequest['shippingAddress']['country'] = $_SESSION['shippingAddressCountry'];
-                    	$doAuthorizationRequest['shippingAddress']['state'] = $_SESSION['shippingAddressState'];
-                    	$doAuthorizationRequest['shippingAddress']['phoneType'] = $_SESSION['shippingAddressPhoneType'];
-                    	$doAuthorizationRequest['shippingAddress']['phone'] = $_SESSION['shippingAddressPhone'];
+                    	$doAuthorization3DSRequest['shippingAddress']['title'] = $_SESSION['shippingAddressTitle'];
+                    	$doAuthorization3DSRequest['shippingAddress']['firstName'] = $_SESSION['shippingAddressFirstName'];
+                    	$doAuthorization3DSRequest['shippingAddress']['lastName'] = $_SESSION['shippingAddressLastName'];
+                    	$doAuthorization3DSRequest['shippingAddress']['name'] = $_SESSION['shippingAddressName'];
+                    	$doAuthorization3DSRequest['shippingAddress']['street1'] = $_SESSION['shippingAddressStreet1'];
+                    	$doAuthorization3DSRequest['shippingAddress']['street2'] = $_SESSION['shippingAddressStreet2'];
+                    	$doAuthorization3DSRequest['shippingAddress']['county'] = $_SESSION['shippingAddressCounty'];
+                    	$doAuthorization3DSRequest['shippingAddress']['cityName'] = $_SESSION['shippingAddressCity'];
+                    	$doAuthorization3DSRequest['shippingAddress']['zipCode'] = $_SESSION['shippingAddressZipCode'];
+                    	$doAuthorization3DSRequest['shippingAddress']['country'] = $_SESSION['shippingAddressCountry'];
+                    	$doAuthorization3DSRequest['shippingAddress']['state'] = $_SESSION['shippingAddressState'];
+                    	$doAuthorization3DSRequest['shippingAddress']['phoneType'] = $_SESSION['shippingAddressPhoneType'];
+                    	$doAuthorization3DSRequest['shippingAddress']['phone'] = $_SESSION['shippingAddressPhone'];
                     	
                     	//AUTHENTICATION 3DSECURE
                     	$doAuthorization3DSRequest['3DSecure']['md'] = $_POST['MD'];
                     	$doAuthorization3DSRequest['3DSecure']['pares'] = $_POST['PaRes'];
+                    	
+                    	//PRIVATE DATA
+                    	for($i=1;$i<=8;$i++){
+                    	    $privateData = array();
+                    	    $privateData['key'] = $_SESSION['pvdKey'.$i] ;
+                    	    $privateData['value'] = $_SESSION['pvdValue'.$i];
+                    	    $payline->addPrivateData($privateData);
+                    	}
                     	 
                     	// RESPONSE
                     	$doAuthorization3DSResponse = $payline->doAuthorization($doAuthorization3DSRequest);

@@ -43,8 +43,8 @@ if(is_writable($configFile)){
 	fwrite($handle, '$_SESSION[\'LOG_LEVEL\'] = '.$_POST['LOG_LEVEL'].';'.$nextLine);
 	
 	fwrite($handle, $nextLine.'// payment setting'.$nextLine);
+	fwrite($handle, '$_SESSION[\'PAYMENT_AMOUNT\'] = \''.$_POST['PAYMENT_AMOUNT'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'PAYMENT_CURRENCY\'] = \''.$_POST['PAYMENT_CURRENCY'].'\';'.$nextLine);
-	fwrite($handle, '$_SESSION[\'ORDER_CURRENCY\'] = \''.$_POST['ORDER_CURRENCY'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'LANGUAGE_CODE\'] = \''.$_POST['LANGUAGE_CODE'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'PAYMENT_ACTION\'] = \''.$_POST['PAYMENT_ACTION'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'PAYMENT_MODE\'] = \''.$_POST['PAYMENT_MODE'].'\';'.$nextLine);

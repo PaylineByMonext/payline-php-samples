@@ -13,9 +13,41 @@ $array['payment']['mode'] = $_SESSION['PAYMENT_MODE'];
 
 // ORDER
 $array['order']['ref'] = $_POST['ref'];
-$array['order']['amount'] = $_POST['amount'];
-$array['order']['currency'] = $_POST['currency'];
+$array['order']['amount'] = $_SESSION['orderAmount'];
+$array['order']['currency'] = $_SESSION['orderCurrency'];
 $array['order']['date'] = date('d/m/Y H:i');
+$array['order']['origin'] = $_SESSION['orderOrigin'];
+$array['order']['country'] = $_SESSION['orderCountry'];
+$array['order']['taxes'] = $_SESSION['orderTaxes'];
+$array['order']['deliveryTime'] = $_SESSION['deliveryTime'];
+$array['order']['deliveryMode'] = $_SESSION['deliveryMode'];
+
+// ORDER DETAILS
+$item1 = array();
+$item1['ref'] = $_SESSION['orderDetailRef1'];
+$item1['price'] = $_SESSION['orderDetailPrice1'];
+$item1['quantity'] = $_SESSION['orderDetailQuantity1'];
+$item1['comment'] = $_SESSION['orderDetailComment1'];
+$item1['category'] = $_SESSION['orderDetailCategory1'];
+$item1['brand'] = $_SESSION['orderDetailBrand1'];
+$item1['subcategory1'] = $_SESSION['orderDetailSubcategory1_1'];
+$item1['subcategory2'] = $_SESSION['orderDetailSubcategory2_1'];
+$item1['additionalData'] = $_SESSION['orderDetailAdditionalData1'];
+$item1['taxRate'] = $_SESSION['orderDetailTaxRate1'];
+$payline->addOrderDetail($item1);
+
+$item2 = array();
+$item2['ref'] = $_SESSION['orderDetailRef2'];
+$item2['price'] = $_SESSION['orderDetailPrice2'];
+$item2['quantity'] = $_SESSION['orderDetailQuantity2'];
+$item2['comment'] = $_SESSION['orderDetailComment2'];
+$item2['category'] = $_SESSION['orderDetailCategory2'];
+$item2['brand'] = $_SESSION['orderDetailBrand2'];
+$item2['subcategory1'] = $_SESSION['orderDetailSubcategory1_2'];
+$item2['subcategory2'] = $_SESSION['orderDetailSubcategory2_2'];
+$item2['additionalData'] = $_SESSION['orderDetailAdditionalData2'];
+$item2['taxRate'] = $_SESSION['orderDetailTaxRate2'];
+$payline->addOrderDetail($item2);
 
 // CONTRACT NUMBERS
 $array['payment']['contractNumber'] = $_SESSION['CONTRACT_NUMBER'];
@@ -88,6 +120,14 @@ $array['shippingAddress']['phone'] = $_SESSION['shippingAddressPhone'];
 
 // MERCHANT NAME
 $array['merchantName'] = $_SESSION['MERCHANT_NAME'];
+
+// PRIVATE DATA
+for($i=1;$i<=8;$i++){
+    $privateData = array();
+    $privateData['key'] = $_SESSION['pvdKey'.$i] ;
+    $privateData['value'] = $_SESSION['pvdValue'.$i];
+    $payline->addPrivateData($privateData);
+}
 
 // EXECUTE
 $response = $payline->doWebPayment($array);

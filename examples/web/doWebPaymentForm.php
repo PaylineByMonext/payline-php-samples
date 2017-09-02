@@ -7,12 +7,12 @@
 			<span class="help">(required)</span>
 		</div>
 		<div class="row">
-			<label for="amount">Amount</label>
-			<input type="text" name="amount" id="amount" value="33300">
+			<label for="amount">Payment amount</label>
+			<input type="text" name="amount" id="amount" value="<?php echo $_SESSION['PAYMENT_AMOUNT'];?>">
 			<span class="help">(required)</span>
 		</div>
 		<div class="row">
-			<label for="currency">Currency</label>
+			<label for="currency">Payment currency</label>
 			<input type="text" name="currency" id="currency" value="<?php echo $_SESSION['PAYMENT_CURRENCY'];?>">
 			<span class="help">(required)</span>
 		</div>

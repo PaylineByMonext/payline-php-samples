@@ -17,7 +17,7 @@ Requirements
 ------------
 
 Compliant with PHP 5.3 and over
-Requires PaylineByMonext/payline-php-sdk, just let Composer do the job
+Requires PaylineByMonext/payline-php-sdk : dependency for branch dev-master of monext/payline-sdk is declared in composer.json
 
 
 Author

@@ -3,7 +3,7 @@
 
 	<div class="row">
 		<label for="paymentAmount">Payment amount</label>
-		<input type="text" name="paymentAmount" id="paymentAmount" value="<?php  if(isset($_GET['amount'])) echo $_GET['amount']; else echo 1000; ?>">
+		<input type="text" name="paymentAmount" id="paymentAmount" value="<?php  if(isset($_GET['amount'])) echo $_GET['amount']; else echo $_SESSION['PAYMENT_AMOUNT']; ?>">
 	</div>
 		
 	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
