@@ -26,7 +26,7 @@ include '../arraySet/owner.php';
 include '../arraySet/webOptions.php';
 
 // URL
-include '../arraySet/urls.php';
+include '../arraySet/walletUrls.php';
 
 // PRIVATE DATA (optional)
 include '../arraySet/privateDataList.php';
@@ -44,6 +44,10 @@ if(isset($response) && $response['result']['code'] == '00000'){
 	} else { // affichage du wigdet
         echo "<span>&nbsp;</span>";
         echo "<div id='PaylineWidget' data-token='".$response['token']."' data-template='".$_POST['data-template']."' ></div>";
+        echo "<div class='PaylineWidget pl-pay-btn-container' style='text-align:center;'>";
+        echo "<button class='PaylineWidget pl-pay-btn' type='button' onclick=\"executeUrlAction('".$response['token']."','return')\">Terminer</button>";
+        echo "</div>";
+        
 	}
 } elseif(isset($response)) {
     echo '<span>ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' </span>';

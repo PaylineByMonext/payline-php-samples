@@ -29,7 +29,7 @@
 	include '../fieldset/owner.php';
 	include '../fieldset/webOptions.php';
 	include '../fieldset/privateDataList.php';
-	include '../fieldset/urls.php';
+	include '../fieldset/walletUrls.php';
 	include '../fieldset/merchantName.php';
 	?>
 	<fieldset>

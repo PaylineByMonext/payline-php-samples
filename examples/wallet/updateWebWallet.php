@@ -25,7 +25,7 @@ include '../arraySet/buyer.php';
 include '../arraySet/webOptions.php';
 
 // URL
-include '../arraySet/urls.php';
+include '../arraySet/walletUrls.php';
 
 // PRIVATE DATA (optional)
 include '../arraySet/privateDataList.php';

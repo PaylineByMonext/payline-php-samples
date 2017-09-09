@@ -66,6 +66,18 @@ if(is_writable($configFile)){
 	    fwrite($handle, '$_SESSION[\'CANCEL_URL\'] = \''.$_POST['cancelURL'].'\';'.$nextLine);
 	}
 	
+	if($_POST['walletReturnURL'] == ''){
+	    fwrite($handle, '$_SESSION[\'WLT_RETURN_URL\'] = \''.$kitRoot.'examples/demos/wallet.php?e=getWebWallet'.'\';'.$nextLine);
+	}else{
+	    fwrite($handle, '$_SESSION[\'WLT_RETURN_URL\'] = \''.$_POST['walletReturnURL'].'\';'.$nextLine);
+	}
+	fwrite($handle, '$_SESSION[\'WLT_NOTIFICATION_URL\'] = \''.$_POST['walletNotificationURL'].'\';'.$nextLine);
+	if($_POST['walletCancelURL'] == ''){
+	    fwrite($handle, '$_SESSION[\'WLT_CANCEL_URL\'] = \''.$kitRoot.'examples/demos/wallet.php?e=getWebWallet'.'\';'.$nextLine);
+	}else{
+	    fwrite($handle, '$_SESSION[\'WLT_CANCEL_URL\'] = \''.$_POST['walletCancelURL'].'\';'.$nextLine);
+	}
+	
 	$noCssFlag = true;
 	if(isset($_FILES['inCss']) && $_FILES['inCss']['name'] != ''){
 	    $noCssFlag = false;

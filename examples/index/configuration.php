@@ -378,6 +378,7 @@ function deleteCss(){
 		</div>
 	</fieldset>
 	<?php include '../fieldset/urls.php';?>
+	<?php include '../fieldset/walletUrls.php';?>
 	<fieldset>		
 		<h4>Widget customization</h4>
 		<div class="row">

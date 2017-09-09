@@ -73,7 +73,22 @@
                 echo "<script src='".PaylineSDK::PROD_WDGT_JS."'></script>";
                 break;
         }
-        ?>        
+        ?>
+        <script type='text/javascript'>
+        function executeUrlAction(token,action) {
+            if(action == 'cancel'){
+                   var actionUrl = Payline.Models.Contexts.ContextManager.getCurrentContext().getCancelUrl();
+            }else if(action == 'return'){
+                   var actionUrl = Payline.Models.Contexts.ContextManager.getCurrentContext().getReturnUrl();
+            }
+             
+             //Execution du endToken
+             Payline.Api.endToken(null, function() {
+                   //Redirection
+                   window.location.href = actionUrl;
+             }, null, false);
+        }
+        </script>        
         <!--SCRIPTS END-->
 	</head>
 
@@ -111,6 +126,8 @@
 						include('../wallet/'.$_POST['submit'].'.php');
 					}elseif(isset($_POST['PaRes'])){ // back from ACS with 3D Secure authentication data
 						include('../wallet/3DS_walletPayment.php');
+					}elseif(isset($_GET['token']) || (isset($_GET['paylinetoken']) && isset($_GET['e']))){
+					    include('../wallet/'.$_GET['e'].'.php');
 					}else{
 						?>
 						<div id="demo">

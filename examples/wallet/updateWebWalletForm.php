@@ -40,7 +40,7 @@
 	include '../fieldset/buyer.php';
 	include '../fieldset/webOptions.php';
 	include '../fieldset/privateDataList.php';
-	include '../fieldset/urls.php';
+	include '../fieldset/walletUrls.php';
 	?>
 	
 	<input type="submit" name="submit" class="submit" value="updateWebWallet">

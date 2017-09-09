@@ -1,11 +1,19 @@
 <?php
 include '../initSDK.php';
 
-//Token
-$array['token'] = $_POST['token'];   
+// GET TOKEN
+if(isset($_POST['token'])){
+    $array['token'] = $_POST['token'];
+}elseif(isset($_GET['token'])){
+    $array['token'] = $_GET['token'];
+}elseif(isset($_GET['paylinetoken'])){
+    $array['token'] = $_GET['paylinetoken'];
+}else{
+    echo 'Missing TOKEN';
+} 
 
 //VERSION
-$array['version'] = $_POST['version'];
+$array['version'] = isset($_POST['version']) ? $_POST['version'] : $_SESSION['WS_VERSION'];
 
 // EXECUTE
 $response = $payline->getWebWallet($array);
