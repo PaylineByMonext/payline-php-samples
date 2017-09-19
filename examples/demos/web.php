@@ -4,6 +4,7 @@
 	$array = array(
 		'doWebPayment',
 		'fullWebPayment',
+	    'paypalExpressCheckout',
 	    'widgetPayment',
 		'getWebPaymentDetails'
 	);
@@ -14,6 +15,7 @@
 	$links .= ( 'doWebPayment'==$selected ) ? "<a class='backtoform' href='?e=doWebPayment'>doWebPayment (light)</a> - " : "<a href='?e=doWebPayment'>doWebPayment (light)</a> - ";
 	$links .= ( 'fullWebPayment'==$selected ) ? "<a class='backtoform' href='?e=fullWebPayment'>doWebPayment (full)</a> - " : "<a href='?e=fullWebPayment'>doWebPayment (full)</a> - ";
 	$links .= ( 'widgetPayment'==$selected ) ? "<a class='backtoform' href='?e=widgetPayment'>doWebPayment (advanced widget)</a> - " : "<a href='?e=widgetPayment'>doWebPayment (advanced widget)</a> - ";
+	$links .= ( 'paypalExpressCheckout'==$selected ) ? "<a class='backtoform' href='?e=paypalExpressCheckout'>Paypal Express Checkout</a> - " : "<a href='?e=paypalExpressCheckout'>Paypal Express Checkout</a> - ";
 	$links .= ( 'getWebPaymentDetails'==$selected ) ? "<a class='backtoform' href='?e=getWebPaymentDetails'>getWebPaymentDetails</a>" : "<a href='?e=getWebPaymentDetails'>getWebPaymentDetails</a>";
 	$links .= '</h3>';
 		
@@ -181,6 +183,60 @@
             document.getElementById('widgetPaymentForm').style.display="none";
             Payline.Api.show();
         }
+
+        function showStateFunction(state) {  
+            if ("PAYMENT_METHODS_LIST_FAST_CHECKOUT" == state.state) {
+            	// specific process if needed
+            }
+            if ("PAYMENT_TRANSITIONAL_FAST_CHECKOUT" == state.state) {
+            	var buyer = Payline.Api.getBuyerFastCheckout();
+            	document.getElementById("paypalBuyerEmail").value =  buyer.email;
+            	document.getElementById("paypalBuyerFirstName").value = buyer.firstName;
+            	document.getElementById("paypalBuyerLastName").value = buyer.lastName;
+            	document.getElementById("paypalBuyerStreet1").value = buyer.street1;
+            	document.getElementById("paypalBuyerStreet2").value = buyer.street2;
+            	document.getElementById("paypalBuyerZipcode").value = buyer.zipCode;
+            	document.getElementById("paypalBuyerCity").value = buyer.cityName;
+            	document.getElementById("paypalBuyerCountry").value = buyer.country;            
+            }
+            if ("PAYMENT_SUCCESS" == state.state) {
+               // specific process if needed
+            }
+        }
+
+        function finalizeExpressCheckout(token){
+        	var shippingOption = document.getElementsByName('shippingOption');
+			var shippingCost = 1;
+        	for (var i = 0, len = shippingOption.length; i < len; i++) {
+        		if(shippingOption[i].checked){
+            		shippingCost = document.getElementsByName('shippingOption')[i].value;
+        		}
+        	}
+        	var finalPaymentAmount = parseInt(shippingCost)+parseInt(document.getElementById("paypalExpressCheckoutAmount").value);
+        	
+            var datasPayline = {
+        		'payment':{
+            	    'amount':finalPaymentAmount,
+            	},'order':{
+            	    'amount':finalPaymentAmount,
+            	},'buyer':{
+                	'shippingAddress':{
+                    	'lastName':document.getElementById('paypalBuyerLastName').value,
+                    	'firstName':document.getElementById('paypalBuyerFirstName').value,
+                    	'street1':document.getElementById('paypalBuyerStreet1').value,
+                    	'street2':document.getElementById('paypalBuyerStreet2').value,
+                    	'cityName':document.getElementById('paypalBuyerCity').value,
+                    	'zipCode':document.getElementById('paypalBuyerZipcode').value,
+                    	'country':document.getElementById('paypalBuyerCountry').value
+                    }
+                }
+            };
+            Payline.Api.updateWebpaymentData(token, datasPayline, function (response) {
+                // TODO  	
+            });
+        	Payline.Api.finalizeFastCheckout();
+        }
+        
         </script>
         <!--SCRIPTS END-->
 	</head>
