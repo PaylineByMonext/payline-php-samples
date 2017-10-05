@@ -198,7 +198,7 @@ if(isset($_POST['submit'])){ // display Paypal button
     </form>
     <div id='PaylineWidget' data-token='<?php echo $_GET['paylinetoken'];?>' data-template='fastcheckout' data-event-didshowstate='showStateFunction'></div>
     <div class='PaylineWidget pl-pay-btn-container' style='text-align:center;'>
-    <button class='PaylineWidget pl-pay-btn' type='button' onclick='finalizeExpressCheckout();'>Finalize Express Checkout</button>
+    <button class='PaylineWidget pl-pay-btn' type='button' onclick="finalizeExpressCheckout('<?php echo $_GET['paylinetoken'];?>');">Finalize Express Checkout</button>
     </div>
     <?php
 }

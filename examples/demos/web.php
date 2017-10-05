@@ -232,9 +232,12 @@
                 }
             };
             Payline.Api.updateWebpaymentData(token, datasPayline, function (response) {
-                // TODO  	
+                if(response.status == 500) {
+                    alert("Une erreur est survenue lors de la mise à jour du webpayment");
+                } else {
+                	Payline.Api.finalizeFastCheckout();
+                }
             });
-        	Payline.Api.finalizeFastCheckout();
         }
         
         </script>
