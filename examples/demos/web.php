@@ -216,9 +216,9 @@
         	
             var datasPayline = {
         		'payment':{
-            	    'amount':finalPaymentAmount,
+            	    'amount':finalPaymentAmount
             	},'order':{
-            	    'amount':finalPaymentAmount,
+            	    'amount':finalPaymentAmount
             	},'buyer':{
                 	'shippingAddress':{
                     	'lastName':document.getElementById('paypalBuyerLastName').value,
@@ -232,8 +232,8 @@
                 }
             };
             Payline.Api.updateWebpaymentData(token, datasPayline, function (response) {
-                if(response.status == 500) {
-                    alert("Une erreur est survenue lors de la mise à jour du webpayment");
+                if(response.status != 200) {
+                    alert("Error occured at Payline.Api.updateWebpaymentData (code "+response.status+")");
                 } else {
                 	Payline.Api.finalizeFastCheckout();
                 }

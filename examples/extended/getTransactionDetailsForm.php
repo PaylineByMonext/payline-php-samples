@@ -23,7 +23,7 @@
             <span class="help">( Format : "dd/mm/yyyy")</span>
         </div>
 		<div class="row">
-            <label for="transactionHistory">Find associated transactions</label>
+            <label for="transactionHistory">Display associated transactions and status history</label>
             <input type="checkbox" name="transactionHistory" id="transactionHistory" value="" />
         </div>
 		<div class="row">
