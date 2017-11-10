@@ -1,7 +1,9 @@
 <?php
 include '../initSDK.php';
 
-// RESPONSE
+// VERSION
+$array['version'] = $_POST['version'];
+
 $response = $payline->getMerchantSettings($array);
 
 // RESPONSE
@@ -21,4 +23,3 @@ echo '	</tr>';
 echo '</table>';
 
 ?>
-

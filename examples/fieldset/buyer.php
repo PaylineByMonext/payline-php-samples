@@ -1,6 +1,7 @@
 <script type="text/javascript">
 	function clearSampleBuyer(){
 		document.getElementById('buyerTitle').value= '';
+		document.getElementById('buyerLegalStatus').value= '';
 		document.getElementById('buyerLastName').value= '';
 		document.getElementById('buyerFirstName').value= '';
 		document.getElementById('buyerEmail').value= '';
@@ -15,6 +16,7 @@
 		document.getElementById('billingAddressCountry').value= '';
 		document.getElementById('billingAddressCounty').value= '';		
 		document.getElementById('billingAddressState').value= '';
+		document.getElementById('billingAddressPhoneType').value= '';
 		document.getElementById('billingAddressPhone').value= '';
 		document.getElementById('shippingAddressTitle').value= '';
 		document.getElementById('shippingAddressFirstName').value= '';
@@ -27,15 +29,28 @@
 		document.getElementById('shippingAddressCountry').value= '';
 		document.getElementById('shippingAddressCounty').value= '';		                         
 		document.getElementById('shippingAddressState').value= '';
+		document.getElementById('shippingAddressPhoneType').value= '';
 		document.getElementById('shippingAddressPhone').value= '';
 		document.getElementById('buyerAccountCreateDate').value= '';
 		document.getElementById('buyerAverageAmount').value= '';
 		document.getElementById('buyerOrderCount').value= '';
 		document.getElementById('buyerWalletId').value= '';
+		document.getElementById('buyerWalletCardInd').value= '';
+		document.getElementById('buyerWalletSecured').value= '';
+		document.getElementById('buyerIp').value= '';
 		document.getElementById('mobilePhone').value= '';
 		document.getElementById('customerId').value= '';
+		document.getElementById('legalDocument').value= '';
 		document.getElementById('fingerprintID').value= '';
+		document.getElementById('deviceFingerprint').value= '';
 		document.getElementById('birthDate').value= '';
+        document.getElementById('isBot').value= '';
+        document.getElementById('isIncognito').value= '';
+        document.getElementById('isBehindProxy').value= '';
+        document.getElementById('isFromTor').value= '';
+        document.getElementById('isEmulator').value= '';
+        document.getElementById('isRooted').value= '';
+        document.getElementById('hasTimezoneMismatch').value= '';				
 	}
 </script>
 
@@ -52,7 +67,21 @@
 	</div>
 	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerTitle">Title</label>
-		<input type="text" name="buyerTitle" id="buyerTitle" value="<?php echo $_SESSION['buyerTitle'] ?>" />
+		<select	name="buyerTitle" id="buyerTitle">
+			<option value=""></option>
+			<option value="1" <?php if($_SESSION['buyerTitle'] == "1") echo "selected";?>>Mme - Madame</option>
+			<option value="2" <?php if($_SESSION['buyerTitle'] == "2") echo "selected";?>>Mmes - Mesdames</option>
+			<option value="3" <?php if($_SESSION['buyerTitle'] == "3") echo "selected";?>>Mlle - Mademoiselle</option>
+			<option value="4" <?php if($_SESSION['buyerTitle'] == "4") echo "selected";?>>M. - Monsieur</option>
+			<option value="5" <?php if($_SESSION['buyerTitle'] == "5") echo "selected";?>>MM. - Messieurs</option>
+			<option value="6" <?php if($_SESSION['buyerTitle'] == "6") echo "selected";?>>Vve - Veuve</option>
+			<option value="7" <?php if($_SESSION['buyerTitle'] == "7") echo "selected";?>>Dr - Docteur</option>
+			<option value="8" <?php if($_SESSION['buyerTitle'] == "8") echo "selected";?>>Drs - Docteurs</option>
+			<option value="9" <?php if($_SESSION['buyerTitle'] == "9") echo "selected";?>>Pr - Professeur</option>
+			<option value="10" <?php if($_SESSION['buyerTitle'] == "10") echo "selected";?>>Me - Ma&icirc;tre</option>
+			<option value="11" <?php if($_SESSION['buyerTitle'] == "11") echo "selected";?>>Mes - Ma&icirc;tres</option>
+			<option value="12" <?php if($_SESSION['buyerTitle'] == "12") echo "selected";?>>Mgr - Monseigneur</option>
+		</select>
 	</div>
 	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="buyerLastName">Last name</label>
@@ -76,7 +105,21 @@
 			        </div>
 			        <div class="row">
 			            <label for="billingAddressTitle">Title</label>
-			            <input type="text" name="billingAddressTitle" id="billingAddressTitle" value="<?php echo $_SESSION['billingAddressTitle'] ?>" />
+                		<select	name="billingAddressTitle" id="billingAddressTitle">
+                			<option value=""></option>
+                			<option value="1" <?php if($_SESSION['billingAddressTitle'] == "1") echo "selected";?>>Mme - Madame</option>
+                			<option value="2" <?php if($_SESSION['billingAddressTitle'] == "2") echo "selected";?>>Mmes - Mesdames</option>
+                			<option value="3" <?php if($_SESSION['billingAddressTitle'] == "3") echo "selected";?>>Mlle - Mademoiselle</option>
+                			<option value="4" <?php if($_SESSION['billingAddressTitle'] == "4") echo "selected";?>>M. - Monsieur</option>
+                			<option value="5" <?php if($_SESSION['billingAddressTitle'] == "5") echo "selected";?>>MM. - Messieurs</option>
+                			<option value="6" <?php if($_SESSION['billingAddressTitle'] == "6") echo "selected";?>>Vve - Veuve</option>
+                			<option value="7" <?php if($_SESSION['billingAddressTitle'] == "7") echo "selected";?>>Dr - Docteur</option>
+                			<option value="8" <?php if($_SESSION['billingAddressTitle'] == "8") echo "selected";?>>Drs - Docteurs</option>
+                			<option value="9" <?php if($_SESSION['billingAddressTitle'] == "9") echo "selected";?>>Pr - Professeur</option>
+                			<option value="10" <?php if($_SESSION['billingAddressTitle'] == "10") echo "selected";?>>Me - Ma&icirc;tre</option>
+                			<option value="11" <?php if($_SESSION['billingAddressTitle'] == "11") echo "selected";?>>Mes - Ma&icirc;tres</option>
+                			<option value="12" <?php if($_SESSION['billingAddressTitle'] == "12") echo "selected";?>>Mgr - Monseigneur</option>
+                		</select>
 			        </div>
 			        <div class="row">
 			            <label for="billingAddressFirstName">First name</label>
@@ -144,7 +187,21 @@
 			        </div>
 			        <div class="row">
 			            <label for="shippingAddressTitle">Title</label>
-			            <input type="text" name="shippingAddressTitle" id="shippingAddressTitle" value="<?php echo $_SESSION['shippingAddressTitle'] ?>" />
+                		<select	name="shippingAddressTitle" id="shippingAddressTitle">
+                			<option value=""></option>
+                			<option value="1" <?php if($_SESSION['shippingAddressTitle'] == "1") echo "selected";?>>Mme - Madame</option>
+                			<option value="2" <?php if($_SESSION['shippingAddressTitle'] == "2") echo "selected";?>>Mmes - Mesdames</option>
+                			<option value="3" <?php if($_SESSION['shippingAddressTitle'] == "3") echo "selected";?>>Mlle - Mademoiselle</option>
+                			<option value="4" <?php if($_SESSION['shippingAddressTitle'] == "4") echo "selected";?>>M. - Monsieur</option>
+                			<option value="5" <?php if($_SESSION['shippingAddressTitle'] == "5") echo "selected";?>>MM. - Messieurs</option>
+                			<option value="6" <?php if($_SESSION['shippingAddressTitle'] == "6") echo "selected";?>>Vve - Veuve</option>
+                			<option value="7" <?php if($_SESSION['shippingAddressTitle'] == "7") echo "selected";?>>Dr - Docteur</option>
+                			<option value="8" <?php if($_SESSION['shippingAddressTitle'] == "8") echo "selected";?>>Drs - Docteurs</option>
+                			<option value="9" <?php if($_SESSION['shippingAddressTitle'] == "9") echo "selected";?>>Pr - Professeur</option>
+                			<option value="10" <?php if($_SESSION['shippingAddressTitle'] == "10") echo "selected";?>>Me - Ma&icirc;tre</option>
+                			<option value="11" <?php if($_SESSION['shippingAddressTitle'] == "11") echo "selected";?>>Mes - Ma&icirc;tres</option>
+                			<option value="12" <?php if($_SESSION['shippingAddressTitle'] == "12") echo "selected";?>>Mgr - Monseigneur</option>
+                		</select>
 			        </div>
 			        <div class="row">
 			            <label for="shippingAddressFirstName">First name</label>
