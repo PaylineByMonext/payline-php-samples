@@ -29,6 +29,16 @@ form.payline-form {
 	line-height: 1.5em;
 	width: 150px;
 }
+
+.loadConfLabel {
+	color: red;
+}
+
+.loadConfList {
+	color: red !important;
+	background: #eee !important;
+}
+
 .payline-form input, .payline-form select, .payline-form textarea {
 	background: #ddd;
 	border: 1px solid #575757;

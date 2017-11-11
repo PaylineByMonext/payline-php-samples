@@ -1,9 +1,7 @@
 <?php
-$i = 0;
-foreach ($_POST['privateDataKey'] as $privateDataKey) {
+for($i=1;$i<9;$i++){
     $privateData = array();
-    $privateData['key'] = $privateDataKey;
-    $privateData['value'] = $_POST['privateDataValue'][$i];
+    $privateData['key'] = $_POST['privateDataKey0'.$i];
+    $privateData['value'] = $_POST['privateDataValue0'.$i];
     $payline->addPrivateData($privateData);
-    $i ++;
 }
