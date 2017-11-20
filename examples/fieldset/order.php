@@ -42,7 +42,7 @@
 	</div>
 	<div class="row" <?php if(in_array($displayedPage,array('widgetPayment','configuration'))) echo "style='display:none'";?>>
 		<label for="orderRef">Order reference</label>
-		<input type="text" name="orderRef" id="orderRef" value="<?php echo 'PHP-'.time()?>" />
+		<input type="text" name="orderRef" id="orderRef" value="<?php echo 'PHP'.time()?>" />
 		<span class="help">(required)</span>
 	</div>
 	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>

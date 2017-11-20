@@ -3,7 +3,7 @@
 		<h4>Do Web Payment minimal informations</h4>
 		<div class="row">
 			<label for="ref">Order reference</label>
-			<input type="text" name="ref" id="ref" value="<?php echo 'PHP-'.time()?>">
+			<input type="text" name="ref" id="ref" value="<?php echo 'PHP'.time()?>">
 			<span class="help">(required)</span>
 		</div>
 		<div class="row">

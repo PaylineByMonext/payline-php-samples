@@ -138,7 +138,7 @@ if(isset($response) && $response['result']['code'] == '00000'){
 	    echo "<script type='text/javascript'>document.location.href='".$response['redirectURL']."';</script>";	    
 	} else { // affichage du wigdet
 	    echo "<span>&nbsp;</span>";
-        echo "<div id='PaylineWidget' data-token='".$response['token']."' data-template='".$_POST['data-template']."' ></div>";
+        echo "<div id='PaylineWidget' data-token='".$response['token']."' data-template='".$_POST['data-template']."' data-event-didshowstate='customStates'></div>";
 	}
 } elseif(isset($response)) {
     echo '<span>ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' </span>';

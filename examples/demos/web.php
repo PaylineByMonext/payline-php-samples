@@ -239,6 +239,16 @@
                 }
             });
         }
+
+        function customStates(state){
+            Payline.jQuery('#pl-container-lightbox-close').click(function (e) {
+                alert('sur cette page la fermeture de la lightbox annule la session de paiement (utilisation de data-event-didshowstate, voir la source)');
+                var actionUrl = Payline.Models.Contexts.ContextManager.getCurrentContext().getCancelUrl();
+                Payline.Api.endToken(null, function() {
+                    window.location.href = actionUrl;
+                }, null, false);
+            });
+    	}  
         
         </script>
         <!--SCRIPTS END-->

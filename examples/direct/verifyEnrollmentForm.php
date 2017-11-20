@@ -9,7 +9,7 @@
 		<fieldset>
 			<div class="row">
 				<label for="orderRef">Order reference</label>
-				<input type="text" name="orderRef" id="orderRef" value="<?php echo 'PHP-'.time()?>">
+				<input type="text" name="orderRef" id="orderRef" value="<?php echo 'PHP'.time()?>">
 			</div>
 		</fieldset>
 		<fieldset>

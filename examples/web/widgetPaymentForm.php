@@ -12,7 +12,7 @@ $array['payment']['action'] = $_SESSION['PAYMENT_ACTION'];
 $array['payment']['mode'] = $_SESSION['PAYMENT_MODE'];
 
 // ORDER
-$array['order']['ref'] = 'PHP-'.time();
+$array['order']['ref'] = 'PHP'.time();
 $array['order']['amount'] = $array['payment']['amount'];
 $array['order']['currency'] = $array['payment']['currency'];
 $array['order']['date'] = date('d/m/Y H:i');
