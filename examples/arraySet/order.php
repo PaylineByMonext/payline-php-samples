@@ -13,17 +13,8 @@ $array['order']['deliveryExpectedDate'] = $_POST['deliveryExpectedDate'];
 $array['order']['deliveryExpectedDelay'] = $_POST['deliveryExpectedDelay'];
 
 // ORDER DETAILS
-if($_POST['orderDetailRef1'] != '' && 
-$_POST['orderDetailPrice1'] != '' && 
-$_POST['orderDetailQuantity1'] != '' && 
-$_POST['orderDetailComment1'] != '' && 
-$_POST['orderDetailCategory1'] != '' && 
-$_POST['orderDetailBrand1'] != '' && 
-$_POST['orderDetailSubcategory1_1'] != '' && 
-$_POST['orderDetailSubcategory2_1'] != '' && 
-$_POST['orderDetailAdditionalData1'] != '' && 
-$_POST['orderDetailTaxRate1']){
-$item1 = array();
+if($_POST['orderDetailRef1'] != '' && $_POST['orderDetailPrice1'] != ''){
+    $item1 = array();
     $item1['ref'] = $_POST['orderDetailRef1'];
     $item1['price'] = $_POST['orderDetailPrice1'];
     $item1['quantity'] = $_POST['orderDetailQuantity1'];
@@ -37,16 +28,7 @@ $item1 = array();
     $payline->addOrderDetail($item1);
 }
 
-if($_POST['orderDetailRef2'] != '' && 
-$_POST['orderDetailPrice2'] != '' && 
-$_POST['orderDetailQuantity2'] != '' && 
-$_POST['orderDetailComment2'] != '' && 
-$_POST['orderDetailCategory2'] != '' && 
-$_POST['orderDetailBrand2'] != '' && 
-$_POST['orderDetailSubcategory1_2'] != '' && 
-$_POST['orderDetailSubcategory2_2'] != '' && 
-$_POST['orderDetailAdditionalData2'] != '' && 
-$_POST['orderDetailTaxRate2']){
+if($_POST['orderDetailRef2'] != '' && $_POST['orderDetailPrice2'] != '' ){
     $item2 = array();
     $item2['ref'] = $_POST['orderDetailRef2'];
     $item2['price'] = $_POST['orderDetailPrice2'];
