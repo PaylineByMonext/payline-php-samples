@@ -2,7 +2,7 @@
     use Payline\PaylineSDK;
    	include "../../include.php";
 	$array = array(
-		'doWebPayment',
+		//'doWebPayment',
 		'fullWebPayment',
 	    'paypalExpressCheckout',
 	    'widgetPayment',
@@ -12,7 +12,7 @@
 	$selected = isset($_POST['submit']) ? $_POST['submit'] : $selected;
 
 	$links = '<h3>';
-	$links .= ( 'doWebPayment'==$selected ) ? "<a class='backtoform' href='?e=doWebPayment'>doWebPayment (light)</a> - " : "<a href='?e=doWebPayment'>doWebPayment (light)</a> - ";
+	//$links .= ( 'doWebPayment'==$selected ) ? "<a class='backtoform' href='?e=doWebPayment'>doWebPayment (light)</a> - " : "<a href='?e=doWebPayment'>doWebPayment (light)</a> - ";
 	$links .= ( 'fullWebPayment'==$selected ) ? "<a class='backtoform' href='?e=fullWebPayment'>doWebPayment (full)</a> - " : "<a href='?e=fullWebPayment'>doWebPayment (full)</a> - ";
 	$links .= ( 'widgetPayment'==$selected ) ? "<a class='backtoform' href='?e=widgetPayment'>doWebPayment (advanced widget)</a> - " : "<a href='?e=widgetPayment'>doWebPayment (advanced widget)</a> - ";
 	$links .= ( 'paypalExpressCheckout'==$selected ) ? "<a class='backtoform' href='?e=paypalExpressCheckout'>Paypal Express Checkout</a> - " : "<a href='?e=paypalExpressCheckout'>Paypal Express Checkout</a> - ";
