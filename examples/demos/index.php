@@ -38,14 +38,7 @@ $links = substr($links, 0, - 2) . '</h3>';
 				</h1>
 				<p>by Monext</p>
 			</div>
-			<ul id="menu">
-				<li><a href="index.php" class="on">Home</a></li>
-				<li><a href="web.php">Web</a></li>
-				<li><a href="direct.php">Direct</a></li>
-				<li><a href="wallet.php">Wallet</a></li>
-				<li><a href="extended.php">Extended</a></li>
-				<li><a href="ajax.php">API Ajax</a></li>
-			</ul>
+			<?php include 'tabs.html';?>
 		</div>
 	</div>
 

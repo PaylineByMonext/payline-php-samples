@@ -234,3 +234,63 @@ div#docs ol {
 	font-size: 11px;	
     margin-left: 5px;
 }
+
+span.mailpaymentstatus0 { /* 0 = initial */
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:6px;
+	padding-right:6px;
+	color: #000000;
+	border: 1px solid black;
+	font-size: 16px;
+}
+
+span.mailpaymentstatus1 { /* 1 = send mail KO */
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:6px;
+	padding-right:6px;
+	color: #FFFFFF;
+	background-color: #FF0000;
+	font-size: 16px;
+}
+
+span.mailpaymentstatus2 { /* 2 = mail sent */
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:6px;
+	padding-right:6px;
+	color: #000000;
+	background-color: #99FF99;
+	font-size: 16px;
+}
+
+span.mailpaymentstatus3 { /* 3 = payment KO */
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:6px;
+	padding-right:6px;
+	color: #FFFFFF;
+	background-color: #FF0000;
+	font-size: 16px;
+}
+
+span.mailpaymentstatus4 { /* 4 = payment OK */
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:6px;
+	padding-right:6px;
+	color: #FFFFFF;
+	background-color: #009900;
+	font-size: 16px;
+}
+
+span.mailpaymentstatus5 { /* 5 = expired */
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:6px;
+	padding-right:6px;
+	color: #FFFFFF;
+	background-color: #A20506;
+	font-size: 16px;
+}
