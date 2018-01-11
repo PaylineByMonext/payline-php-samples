@@ -10,8 +10,15 @@
 	include '../fieldset/buyer.php';
 	include '../fieldset/owner.php';
 	include '../fieldset/recurring.php';
-	include '../fieldset/merchantName.php';	
+	include '../fieldset/merchantName.php';
+	include '../fieldset/subMerchant.php';	
 	?>
+    <fieldset>
+    	<div class="row">
+            <label for="miscData">Miscelaneous data</label>
+            <input type="text" name="miscData" id="miscData" value="" />
+    	</div>
+    </fieldset>
     <fieldset>
     	<h4>Contrats</h4>
     	<div class="row">

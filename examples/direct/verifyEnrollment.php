@@ -23,6 +23,9 @@ $array['walletCardInd'] = $_POST['walletCardInd'];
 // MERCHANT NAME
 $array['merchantName'] = $_POST['merchantName'];
 
+// RETURN URL
+$array['returnURL'] = $_POST['returnURL'];
+
 // VIRTUAL CVX
 $array['generateVirtualCvx'] = $_POST['generateVirtualCvx'];
 

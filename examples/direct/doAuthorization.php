@@ -11,7 +11,8 @@ include '../arraySet/order.php';
 include '../arraySet/buyer.php';
 include '../arraySet/owner.php';
 include '../arraySet/privateDataList.php';
-include '../arraySet/authentication3DSecure.php'; 
+include '../arraySet/authentication3DSecure.php';
+include '../arraySet/subMerchant.php';  
 
 //MEDIA
 $array['media'] = $_POST['media'];

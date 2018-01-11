@@ -13,6 +13,7 @@ include '../arraySet/owner.php';
 include '../arraySet/recurring.php';
 include '../arraySet/urls.php';
 include '../arraySet/webOptions.php';
+include '../arraySet/subMerchant.php';
 
 // FIRST CONTRACT LIST
 if (isset($_POST['selectedContract'])){
@@ -34,6 +35,9 @@ if (isset($_POST['contractNumberWalletList'])){
 
 // MERCHANT NAME
 $array['merchantName'] = $_POST['merchantName'];
+
+// MISC DATA
+$array['miscData'] = $_POST['miscData'];
 
 // EXECUTE
 $response = $payline->doWebPayment($array);

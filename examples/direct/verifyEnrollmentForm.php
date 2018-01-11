@@ -38,6 +38,12 @@
 		</fieldset>
 		<fieldset>
 			<div class="row">
+				<label for="returnURL">Return URL</label>
+				<input type="text" name="returnURL" id="returnURL" value="">
+			</div>
+		</fieldset>
+		<fieldset>
+			<div class="row">
 				<label for="generateVirtualCvx">Generate virtual CVX</label>
         		<select	name="generateVirtualCvx" id="generateVirtualCvx">
         			<option value=""></option>

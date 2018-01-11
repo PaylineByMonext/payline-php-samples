@@ -10,6 +10,7 @@
 	include '../fieldset/owner.php';
 	include '../fieldset/privateDataList.php';
 	include '../fieldset/media.php';
+	include '../fieldset/subMerchant.php';
 	?>
     <input type="submit" name="submit" class="submit" value="doCredit" />
 </form>

@@ -17,7 +17,8 @@
 		'getBalance',
 		'getMerchantSettings',
 		'getToken',
-		'doBankTransfer'
+		'doBankTransfer',
+		'isRegistered'
 	);
 	$selected = isset( $_GET['e'] ) && in_array($_GET['e'], $array) ? $_GET['e'] : $array[0];
 	$selected = isset($_POST['submit']) ? $_POST['submit'] : $selected;
