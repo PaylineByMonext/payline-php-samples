@@ -99,7 +99,7 @@
 					<h1><a href="http://www.payline.com"><span>payline</span></a></h1>
 					<p>by Monext</p>
 				</div>
-				<?php include 'tabs.html';?>
+				<?php $activeTab = 'wallet'; include 'tabs.php';?>
 		  </div>
 		</div>
 

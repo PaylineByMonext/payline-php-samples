@@ -38,7 +38,7 @@ $links = substr($links, 0, - 2) . '</h3>';
 				</h1>
 				<p>by Monext</p>
 			</div>
-			<?php include 'tabs.html';?>
+			<?php $activeTab = 'home'; include 'tabs.php';?>
 		</div>
 	</div>
 
