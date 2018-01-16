@@ -82,13 +82,11 @@
 				<span class="clr"></span>
 			</div>
 		</div>
-
 		<div id="footer">
 			<div id="footer-inside">
 				<a href="http://www.monext.net/" class="copy"></a>
-				<p><?php echo PaylineSDK::SDK_RELEASE.'&nbsp;&nbsp;-&nbsp;&nbsp;copyright &copy; '.date('Y')?> <a href="http://www.monext.net/">Monext</a></p>
+				<p><a href="https://github.com/PaylineByMonext/payline-php-sdk" target="payline-php-sdk"><?php echo PaylineSDK::SDK_RELEASE?></a>&nbsp;-&nbsp;<a href="https://github.com/PaylineByMonext/payline-php-samples" target="payline-php-sample">see sources on GitHub</a></p>
 			</div>
 		</div>
-
 	</body>
 </html>	
