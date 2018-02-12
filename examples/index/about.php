@@ -4,7 +4,7 @@ use Payline\PaylineSDK;
 <ol>
 	<li><strong>Wellcome !</strong><br />
 		<p>
-			This is a demo of our <?php echo PaylineSDK::SDK_RELEASE?>, which you can download on our <a href='https://support.payline.com/hc/fr/articles/200995867-Kit-d-int%C3%A9gration-PHP' target='support'>support site</a>.
+			This is a demo of our <?php echo PaylineSDK::SDK_RELEASE?>, which you can download on <a href="https://github.com/PaylineByMonext/payline-php-samples" target="payline-php-sample">GitHub</a>.
 		</p> <br />
 	</li>
 	<li><strong>Usage</strong><br />
@@ -22,7 +22,7 @@ use Payline\PaylineSDK;
 <ol>
 	<li><strong>Bienvenue !</strong><br />
 		<p>
-			Ceci est une d&eacute;monstration du kit <?php echo PaylineSDK::SDK_RELEASE?> que vous pouvez t&eacute;l&eacute;charger sur notre <a href='https://support.payline.com/hc/fr/articles/200995867-Kit-d-int%C3%A9gration-PHP' target='support'>site support</a>.
+			Ceci est une d&eacute;monstration du kit <?php echo PaylineSDK::SDK_RELEASE?> que vous pouvez t&eacute;l&eacute;charger sur <a href="https://github.com/PaylineByMonext/payline-php-samples" target="payline-php-sample">GitHub</a>.
 		</p> <br />
 	</li>
 	<li><strong>Utilisation</strong><br />

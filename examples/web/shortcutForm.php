@@ -1,4 +1,4 @@
-<form action="../demos/web.php?e=paypalExpressCheckout" method="post" class="payline-form">
+<form action="../demos/web.php?e=shortcut" method="post" class="payline-form">
 	<fieldset>
 		<h4>Do Web Payment minimal informations</h4>
 		<div class="row">
@@ -26,5 +26,5 @@
 		</div>
 	</fieldset>
 	<fieldset>
-	<input type="submit" name="submit" class="submit" value="paypalExpressCheckout">
+	<input type="submit" name="submit" class="submit" value="shortcut">
 </form>

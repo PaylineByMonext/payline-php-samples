@@ -4,7 +4,7 @@
 	$array = array(
 		//'doWebPayment',
 		'fullWebPayment',
-	    'paypalExpressCheckout',
+	    'shortcut',
 	    'widgetPayment',
 		'getWebPaymentDetails'
 	);
@@ -15,7 +15,7 @@
 	//$links .= ( 'doWebPayment'==$selected ) ? "<a class='backtoform' href='?e=doWebPayment'>doWebPayment (light)</a> - " : "<a href='?e=doWebPayment'>doWebPayment (light)</a> - ";
 	$links .= ( 'fullWebPayment'==$selected ) ? "<a class='backtoform' href='?e=fullWebPayment'>doWebPayment (full)</a> - " : "<a href='?e=fullWebPayment'>doWebPayment (full)</a> - ";
 	$links .= ( 'widgetPayment'==$selected ) ? "<a class='backtoform' href='?e=widgetPayment'>doWebPayment (advanced widget)</a> - " : "<a href='?e=widgetPayment'>doWebPayment (advanced widget)</a> - ";
-	$links .= ( 'paypalExpressCheckout'==$selected ) ? "<a class='backtoform' href='?e=paypalExpressCheckout'>Paypal Express Checkout</a> - " : "<a href='?e=paypalExpressCheckout'>Paypal Express Checkout</a> - ";
+	$links .= ( 'shortcut'==$selected ) ? "<a class='backtoform' href='?e=shortcut'>Payment shortcut</a> - " : "<a href='?e=shortcut'>Payment shortcut</a> - ";
 	$links .= ( 'getWebPaymentDetails'==$selected ) ? "<a class='backtoform' href='?e=getWebPaymentDetails'>getWebPaymentDetails</a>" : "<a href='?e=getWebPaymentDetails'>getWebPaymentDetails</a>";
 	$links .= '</h3>';
 		
@@ -212,7 +212,7 @@
             		shippingCost = document.getElementsByName('shippingOption')[i].value;
         		}
         	}
-        	var finalPaymentAmount = parseInt(shippingCost)+parseInt(document.getElementById("paypalExpressCheckoutAmount").value);
+        	var finalPaymentAmount = parseInt(shippingCost)+parseInt(document.getElementById("shortcutAmount").value);
         	
             var datasPayline = {
         		'payment':{
@@ -235,7 +235,7 @@
                 if(response.status != 200) {
                     alert("Error occured at Payline.Api.updateWebpaymentData (code "+response.status+")");
                 } else {
-                	Payline.Api.finalizeFastCheckout();
+                	Payline.Api.finalizeShortcut();
                 }
             });
         }
