@@ -18,10 +18,10 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<h4>Paypal informations</h4>
+		<h4>Payment informations</h4>
 		<div class="row">
-			<label for="ref">Paypal contract number</label>
-			<input type="text" name="paypalContractNumber" id="paypalContractNumber" value="">
+			<label for="ref">Contract number</label>
+			<input type="text" name="shortcutContractNumber" id="shortcutContractNumber" value="">
 			<span class="help">(required)</span>
 		</div>
 	</fieldset>

@@ -54,8 +54,8 @@ if(isset($_POST['submit'])){ // display Paypal button
     $payline->addOrderDetail($item2);
     
     // CONTRACT NUMBERS
-    $array['payment']['contractNumber'] = $_POST['paypalContractNumber'];
-    $contracts = explode(";",$_POST['paypalContractNumber']);
+    $array['payment']['contractNumber'] = $_POST['shortcutContractNumber'];
+    $contracts = explode(";",$array['payment']['contractNumber']);
     $array['contracts'] = $contracts;
     $array['secondContracts'] = null;
     $array['walletContracts'] = null;
@@ -136,6 +136,7 @@ if(isset($_POST['submit'])){ // display Paypal button
     // EXECUTE
     $response = $payline->doWebPayment($array);
     if(isset($response) && $response['result']['code'] == '00000'){
+        $_SESSION['shortCutToken'] = $response['token'];
         echo "<span>&nbsp;</span>";
         echo "<div id='PaylineWidget' data-token='".$response['token']."' data-template='shortcut' data-event-didshowstate='showStateFunction'></div>";
     } elseif(isset($response)) {
@@ -146,7 +147,7 @@ if(isset($_POST['submit'])){ // display Paypal button
     <form class="payline-form">
     	<input type='hidden' name='shortcutAmount' id='shortcutAmount' value= '<?php echo $_SESSION['shortcutAmount']; ?>'/>
         <fieldset>
-        <h4>Information retrieved from Paypal</h4>
+        <h4>Information retrieved from Partner</h4>
         	<div class="row">
         		<label for="paypalBuyerFirstName">First name</label>
         		<input type='text' name='paypalBuyerFirstName' id='paypalBuyerFirstName' />
@@ -196,9 +197,10 @@ if(isset($_POST['submit'])){ // display Paypal button
         	</div>
         </fieldset>
     </form>
-    <div id='PaylineWidget' data-token='<?php echo $_GET['paylinetoken'];?>' data-template='shortcut' data-event-didshowstate='showStateFunction'></div>
+    
+    <div id='PaylineWidget' data-token='<?php echo $_SESSION['shortCutToken'];?>' data-template='shortcut' data-event-didshowstate='showStateFunction'></div>
     <div class='PaylineWidget pl-pay-btn-container' style='text-align:center;'>
-    <button class='PaylineWidget pl-pay-btn' type='button' onclick="finalizeExpressCheckout('<?php echo $_GET['paylinetoken'];?>');">Finalize checkout</button>
+    <button class='PaylineWidget pl-pay-btn' type='button' onclick="finalizeExpressCheckout('<?php echo $_SESSION['shortCutToken'];?>');">Finalize checkout</button>
     </div>
     <?php
 }
