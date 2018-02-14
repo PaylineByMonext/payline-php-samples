@@ -2,7 +2,7 @@
 include '../initSDK.php';
 use Payline\PaylineSDK;
 
-if(isset($_POST['submit'])){ // display Paypal button
+if(isset($_POST['submit']) && $_SESSION['shortcutBackFromPartner'] == 0) { // display Paypal button
     
     //VERSION
     $array['version'] = $_SESSION['WS_VERSION'];
@@ -142,7 +142,7 @@ if(isset($_POST['submit'])){ // display Paypal button
     } elseif(isset($response)) {
         echo '<span>ERROR : '.$response['result']['code']. ' '.$response['result']['longMessage'].' </span>';
     }
-}else{ // back from Paypal pages
+}else{ // back from partner pages
     ?>
     <form class="payline-form">
     	<input type='hidden' name='shortcutAmount' id='shortcutAmount' value= '<?php echo $_SESSION['shortcutAmount']; ?>'/>
@@ -181,6 +181,7 @@ if(isset($_POST['submit'])){ // display Paypal button
         		<input type='text' name='paypalBuyerCountry' id='paypalBuyerCountry' />
         	</div>
         </fieldset>
+        <!--
         <fieldset>        	
         	<h4>Choose your shipping option</h4>        	
         	<div class="row">
@@ -196,11 +197,12 @@ if(isset($_POST['submit'])){ // display Paypal button
     			<label for="shippingOption3">Express (5.99&euro;)</label>
         	</div>
         </fieldset>
+        -->
     </form>
     
     <div id='PaylineWidget' data-token='<?php echo $_SESSION['shortCutToken'];?>' data-template='shortcut' data-event-didshowstate='showStateFunction'></div>
     <div class='PaylineWidget pl-pay-btn-container' style='text-align:center;'>
-    <button class='PaylineWidget pl-pay-btn' type='button' onclick="finalizeExpressCheckout('<?php echo $_SESSION['shortCutToken'];?>');">Finalize checkout</button>
+    <button class='PaylineWidget pl-pay-btn' type='button' onclick="Payline.Api.finalizeShortcut();">Finalize checkout</button>
     </div>
     <?php
 }

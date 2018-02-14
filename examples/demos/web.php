@@ -9,6 +9,11 @@
 		'getWebPaymentDetails'
 	);
 	$selected = isset( $_GET['e'] ) && in_array($_GET['e'], $array) ? $_GET['e'] : $array[0];
+	$_SESSION['shortcutBackFromPartner'] = 0;
+	if(!isset($_GET['e']) && !isset($_POST['submit'])) { // no param => back from Amazon Shortcut 
+	    $_POST['submit'] = 'shortcut';
+	    $_SESSION['shortcutBackFromPartner'] = 1;
+	}
 	$selected = isset($_POST['submit']) ? $_POST['submit'] : $selected;
 
 	$links = '<h3>';
@@ -185,11 +190,11 @@
         }
 
         function showStateFunction(state) {  
-            if ("PAYMENT_METHODS_LIST_FAST_CHECKOUT" == state.state) {
+            if ("PAYMENT_METHODS_LIST_SHORTCUT" == state.state) {
             	// specific process if needed
             }
-            if ("PAYMENT_TRANSITIONAL_FAST_CHECKOUT" == state.state) {
-            	var buyer = Payline.Api.getBuyerFastCheckout();
+            if ("PAYMENT_TRANSITIONAL_SHORTCUT" == state.state) {
+            	var buyer = Payline.Api.getBuyerShortcut();
             	document.getElementById("paypalBuyerEmail").value =  buyer.email;
             	document.getElementById("paypalBuyerFirstName").value = buyer.firstName;
             	document.getElementById("paypalBuyerLastName").value = buyer.lastName;
@@ -219,17 +224,7 @@
             	    'amount':finalPaymentAmount
             	},'order':{
             	    'amount':finalPaymentAmount
-            	},'buyer':{
-                	'shippingAddress':{
-                    	'lastName':document.getElementById('paypalBuyerLastName').value,
-                    	'firstName':document.getElementById('paypalBuyerFirstName').value,
-                    	'street1':document.getElementById('paypalBuyerStreet1').value,
-                    	'street2':document.getElementById('paypalBuyerStreet2').value,
-                    	'cityName':document.getElementById('paypalBuyerCity').value,
-                    	'zipCode':document.getElementById('paypalBuyerZipcode').value,
-                    	'country':document.getElementById('paypalBuyerCountry').value
-                    }
-                }
+            	}
             };
             Payline.Api.updateWebpaymentData(token, datasPayline, function (response) {
                 if(response.status != 200) {
