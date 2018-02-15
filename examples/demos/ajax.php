@@ -174,31 +174,35 @@
                             	$doAuthorizationRequest['order']['deliveryMode'] = $_SESSION['deliveryMode'];
                             	
                             	// ORDER DETAILS
-                            	$item1 = array();
-                            	$item1['ref'] = $_SESSION['orderDetailRef1'];
-                            	$item1['price'] = $_SESSION['orderDetailPrice1'];
-                            	$item1['quantity'] = $_SESSION['orderDetailQuantity1'];
-                            	$item1['comment'] = $_SESSION['orderDetailComment1'];
-                            	$item1['category'] = $_SESSION['orderDetailCategory1'];
-                            	$item1['brand'] = $_SESSION['orderDetailBrand1'];
-                            	$item1['subcategory1'] = $_SESSION['orderDetailSubcategory1_1'];
-                            	$item1['subcategory2'] = $_SESSION['orderDetailSubcategory2_1'];
-                            	$item1['additionalData'] = $_SESSION['orderDetailAdditionalData1'];
-                            	$item1['taxRate'] = $_SESSION['orderDetailTaxRate1'];
-                            	$payline->addOrderDetail($item1);
+                            	if(isset($_SESSION['orderDetailRef1']) && $_SESSION['orderDetailRef1'] != ''){
+                                	$item1 = array();
+                                	$item1['ref'] = $_SESSION['orderDetailRef1'];
+                                	$item1['price'] = $_SESSION['orderDetailPrice1'];
+                                	$item1['quantity'] = $_SESSION['orderDetailQuantity1'];
+                                	$item1['comment'] = $_SESSION['orderDetailComment1'];
+                                	$item1['category'] = $_SESSION['orderDetailCategory1'];
+                                	$item1['brand'] = $_SESSION['orderDetailBrand1'];
+                                	$item1['subcategory1'] = $_SESSION['orderDetailSubcategory1_1'];
+                                	$item1['subcategory2'] = $_SESSION['orderDetailSubcategory2_1'];
+                                	$item1['additionalData'] = $_SESSION['orderDetailAdditionalData1'];
+                                	$item1['taxRate'] = $_SESSION['orderDetailTaxRate1'];
+                                	$payline->addOrderDetail($item1);
+                            	}
                             	
-                            	$item2 = array();
-                            	$item2['ref'] = $_SESSION['orderDetailRef2'];
-                            	$item2['price'] = $_SESSION['orderDetailPrice2'];
-                            	$item2['quantity'] = $_SESSION['orderDetailQuantity2'];
-                            	$item2['comment'] = $_SESSION['orderDetailComment2'];
-                            	$item2['category'] = $_SESSION['orderDetailCategory2'];
-                            	$item2['brand'] = $_SESSION['orderDetailBrand2'];
-                            	$item2['subcategory1'] = $_SESSION['orderDetailSubcategory1_2'];
-                            	$item2['subcategory2'] = $_SESSION['orderDetailSubcategory2_2'];
-                            	$item2['additionalData'] = $_SESSION['orderDetailAdditionalData2'];
-                            	$item2['taxRate'] = $_SESSION['orderDetailTaxRate2'];
-                            	$payline->addOrderDetail($item2);
+                            	if(isset($_SESSION['orderDetailRef2']) && $_SESSION['orderDetailRef2'] != ''){
+                                	$item2 = array();
+                                	$item2['ref'] = $_SESSION['orderDetailRef2'];
+                                	$item2['price'] = $_SESSION['orderDetailPrice2'];
+                                	$item2['quantity'] = $_SESSION['orderDetailQuantity2'];
+                                	$item2['comment'] = $_SESSION['orderDetailComment2'];
+                                	$item2['category'] = $_SESSION['orderDetailCategory2'];
+                                	$item2['brand'] = $_SESSION['orderDetailBrand2'];
+                                	$item2['subcategory1'] = $_SESSION['orderDetailSubcategory1_2'];
+                                	$item2['subcategory2'] = $_SESSION['orderDetailSubcategory2_2'];
+                                	$item2['additionalData'] = $_SESSION['orderDetailAdditionalData2'];
+                                	$item2['taxRate'] = $_SESSION['orderDetailTaxRate2'];
+                                	$payline->addOrderDetail($item2);
+                            	}
 								
 								// BUYER
 								$doAuthorizationRequest['buyer']['legalStatus'] = $_SESSION['buyerLegalStatus'];
@@ -304,31 +308,35 @@
                     	$doAuthorization3DSRequest['order']['deliveryMode'] = $_SESSION['deliveryMode'];
                     	
                     	// ORDER DETAILS
-                    	$item1 = array();
-                    	$item1['ref'] = $_SESSION['orderDetailRef1'];
-                    	$item1['price'] = $_SESSION['orderDetailPrice1'];
-                    	$item1['quantity'] = $_SESSION['orderDetailQuantity1'];
-                    	$item1['comment'] = $_SESSION['orderDetailComment1'];
-                    	$item1['category'] = $_SESSION['orderDetailCategory1'];
-                    	$item1['brand'] = $_SESSION['orderDetailBrand1'];
-                    	$item1['subcategory1'] = $_SESSION['orderDetailSubcategory1_1'];
-                    	$item1['subcategory2'] = $_SESSION['orderDetailSubcategory2_1'];
-                    	$item1['additionalData'] = $_SESSION['orderDetailAdditionalData1'];
-                    	$item1['taxRate'] = $_SESSION['orderDetailTaxRate1'];
-                    	$payline->addOrderDetail($item1);
+                    	if(isset($_SESSION['orderDetailRef1']) && $_SESSION['orderDetailRef1'] != ''){
+                        	$item1 = array();
+                        	$item1['ref'] = $_SESSION['orderDetailRef1'];
+                        	$item1['price'] = $_SESSION['orderDetailPrice1'];
+                        	$item1['quantity'] = $_SESSION['orderDetailQuantity1'];
+                        	$item1['comment'] = $_SESSION['orderDetailComment1'];
+                        	$item1['category'] = $_SESSION['orderDetailCategory1'];
+                        	$item1['brand'] = $_SESSION['orderDetailBrand1'];
+                        	$item1['subcategory1'] = $_SESSION['orderDetailSubcategory1_1'];
+                        	$item1['subcategory2'] = $_SESSION['orderDetailSubcategory2_1'];
+                        	$item1['additionalData'] = $_SESSION['orderDetailAdditionalData1'];
+                        	$item1['taxRate'] = $_SESSION['orderDetailTaxRate1'];
+                        	$payline->addOrderDetail($item1);
+                    	}
                     	
-                    	$item2 = array();
-                    	$item2['ref'] = $_SESSION['orderDetailRef2'];
-                    	$item2['price'] = $_SESSION['orderDetailPrice2'];
-                    	$item2['quantity'] = $_SESSION['orderDetailQuantity2'];
-                    	$item2['comment'] = $_SESSION['orderDetailComment2'];
-                    	$item2['category'] = $_SESSION['orderDetailCategory2'];
-                    	$item2['brand'] = $_SESSION['orderDetailBrand2'];
-                    	$item2['subcategory1'] = $_SESSION['orderDetailSubcategory1_2'];
-                    	$item2['subcategory2'] = $_SESSION['orderDetailSubcategory2_2'];
-                    	$item2['additionalData'] = $_SESSION['orderDetailAdditionalData2'];
-                    	$item2['taxRate'] = $_SESSION['orderDetailTaxRate2'];
-                    	$payline->addOrderDetail($item2);
+                    	if(isset($_SESSION['orderDetailRef2']) && $_SESSION['orderDetailRef2'] != ''){
+                        	$item2 = array();
+                        	$item2['ref'] = $_SESSION['orderDetailRef2'];
+                        	$item2['price'] = $_SESSION['orderDetailPrice2'];
+                        	$item2['quantity'] = $_SESSION['orderDetailQuantity2'];
+                        	$item2['comment'] = $_SESSION['orderDetailComment2'];
+                        	$item2['category'] = $_SESSION['orderDetailCategory2'];
+                        	$item2['brand'] = $_SESSION['orderDetailBrand2'];
+                        	$item2['subcategory1'] = $_SESSION['orderDetailSubcategory1_2'];
+                        	$item2['subcategory2'] = $_SESSION['orderDetailSubcategory2_2'];
+                        	$item2['additionalData'] = $_SESSION['orderDetailAdditionalData2'];
+                        	$item2['taxRate'] = $_SESSION['orderDetailTaxRate2'];
+                        	$payline->addOrderDetail($item2);
+                    	}
                     	
                     	// BUYER
                     	$doAuthorization3DSRequest['buyer']['legalStatus'] = $_SESSION['buyerLegalStatus'];
