@@ -241,7 +241,7 @@
                 var actionUrl = Payline.Models.Contexts.ContextManager.getCurrentContext().getCancelUrl();
                 Payline.Api.endToken(null, function() {
                     window.location.href = actionUrl;
-                }, null, false);
+                }, null, true);
             });
     	}  
         

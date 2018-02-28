@@ -7,7 +7,7 @@
 		</div>
 		<div class="row">
 			<label for="orderRef">Order reference</label>
-			<input type="text" name="orderRef" id="orderRef" value="<?php echo 'AJAX-'.time()?>">
+			<input type="text" name="orderRef" id="orderRef" value="<?php echo 'AJAX'.time()?>">
 			<span class="help">(required)</span>
 		</div>
 		<div class="row">
