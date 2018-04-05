@@ -41,9 +41,12 @@ $array['miscData'] = $_POST['miscData'];
 
 // EXECUTE
 $response = $payline->doWebPayment($array);
+unset($_SESSION['webPaymentToken']);
+unset($_SESSION['shortCutToken']);
 
 // RESPONSE
 if(isset($response) && $response['result']['code'] == '00000'){
+    $_SESSION['webPaymentToken'] = $response['token'];
 	if ($_POST['data-template']=="redirect") {
 	    echo "<span>Redirect to secure page...</span><br/>";
 	    echo "<span>If redirect fails clic <a href='".$response['redirectURL']."'>here</a></span>";

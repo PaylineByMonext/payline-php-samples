@@ -10,9 +10,11 @@
 	);
 	$selected = isset( $_GET['e'] ) && in_array($_GET['e'], $array) ? $_GET['e'] : $array[0];
 	$_SESSION['shortcutBackFromPartner'] = 0;
-	if(!isset($_GET['e']) && !isset($_POST['submit'])) { // no param => back from Amazon Shortcut 
-	    $_POST['submit'] = 'shortcut';
-	    $_SESSION['shortcutBackFromPartner'] = 1;
+	if(!isset($_GET['e']) && !isset($_POST['submit'])) { // no param => back from Amazon Shortcut
+	    if(isset($_SESSION['shortCutToken'])){
+	        $_POST['submit'] = 'shortcut';
+	        $_SESSION['shortcutBackFromPartner'] = 1;
+	    }
 	}
 	$selected = isset($_POST['submit']) ? $_POST['submit'] : $selected;
 
@@ -275,6 +277,8 @@
 					    include('../web/'.$_GET['e'].'.php');
 					}elseif(isset($_GET['paylinetoken']) && !isset($_GET['e'])){// retour depuis un partenaire (Paypal...) => affichage du step3 dans le wigdet
                         echo "<div id='PaylineWidget' data-token='".$_GET['paylinetoken']."'></div>";
+					}elseif(isset($_SESSION['webPaymentToken']) && !isset($_GET['e'])){// retour depuis une authentification avec un partenaire type shortCut
+                        echo "<div id='PaylineWidget' data-token='".$_SESSION['webPaymentToken']."'></div>";
 					}else{
 						?>
 						<div id="demo">

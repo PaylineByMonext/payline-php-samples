@@ -1,5 +1,6 @@
 <fieldset>
 	<h4>Web payment URL's</h4>
+	<h4 style="font-family: Courier New;">Default value : <?php echo $_SESSION['KIT_ROOT'] . 'examples/demos/web.php?e=getWebPaymentDetails';?></h4><br/>
 	<div class="row">
 		<label for="notificationURL">Notification url</label>
 		<input type="text" name="notificationURL" id="notificationURL" value="<?php echo $_SESSION['NOTIFICATION_URL']?>">
