@@ -17,6 +17,8 @@ include '../arraySet/subMerchant.php';
 //MEDIA
 $array['media'] = $_POST['media'];
 
+$array['asynchronousRetryTimeout'] = $_POST['asynchronousRetryTimeout'];
+
 // RESPONSE
 $response = $payline->doAuthorization($array);
 if(isset($response['transaction']['id'])){

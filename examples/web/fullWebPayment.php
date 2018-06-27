@@ -15,6 +15,8 @@ include '../arraySet/urls.php';
 include '../arraySet/webOptions.php';
 include '../arraySet/subMerchant.php';
 
+$array['asynchronousRetryTimeout'] = $_POST['asynchronousRetryTimeout'];
+
 // FIRST CONTRACT LIST
 if (isset($_POST['selectedContract'])){
 	$contracts = explode(";",$_POST['selectedContract']);

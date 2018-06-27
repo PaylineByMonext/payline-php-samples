@@ -13,5 +13,11 @@
 	include '../fieldset/media.php';
 	include '../fieldset/subMerchant.php';
 	?>
+    <fieldset>
+    	<div class="row">
+            <label for="asynchronousRetryTimeout">Retry timeout</label>
+            <input type="text" name="asynchronousRetryTimeout" id="asynchronousRetryTimeout" value="" />
+    	</div>
+    </fieldset>
     <input type="submit" name="submit" class="submit" value="doAuthorization" />
 </form>

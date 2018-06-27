@@ -277,6 +277,10 @@
 		<label for="deliveryExpectedDelay">Expected delivery delay</label>
 		<input type="text" name="deliveryExpectedDelay" id="deliveryExpectedDelay" value="4" />
 	</div>
+	<div class="row" <?php if($displayedPage == 'configuration') echo "style='display:none'";?>>
+		<label for="deliveryCharge">Delivery charge</label>
+		<input type="text" name="deliveryCharge" id="deliveryCharge" value="" />
+	</div>
 	<div class="row">
 		<h5>Order details</h5>
     </div>

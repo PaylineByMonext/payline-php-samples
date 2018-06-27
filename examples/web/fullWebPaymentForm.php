@@ -20,6 +20,12 @@
     	</div>
     </fieldset>
     <fieldset>
+    	<div class="row">
+            <label for="asynchronousRetryTimeout">Retry timeout</label>
+            <input type="text" name="asynchronousRetryTimeout" id="asynchronousRetryTimeout" value="" />
+    	</div>
+    </fieldset>
+    <fieldset>
     	<h4>Contrats</h4>
     	<div class="row">
             <label for="selectedContract">Selected contract list</label>
