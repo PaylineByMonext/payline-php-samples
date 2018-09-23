@@ -47,7 +47,7 @@
 	</div>
 	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="orderOrigin">Order origin</label>
-		<input type="text" name="orderOrigin" id="orderOrigin" value="<?php echo $_SESSION['orderOrigin'] ?>" maxlength="3" />
+		<input type="text" name="orderOrigin" id="orderOrigin" value="<?php echo $_SESSION['orderOrigin'] ?>" />
 	</div>
 	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="orderCountry">Order country</label>
