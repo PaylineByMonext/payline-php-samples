@@ -92,7 +92,7 @@
 		<input type="text" name="buyerFirstName" id="buyerFirstName" value="<?php echo $_SESSION['buyerFirstName'] ?>" />
 		<span class="help">(required unique wallet ID if is set)</span>
 	</div>
-	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
+	<div class="row">
 		<label for="buyerEmail">email</label>
 		<input type="text" name="buyerEmail" id="buyerEmail" value="<?php echo $_SESSION['buyerEmail'] ?>" />
 	</div>

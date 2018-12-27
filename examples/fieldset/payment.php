@@ -9,10 +9,10 @@
 	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="paymentMode">Payment mode</label>
 		<select	name="paymentMode" id="paymentMode">
-			<option value="CPT" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment')) && strcmp ("CPT",$_SESSION['PAYMENT_MODE']) == 0) echo "selected"; ?>>CPT (Comptant)</option>
-			<option value="DIF" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment')) && strcmp ("DIF",$_SESSION['PAYMENT_MODE']) == 0) echo "selected"; ?>>DIF (Diff&#233;r&#233;)</option>
-			<option value="NX" <?php if(in_array($displayedPage, array('fullWebPayment','doScheduledWalletPayment')) && strcmp ("NX",$_SESSION['PAYMENT_MODE']) == 0) echo "selected"; ?>>NX (N fois)</option>
-			<option value="REC" <?php if((in_array($displayedPage, array('fullWebPayment')) && strcmp ("REC",$_SESSION['PAYMENT_MODE']) == 0) ||  $displayedPage == 'doRecurrentWalletPayment') echo "selected"; ?>>REC (R&#233;current)</option>			
+			<option value="CPT" <?php if(in_array($displayedPage, array('doWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment')) && strcmp ("CPT",$_SESSION['PAYMENT_MODE']) == 0) echo "selected"; ?>>CPT (Comptant)</option>
+			<option value="DIF" <?php if(in_array($displayedPage, array('doWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment')) && strcmp ("DIF",$_SESSION['PAYMENT_MODE']) == 0) echo "selected"; ?>>DIF (Diff&#233;r&#233;)</option>
+			<option value="NX" <?php if(in_array($displayedPage, array('doWebPayment','doScheduledWalletPayment')) && strcmp ("NX",$_SESSION['PAYMENT_MODE']) == 0) echo "selected"; ?>>NX (N fois)</option>
+			<option value="REC" <?php if((in_array($displayedPage, array('doWebPayment')) && strcmp ("REC",$_SESSION['PAYMENT_MODE']) == 0) ||  $displayedPage == 'doRecurrentWalletPayment') echo "selected"; ?>>REC (R&#233;current)</option>			
 			<option value="001">001 (PASS Comptant)</option>			
 			<option value="002">002 (PASS Crédit)</option>			
 			<option value="003">003 (PASS Epargne)</option>			
@@ -26,13 +26,13 @@
 	<div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
 		<label for="paymentAction">Payment action</label>
     	<select name="paymentAction" id="paymentAction">
-			<option value="100" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment','doRecurrentWalletPayment')) && strcmp ("100",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>100 (Autorisation)</option>
-			<option value="101" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment','doRecurrentWalletPayment')) && strcmp ("101",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>101 (Autorisation+Validation)</option>
+			<option value="100" <?php if(in_array($displayedPage, array('doWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment','doRecurrentWalletPayment')) && strcmp ("100",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>100 (Autorisation)</option>
+			<option value="101" <?php if(in_array($displayedPage, array('doWebPayment','doAuthorization','doImmediateWalletPayment','doScheduledWalletPayment','doRecurrentWalletPayment')) && strcmp ("101",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>101 (Autorisation+Validation)</option>
 			<option value="108">108 (Demande information)</option>
-			<option value="110" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization')) && strcmp ("110",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>110 (Autorisation REC - enregistrement CVV)</option>
-			<option value="111" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization')) && strcmp ("111",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>111 (Autorisation+Validation REC - enregistrement CVV)</option>
-			<option value="120" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization')) && strcmp ("120",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>120 (Autorisation sans CVV)</option>
-			<option value="121" <?php if(in_array($displayedPage, array('fullWebPayment','doAuthorization')) && strcmp ("121",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>121 (Autorisation+Validation sans CVV)</option>
+			<option value="110" <?php if(in_array($displayedPage, array('doWebPayment','doAuthorization')) && strcmp ("110",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>110 (Autorisation REC - enregistrement CVV)</option>
+			<option value="111" <?php if(in_array($displayedPage, array('doWebPayment','doAuthorization')) && strcmp ("111",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>111 (Autorisation+Validation REC - enregistrement CVV)</option>
+			<option value="120" <?php if(in_array($displayedPage, array('doWebPayment','doAuthorization')) && strcmp ("120",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>120 (Autorisation sans CVV)</option>
+			<option value="121" <?php if(in_array($displayedPage, array('doWebPayment','doAuthorization')) && strcmp ("121",$_SESSION['PAYMENT_ACTION']) == 0) echo "selected"; ?>>121 (Autorisation+Validation sans CVV)</option>
 			<option value="150" <?php if(in_array($displayedPage, array('doBankTransfer'))) echo "selected"; ?>>150 (Virement)</option>
 			<option value="201" <?php if($displayedPage == 'doCapture') echo "selected"; ?>>201 (Validation)</option>
 			<option value="202" <?php if($displayedPage == 'doCapture' && strcmp ("202",PAYMENT_ACTION) == 0) echo "selected"; ?>>202 (R&#233;autorisation)</option>

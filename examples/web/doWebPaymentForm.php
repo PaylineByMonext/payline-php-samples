@@ -1,6 +1,6 @@
-<form action="../demos/web.php" method="post" name="fullWebPayment" id="fullWebPayment" class="payline-form">
+<form action="../demos/web.php" method="post" name="doWebPayment" id="doWebPayment" class="payline-form">
 	<?php
-    $displayedPage = 'fullWebPayment';
+    $displayedPage = 'doWebPayment';
 	include '../fieldset/version.php';
 	include '../fieldset/payment.php';
 	include '../fieldset/order.php';
@@ -55,5 +55,5 @@
 		</select>
 		</div>
     </fieldset>
-    <input type="submit" name="submit" class="submit" value="fullWebPayment" />
+    <input type="submit" name="submit" class="submit" value="doWebPayment" />
 </form>
