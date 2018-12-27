@@ -34,22 +34,17 @@
 	</head>
 
 	<body>
+	<?php
+	include	'logged.php';
+	?>
+		<div id="wrapper" class="plnBox">
 		<div id="header">
-			<div id="header-inside">
-				<div id="logo">
-					<h1><a href="http://www.payline.com"><span>payline</span></a></h1>
-					<p>by Monext</p>
-				</div>
-				<?php $activeTab = 'ajax'; include 'tabs.php';?>
-		  </div>
+		<?php
+		$activeTab = 'ajax';
+		include 'tabs.php';
+		?>
 		</div>
-
-		<div id="wrapper">
 			<div id="container">
-				<div id="content">
-					<?php include 'logged.php';?>
-					<h2>API Ajax</h2>
-                    <p id="info">Demo that shows the usage of Payline Ajax API</p>
                     <div id="demo">
                     <?php
                     $payline = new PaylineSDK(
@@ -407,7 +402,6 @@
                     }
                     ?>
 					</div>
-				</div>
 				<span class="clr"></span>
 			</div>
 		</div>

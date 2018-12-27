@@ -93,28 +93,19 @@
 	</head>
 
 	<body>
+	<?php
+	include 'logged.php';
+	?>
+		<div id="wrapper" class="plnBox">
 		<div id="header">
-			<div id="header-inside">
-				<div id="logo">
-					<h1><a href="http://www.payline.com"><span>payline</span></a></h1>
-					<p>by Monext</p>
-				</div>
-				<?php $activeTab = 'wallet'; include 'tabs.php';?>
-		  </div>
+		<?php
+		$activeTab = 'wallet';
+		include 'tabs.php';
+		?>
 		</div>
-
-		<div id="wrapper">
 			<div id="container">
-				<div id="content">
-					<?php include 'logged.php';?>
-					<h2>Wallet</h2>
-					<?php echo $links; ?>
-                    <p id="info">
-                    	Demo that shows the usage of Payline classes for wallet (both webPayment and Direct API)<br/>
-                    	<font size='2' color='red'>(*) </font><b>createWebWallet</b> and <b>updateWebWallet</b> are deprecated. Please use <b>manageWebWallet</b>
-                    </p>
-					<div id="source">
 					<?php
+					echo $links;
 					if(isset($_POST['submit'])){
 						include('../wallet/'.$_POST['submit'].'.php');
 					}elseif(isset($_POST['PaRes'])){ // back from ACS with 3D Secure authentication data
@@ -129,8 +120,6 @@
 							?>
 						</div>
 					<?php } ?>
-					</div>
-				</div>
 				<span class="clr"></span>
 			</div>
 		</div>

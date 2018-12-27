@@ -1,15 +1,16 @@
 /* @group Forms */
 form.payline-form {
 	font-size: 11px;
+	/*
 	padding: 10px 30px;
 	border: 1px solid #ddd;
 	background: #f9f9f9;
 	margin-bottom: 10px;
+	*/
 }
 .payline-form fieldset {
 	margin-bottom: 1em;
 	padding-bottom: 1em;
-	border-bottom: 1px solid #eee;
 }
 .payline-form .row {
 	clear : both;

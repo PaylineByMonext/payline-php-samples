@@ -1,6 +1,5 @@
 <form action="ajax.php" method="post" class="payline-form">
 	<fieldset>
-		<h4>Configuration</h4>
 		<div class="row">
 			<label for="accessKeyRef">web2token ref.</label>
 			<input type="text" name="accessKeyRef" id="accessKeyRef" disabled="true" value="<?php echo $_SESSION['ACCESS_KEY_REF']?>">

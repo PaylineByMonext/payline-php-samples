@@ -2,8 +2,7 @@
     use Payline\PaylineSDK;
    	include "../../include.php";
 	$array = array(
-		//'doWebPayment',
-		'fullWebPayment',
+		'doWebPayment',
 	    'shortcut',
 	    'widgetPayment',
 		'getWebPaymentDetails'
@@ -19,8 +18,7 @@
 	$selected = isset($_POST['submit']) ? $_POST['submit'] : $selected;
 
 	$links = '<h3>';
-	//$links .= ( 'doWebPayment'==$selected ) ? "<a class='backtoform' href='?e=doWebPayment'>doWebPayment (light)</a> - " : "<a href='?e=doWebPayment'>doWebPayment (light)</a> - ";
-	$links .= ( 'fullWebPayment'==$selected ) ? "<a class='backtoform' href='?e=fullWebPayment'>doWebPayment (full)</a> - " : "<a href='?e=fullWebPayment'>doWebPayment (full)</a> - ";
+	$links .= ( 'doWebPayment'==$selected ) ? "<a class='backtoform' href='?e=doWebPayment'>doWebPayment</a> - " : "<a href='?e=doWebPayment'>doWebPayment</a> - ";
 	$links .= ( 'widgetPayment'==$selected ) ? "<a class='backtoform' href='?e=widgetPayment'>doWebPayment (advanced widget)</a> - " : "<a href='?e=widgetPayment'>doWebPayment (advanced widget)</a> - ";
 	$links .= ( 'shortcut'==$selected ) ? "<a class='backtoform' href='?e=shortcut'>Payment shortcut</a> - " : "<a href='?e=shortcut'>Payment shortcut</a> - ";
 	$links .= ( 'getWebPaymentDetails'==$selected ) ? "<a class='backtoform' href='?e=getWebPaymentDetails'>getWebPaymentDetails</a>" : "<a href='?e=getWebPaymentDetails'>getWebPaymentDetails</a>";
@@ -64,6 +62,7 @@
                 echo "<script src='".PaylineSDK::DEV_WDGT_JS."'></script>";
                 break;
             case PaylineSDK::ENV_HOMO:
+            case PaylineSDK::ENV_HOMO_AXIS17:
                 echo "<script src='".PaylineSDK::HOMO_WDGT_JS."'></script>";
                 break;
             case PaylineSDK::ENV_PROD:
@@ -122,7 +121,7 @@
             	    'deliveryExpectedDate':document.getElementById('deliveryExpectedDate').value,
             	    'deliveryExpectedDelay':document.getElementById('deliveryExpectedDelay').value,
             	    'details':{
-            	    	'orderDetail':{
+            	    	'details':[{
             	    		'ref':document.getElementById('orderDetailRef1').value,
             	    		'price':document.getElementById('orderDetailPrice1').value,
             	    		'quantity':document.getElementById('orderDetailQuantity1').value,
@@ -133,7 +132,7 @@
             	    		'subcategory2':document.getElementById('orderDetailSubcategory2_1').value,
             	    		'additionalData':document.getElementById('orderDetailAdditionalData1').value,
             	    		'taxRate':document.getElementById('orderDetailTaxRate1').value
-            	    	},'orderDetail':{
+            	    	},{
             	    		'ref':document.getElementById('orderDetailRef2').value,
             	    		'price':document.getElementById('orderDetailPrice2').value,
             	    		'quantity':document.getElementById('orderDetailQuantity2').value,
@@ -144,9 +143,10 @@
             	    		'subcategory2':document.getElementById('orderDetailSubcategory2_2').value,
             	    		'additionalData':document.getElementById('orderDetailAdditionalData2').value,
             	    		'taxRate':document.getElementById('orderDetailTaxRate2').value
-            	    	}
+            	    	}]
             	    }
             	},'buyer':{
+                	'email':document.getElementById('buyerEmail').value,
                 	'shippingAddress':{
                     	'title':document.getElementById('shippingAddressTitle').value,
                     	'name':document.getElementById('shippingAddressName').value,
@@ -252,44 +252,36 @@
 	</head>
 
 	<body>
-		<div id="header">
-			<div id="header-inside">
-				<div id="logo">
-					<h1><a href="http://www.payline.com"><span>payline</span></a></h1>
-					<p>by Monext</p>
-				</div>
-				<?php $activeTab = 'web'; include 'tabs.php';?>
-		  </div>
-		</div>
-
-		<div id="wrapper">
+		<?php
+		include 'logged.php';
+		?>
+		<div id="wrapper" class="plnBox">
+    		<div id="header">
+    		<?php
+    		$activeTab = 'web';
+    		include 'tabs.php';
+    		?>
+    		</div>
 			<div id="container">
-				<div id="content">
-					<?php include 'logged.php';?>
-					<h2>Web Payment</h2>
-					<?php echo $links; ?>
-                    <p id="info">Demo that shows the usage of Payline webPayment API</p>
-					<div id="source">
-					<?php
-					if(isset($_POST['submit'])){ // validation d'un formulaire
-						include('../web/'.$_POST['submit'].'.php');
-					}elseif(isset($_GET['token']) || (isset($_GET['paylinetoken']) && isset($_GET['e'])) ){ // retour à la boutique classique ou depuis le widget
-					    include('../web/'.$_GET['e'].'.php');
-					}elseif(isset($_GET['paylinetoken']) && !isset($_GET['e'])){// retour depuis un partenaire (Paypal...) => affichage du step3 dans le wigdet
-                        echo "<div id='PaylineWidget' data-token='".$_GET['paylinetoken']."'></div>";
-					}elseif(isset($_SESSION['webPaymentToken']) && !isset($_GET['e'])){// retour depuis une authentification avec un partenaire type shortCut
-                        echo "<div id='PaylineWidget' data-token='".$_SESSION['webPaymentToken']."'></div>";
-					}else{
+			<div id="widgetLifeCycle"></div>
+				<?php
+				echo $links;
+				if(isset($_POST['submit'])){ // validation d'un formulaire
+					include('../web/'.$_POST['submit'].'.php');
+				}elseif(isset($_GET['token']) || (isset($_GET['paylinetoken']) && isset($_GET['e'])) ){ // retour à la boutique classique ou depuis le widget
+				    include('../web/'.$_GET['e'].'.php');
+				}elseif(isset($_GET['paylinetoken']) && !isset($_GET['e'])){// retour depuis un partenaire (Paypal...) => affichage du step3 dans le wigdet
+                    echo "<div id='PaylineWidget' data-token='".$_GET['paylinetoken']."'></div>";
+				}elseif(isset($_SESSION['webPaymentToken']) && !isset($_GET['e'])){// retour depuis une authentification avec un partenaire type shortCut
+                    echo "<div id='PaylineWidget' data-token='".$_SESSION['webPaymentToken']."'></div>";
+				}else{
+					?>
+					<div id="demo">						
+						<?php
+						include("../web/{$selected}Form.php");
 						?>
-						<div id="demo">
-							<div id="widgetLifeCycle"></div>
-							<?php
-							include("../web/{$selected}Form.php");
-							?>
-						</div>
-					<?php } ?>
 					</div>
-				</div>
+				<?php } ?>
 				<span class="clr"></span>
 			</div>
 		</div>

@@ -1,8 +1,6 @@
-<ul id="menu">
-	<li><a href="index.php" <?php if($activeTab == 'home') echo "class='on'";?>>Home</a></li>
-	<li><a href="web.php?e=fullWebPayment" <?php if($activeTab == 'web') echo "class='on'";?>>Web</a></li>
-	<li><a href="direct.php" <?php if($activeTab == 'direct') echo "class='on'";?>>Direct</a></li>
-	<li><a href="wallet.php" <?php if($activeTab == 'wallet') echo "class='on'";?>>Wallet</a></li>
-	<li><a href="extended.php" <?php if($activeTab == 'extended') echo "class='on'";?>>Extended</a></li>
-	<li><a href="ajax.php" <?php if($activeTab == 'ajax') echo "class='on'";?>>API Ajax</a></li>
-</ul>
+<span class="toptab<?php if($activeTab == 'home') echo " active";?>"><a href="index.php">Home</a></span>
+<span class="toptab<?php if($activeTab == 'web') echo " active";?>"><a href="web.php?e=doWebPayment">Web</a></span>
+<span class="toptab<?php if($activeTab == 'direct') echo " active";?>"><a href="direct.php" >Direct</a></span>
+<span class="toptab<?php if($activeTab == 'wallet') echo " active";?>"><a href="wallet.php">Wallet</a></span>
+<span class="toptab<?php if($activeTab == 'extended') echo " active";?>"><a href="extended.php">Extended</a></span>
+<span class="toptab<?php if($activeTab == 'ajax') echo " active'";?>"><a href="ajax.php">API Ajax</a></span>

@@ -30,23 +30,17 @@ $links = substr($links, 0, - 2) . '</h3>';
 </head>
 
 <body>
+	<?php
+	include 'logged.php';
+	?>
+	<div id="wrapper" class="plnBox">
 	<div id="header">
-		<div id="header-inside">
-			<div id="logo">
-				<h1>
-					<a href="http://www.payline.com"><span>payline</span></a>
-				</h1>
-				<p>by Monext</p>
-			</div>
-			<?php $activeTab = 'home'; include 'tabs.php';?>
-		</div>
+    <?php
+    $activeTab = 'home';
+    include 'tabs.php';
+    ?>
 	</div>
-
-	<div id="wrapper">
 		<div id="container">
-			<div id="content">
-				<?php include 'logged.php';?>
-				<h2>Home</h2>
 	<?php
     echo $links;
     
@@ -68,14 +62,11 @@ $links = substr($links, 0, - 2) . '</h3>';
         }
     }
     ?>
-					<div id="source">
 					<div id="demo">
 	<?php
     include ("../index/{$selected}.php");
     ?>
 						</div>
-				</div>
-			</div>
 			<span class="clr"></span>
 		</div>
 	</div>

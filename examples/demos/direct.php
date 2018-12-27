@@ -42,25 +42,19 @@
 	</head>
 
 	<body>
-		<div id="header">
-			<div id="header-inside">
-				<div id="logo">
-					<h1><a href="http://www.payline.com"><span>payline</span></a></h1>
-					<p>by Monext</p>
-				</div>
-				<?php $activeTab = 'direct'; include 'tabs.php';?>
-		  </div>
-		</div>
-
-		<div id="wrapper">
+	<?php
+	   include 'logged.php';
+	?>
+		<div id="wrapper" class="plnBox">
+			<div id="header">
+			<?php
+			 $activeTab = 'direct';
+			 include 'tabs.php';
+			?>
+			</div>
 			<div id="container">
-				<div id="content">
-					<?php include 'logged.php';?>
-					<h2>Direct Payment</h2>
-					<?php echo $links; ?>
-                    <p id="info">Demo that shows the usage of Payline direct API</p>
-					<div id="source">
 					<?php
+					echo $links;
 					if(isset($_POST['submit'])){
                         include('../direct/'.$_POST['submit'].'.php');
 					}elseif(isset($_POST['PaRes'])){ // back from ACS with 3D Secure authentication data
@@ -77,8 +71,6 @@
 							?>
 						</div>
 					<?php } ?>
-					</div>
-				</div>
 				<span class="clr"></span>
 			</div>
 		</div>

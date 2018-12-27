@@ -15,34 +15,18 @@ div#logo h1 a span, div#logo p {
 }
 
 div#header {
-	height: 80px;
-	border-bottom: #eeeeee 8px solid;
-	background: #FFF;
-}
-
-div#header-inside {
-	font-family: Lucida Grande, Arial, Helvetica;
-	width: 1000px;
-	height: 66px;
-	margin: 0 auto;
-	background: url(../img/header_bg.gif) repeat-x;
-}
-
-
-div#logo h1 a {
-	background: url(../img/Payline_fr.png) no-repeat;
-	height: 47px;
-	width: 123px;
-	float: left;
+	background: #7b7f81;
+	text-align: center;
+	margin-top: 3px;
+	margin-right: 3px;
+	margin-left: 3px;
+	margin-bottom: 3px;
 }
 
 ul#menu {
 	clear: both;
-	float: right;
 	list-style: none;
 	position: relative;
-	top: -14px;
-	right: 50px;
 }
 
 ul#menu li {
@@ -61,31 +45,34 @@ ul#menu li a {
 	height: 15px;
 	padding: 5px 0;
 	display: block;
+	/*
 	background-image: url(../img/tab.gif);
 	background-repeat: no-repeat;
 	background-position: center left;
+	*/
+	background-color: #5E5E5E;
 	font-size: 11px;
 }
 
 ul#menu li a:hover,
 ul#menu li a:active {
-	background-position: top left;
+	/*background-position: top left;*/
+	background-color: #FFFFFF;
 }
 
 ul#menu li a.selected,
 ul#menu li a.on {
-	background-position: bottom left;
+	/*background-position: bottom left;*/
+	background-color: #666666;
 }
 
 /*footer*/
 
 body #footer {
 	background: #fff;
-	border-top: 8px solid #eeeeee;
 	font-size: 9px;
 	color: #595965;
-	padding: 15px 0;
-	height: 1%; /*crazy ie7...*/
+	padding: 10px 0;
 	text-align: center;
 }
 
@@ -126,5 +113,11 @@ span.HOMO {
 span.PROD {
 	background-color: #FF0000;
 	color: #FFFFFF;
+	padding: 2px;
+}
+
+span.AX17 {
+	background-color: #FFCC33;
+	color: #000000;
 	padding: 2px;
 }

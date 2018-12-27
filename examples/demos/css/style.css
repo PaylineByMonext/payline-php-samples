@@ -5,8 +5,7 @@ body {
 }
 
 #wrapper {
-	background: #fff;
-	padding: 15px 0;
+	background: #FFF;
 }
 
 #container {
@@ -68,10 +67,12 @@ span.clr {
 
 a:link, a:visited {
 	color: #3d4d5b;
+	text-decoration: none;
 }
 
 a:hover, a:active {
 	color: #D15227;
+	text-decoration: none;
 }
 
 a.backtoform {
@@ -88,10 +89,6 @@ p.img {
 ol li, ul.start li {
 	list-style-type: decimal;
 	margin-left: 2em;
-}
-span.title {
-	color: #e6335d;
-	font-weight: bold;
 }
 
 /* @group Demo Info */
@@ -110,6 +107,7 @@ h4 {
 	/*border-bottom: 1px solid #eee;*/
 	padding-bottom: 3px;
 	margin-bottom: 7px;
+	margin-left: 4px;
 }
 
 p#info {
@@ -135,7 +133,6 @@ a#exampleonly {
 h3 {
 	font-size: 15px;
 	color: #6F7477;
-	border-bottom: 1px solid #eee;
 	padding-bottom: 3px;
 	margin-bottom: 7px;
 }
@@ -293,4 +290,188 @@ span.mailpaymentstatus5 { /* 5 = expired */
 	color: #FFFFFF;
 	background-color: #A20506;
 	font-size: 16px;
+}
+
+.plnBox {
+	width: 950px;
+	border: 2px solid #7b7f81;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5 5 5 5; /*top right bottom left*/
+}
+
+span.title {
+	background-color: #7b7f81;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	font-family: "Verdana";
+	font-size: 26px;
+	color: white;
+	padding: 5 0 5 0; /*top right bottom left*/
+	Margin: 0 0 20 0;
+}
+
+span.toptab {
+	background-color: #7b7f81;
+	text-align: center;
+	display: inline;
+	font-family: "Verdana";
+	font-size: 26px;
+	color: white;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+
+span.toptab.active{
+	background-color: #eeeeee;
+}
+
+span.toptab:hover{
+	background-color: #CCCCCC;
+}
+
+span.error {
+	color: #FF0000;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	font-family: "Verdana";
+	font-size: 14px;
+}
+
+span.info {
+	color: #00BB00;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	font-family: "Verdana";
+	font-size: 14px;
+}
+
+span.label {
+	text-align: right;
+	width: 300px;
+	font-family: "Verdana";
+	font-size: 12px;
+	font-weight: bold;
+	color: #7b7f81;
+	display: inline-block;
+  	padding-bottom: 7px;
+}
+
+span.link {
+	text-align: right;
+	width: 100%;
+	font-family: "Verdana";
+	font-size: 13px;
+	display: inline-block;
+	color: #333333;
+}
+
+span.value {
+	font-family: "Verdana";
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.user-row{
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	font-family: "Verdana";
+	font-size: 20px;
+}
+
+.merchant-row{
+	margin-bottom: 1px; 
+}
+
+.merchant-row:hover{
+	background: #CCCCCC;  
+}
+
+.merchant-env {
+	display: inline-block;
+	text-align: center;
+	width: 70px;
+}
+
+.merchant-id {
+	display: inline-block;
+	text-align: left;
+	width: 140px;
+	font-family: "Verdana";
+	font-size: 14px;
+}
+
+.merchant-name {
+	display: inline-block;
+	text-align: left;
+	width: 300px;
+	font-family: "Verdana";
+	font-size: 12px;
+}
+
+.merchant-suppr {
+	display: inline-block;
+	text-align: right;
+	width: 80px;
+	font-family: "Verdana";
+	font-size: 12px;
+}
+
+input,button {
+    border: 1px solid #9F9F9F;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 11px;
+    padding: 4px;
+    outline: 0;
+    /* -webkit-appearance: none; */
+    background-color: #f6f6f6;
+    width: 165px;
+}
+
+span.DEV {
+	background-color: #000000;
+	color: #FFFFFF;
+	padding: 2px;
+	font-family: "Verdana";
+	font-size: 10px;
+}
+
+span.INT {
+	background-color: #7F7F7F;
+	color: #FFFFFF;
+	padding: 2px;
+	font-family: "Verdana";
+	font-size: 10px;
+}
+
+span.HOMO {
+	background-color: #22B14C;
+	color: #FFFFFF;
+	padding: 2px;
+	font-family: "Verdana";
+	font-size: 10px;
+}
+
+span.PROD {
+	background-color: #FF0000;
+	color: #FFFFFF;
+	padding: 2px;
+	font-family: "Verdana";
+	font-size: 10px;
+}
+
+span.AX17 {
+	background-color: #FFCC33;
+	color: #000000;
+	padding: 2px;
+	font-family: "Verdana";
+	font-size: 10px;
 }
