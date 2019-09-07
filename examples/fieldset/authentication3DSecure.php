@@ -32,4 +32,12 @@
 		<label for="typeSecurisation">Type securisation</label>
 		<input type="text" name="typeSecurisation" id="typeSecurisation" value="" />
 	</div>
+    <div class="row">
+        <label for="resultContainer">Result container</label>
+        <input type="text" name="resultContainer" id="resultContainer" value="" />
+    </div>
+    <div class="row">
+        <label for="authenticationResult">Authentication result</label>
+        <input type="text" name="authenticationResult" id="authenticationResult" value="" />
+    </div>
 </fieldset>

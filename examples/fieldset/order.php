@@ -281,6 +281,35 @@
 		<label for="deliveryCharge">Delivery charge</label>
 		<input type="text" name="deliveryCharge" id="deliveryCharge" value="" />
 	</div>
+
+    <div class="row" <?php if($displayedPage == 'configuration') echo "style='display:none'";?>>
+        <label for="discountAmount">Discount amount</label>
+        <input type="text" name="discountAmount" id="discountAmount" value="" />
+    </div>
+    <div class="row" <?php if($displayedPage == 'configuration') echo "style='display:none'";?>>
+        <label for="otaPackageType">OTA package type</label>
+        <input type="text" name="otaPackageType" id="otaPackageType" value="" />
+    </div>
+    <div class="row" <?php if($displayedPage == 'configuration') echo "style='display:none'";?>>
+        <label for="otaDestinationCountry">OTA destination country</label>
+        <input type="text" name="otaDestinationCountry" id="otaDestinationCountry" value="" />
+    </div>
+    <div class="row" <?php if($displayedPage == 'configuration') echo "style='display:none'";?>>
+        <label for="bookingReference">Booking reference</label>
+        <input type="text" name="bookingReference" id="bookingReference" value="" />
+    </div>
+    <div class="row" <?php if($displayedPage == 'configuration') echo "style='display:none'";?>>
+        <label for="orderDetail">Order detail</label>
+        <input type="text" name="orderDetail" id="orderDetail" value="" />
+    </div>
+    <div class="row" <?php if($displayedPage == 'configuration') echo "style='display:none'";?>>
+        <label for="orderExtended">Order extended</label>
+        <input type="text" name="orderExtended" id="orderExtended" value="" />
+    </div>
+    <div class="row" <?php if($displayedPage == 'configuration') echo "style='display:none'";?>>
+        <label for="orderOTA">Order OTA</label>
+        <input type="text" name="orderOTA" id="orderOTA" value="" />
+    </div>
 	<div class="row">
 		<h5>Order details</h5>
     </div>
@@ -327,6 +356,14 @@
 					<label for="orderDetailTaxRate1">Item 1 tax rate</label>
 					<input type="text" name="orderDetailTaxRate1" id="orderDetailTaxRate1" value="<?php echo $_SESSION['orderDetailTaxRate1'] ?>" />
 				</div>
+                <div class="row">
+                    <label for="orderDetailSellerType1">Item 1 Seller type</label>
+                    <input type="text" name="orderDetailSellerType1" id="orderDetailSellerType1" value="<?php echo $_SESSION['orderDetailSellerType1'] ?>" />
+                </div>
+                <div class="row">
+                    <label for="orderDetailSeller1">Item 1 Seller</label>
+                    <input type="text" name="orderDetailSeller1" id="orderDetailSeller1" value="<?php echo $_SESSION['orderDetailSeller1'] ?>" />
+                </div>
     		</td>
     		<td>
     			<div class="row">
@@ -368,8 +405,16 @@
 				<div class="row">
 					<label for="orderDetailTaxRate2">Item 2 tax rate</label>
 					<input type="text" name="orderDetailTaxRate2" id="orderDetailTaxRate2" value="<?php echo $_SESSION['orderDetailTaxRate2'] ?>" />
-				</div>   
-    		</td>
+				</div>
+                <div class="row">
+                    <label for="orderDetailSellerType2">Item 2 Seller type</label>
+                    <input type="text" name="orderDetailSellerType2" id="orderDetailSellerType2" value="<?php echo $_SESSION['orderDetailSellerType2'] ?>" />
+                </div>
+                <div class="row">
+                    <label for="orderDetailSeller2">Item 2 Seller</label>
+                    <input type="text" name="orderDetailSeller2" id="orderDetailSeller2" value="<?php echo $_SESSION['orderDetailSeller2'] ?>" />
+                </div>
+            </td>
     	</tr>
     </table>       
 </fieldset>

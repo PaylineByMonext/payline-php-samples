@@ -26,6 +26,9 @@ $array['buyer']['isFromTor'] = $_POST['isFromTor'];
 $array['buyer']['isEmulator'] = $_POST['isEmulator'];
 $array['buyer']['isRooted'] = $_POST['isRooted'];
 $array['buyer']['hasTimezoneMismatch'] = $_POST['hasTimezoneMismatch'];
+$array['buyer']['buyerExtended'] = $_POST['buyerExtended'];
+$array['buyer']['merchantAuthentication'] = $_POST['merchantAuthentication'];
+$array['buyer']['loyaltyMemberType'] = $_POST['loyaltyMemberType'];
 
 // BILLING ADDRESS
 $array['billingAddress']['title'] = $_POST['billingAddressTitle'];
@@ -41,6 +44,9 @@ $array['billingAddress']['country'] = $_POST['billingAddressCountry'];
 $array['billingAddress']['state'] = $_POST['billingAddressState'];
 $array['billingAddress']['phoneType'] = $_POST['billingAddressPhoneType'];
 $array['billingAddress']['phone'] = $_POST['billingAddressPhone'];
+$array['billingAddress']['streetNumber'] = $_POST['billingStreetNumber'];
+$array['billingAddress']['addressCreateDate'] = $_POST['billingAddressCreateDate'];
+$array['billingAddress']['email'] = $_POST['billingEmail'];
 
 // SHIPPING ADDRESS
 $array['shippingAddress']['title'] = $_POST['shippingAddressTitle'];
@@ -56,3 +62,6 @@ $array['shippingAddress']['country'] = $_POST['shippingAddressCountry'];
 $array['shippingAddress']['state'] = $_POST['shippingAddressState'];
 $array['shippingAddress']['phoneType'] = $_POST['shippingAddressPhoneType'];
 $array['shippingAddress']['phone'] = $_POST['shippingAddressPhone'];
+$array['billingAddress']['streetNumber'] = $_POST['shippingStreetNumber'];
+$array['billingAddress']['addressCreateDate'] = $_POST['shippingAddressCreateDate'];
+$array['billingAddress']['email'] = $_POST['shippingEmail'];

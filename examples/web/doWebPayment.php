@@ -14,6 +14,7 @@ include '../arraySet/recurring.php';
 include '../arraySet/urls.php';
 include '../arraySet/webOptions.php';
 include '../arraySet/subMerchant.php';
+include '../arraySet/threeDSInfo.php';
 
 $array['asynchronousRetryTimeout'] = $_POST['asynchronousRetryTimeout'];
 

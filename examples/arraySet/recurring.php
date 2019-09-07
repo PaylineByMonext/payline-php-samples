@@ -17,4 +17,6 @@ if (isset($_POST['recurringEndDate']))
 if (isset($_POST['recurringNewAmount']))
     $array['recurring']['newAmount'] = $_POST['recurringNewAmount'];
 if (isset($_POST['recurringAmountModificationDate']))
-    $array['recurring']['amountModificationDate'] = $_POST['recurringAmountModificationDate'];  
+    $array['recurring']['amountModificationDate'] = $_POST['recurringAmountModificationDate'];
+if (isset($_POST['billingRank']))
+    $array['recurring']['billingRank'] = $_POST['billingRank'];

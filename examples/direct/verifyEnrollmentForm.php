@@ -5,6 +5,12 @@
 		include '../fieldset/card.php';
 		include '../fieldset/payment.php';
         include '../fieldset/merchantName.php';
+        include '../fieldset/order.php';
+        include '../fieldset/orderDetails.php';
+        include '../fieldset/buyer.php';
+        include '../fieldset/recurring.php';
+        include '../fieldset/subMerchant.php';
+        include '../fieldset/threeDSInfo.php';
 		?>
 		<fieldset>
 			<div class="row">

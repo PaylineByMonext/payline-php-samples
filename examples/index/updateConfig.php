@@ -47,7 +47,8 @@ if(is_writable($configFile)){
 	fwrite($handle, '$_SESSION[\'PAYMENT_CURRENCY\'] = \''.$_POST['PAYMENT_CURRENCY'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'LANGUAGE_CODE\'] = \''.$_POST['LANGUAGE_CODE'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'PAYMENT_ACTION\'] = \''.$_POST['PAYMENT_ACTION'].'\';'.$nextLine);
-	fwrite($handle, '$_SESSION[\'PAYMENT_MODE\'] = \''.$_POST['PAYMENT_MODE'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'PAYMENT_MODE\'] = \''.$_POST['PAYMENT_MODE'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'cumulatedAmount\'] = \''.$_POST['cumulatedAmount'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'CUSTOM_PAYMENT_TEMPLATE_URL\'] = \''.$_POST['CUSTOM_PAYMENT_TEMPLATE_URL'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'CUSTOM_PAYMENT_PAGE_CODE\'] = \''.$_POST['CUSTOM_PAYMENT_PAGE_CODE'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'CONTRACT_NUMBER\'] = \''.$_POST['CONTRACT_NUMBER'].'\';'.$nextLine);
@@ -184,7 +185,10 @@ if(is_writable($configFile)){
 	fwrite($handle, '$_SESSION[\'billingAddressCounty\'] = "'.$_POST['billingAddressCounty'].'";'.$nextLine);
 	fwrite($handle, '$_SESSION[\'billingAddressState\'] = "'.$_POST['billingAddressState'].'";'.$nextLine);
 	fwrite($handle, '$_SESSION[\'billingAddressPhoneType\'] = \''.$_POST['billingAddressPhoneType'].'\';'.$nextLine);
-	fwrite($handle, '$_SESSION[\'billingAddressPhone\'] = \''.$_POST['billingAddressPhone'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'billingAddressPhone\'] = \''.$_POST['billingAddressPhone'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'billingStreetNumber\'] = \''.$_POST['billingStreetNumber'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'billingEmail\'] = \''.$_POST['billingEmail'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'billingAddressCreateDate\'] = \''.$_POST['billingAddressCreateDate'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'shippingAddressTitle\'] = \''.$_POST['shippingAddressTitle'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'shippingAddressFirstName\'] = "'.$_POST['shippingAddressFirstName'].'";'.$nextLine);
 	fwrite($handle, '$_SESSION[\'shippingAddressLastName\'] = "'.$_POST['shippingAddressLastName'].'";'.$nextLine);
@@ -197,7 +201,10 @@ if(is_writable($configFile)){
 	fwrite($handle, '$_SESSION[\'shippingAddressCounty\'] = "'.$_POST['shippingAddressCounty'].'";'.$nextLine);
 	fwrite($handle, '$_SESSION[\'shippingAddressState\'] = "'.$_POST['shippingAddressState'].'";'.$nextLine);
 	fwrite($handle, '$_SESSION[\'shippingAddressPhoneType\'] = \''.$_POST['shippingAddressPhoneType'].'\';'.$nextLine);
-	fwrite($handle, '$_SESSION[\'shippingAddressPhone\'] = \''.$_POST['shippingAddressPhone'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'shippingAddressPhone\'] = \''.$_POST['shippingAddressPhone'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'shippingEmail\'] = \''.$_POST['shippingEmail'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'shippingStreetNumber\'] = \''.$_POST['shippingStreetNumber'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'shippingAddressCreateDate\'] = \''.$_POST['shippingAddressCreateDate'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'buyerAccountCreateDate\'] = \''.$_POST['buyerAccountCreateDate'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'buyerAverageAmount\'] = \''.$_POST['buyerAverageAmount'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'buyerOrderCount\'] = \''.$_POST['buyerOrderCount'].'\';'.$nextLine);
@@ -218,7 +225,14 @@ if(is_writable($configFile)){
 	fwrite($handle, '$_SESSION[\'isFromTor\'] = \''.$_POST['isFromTor'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'isEmulator\'] = \''.$_POST['isEmulator'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'isRooted\'] = \''.$_POST['isRooted'].'\';'.$nextLine);
-	fwrite($handle, '$_SESSION[\'hasTimezoneMismatch\'] = \''.$_POST['hasTimezoneMismatch'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'hasTimezoneMismatch\'] = \''.$_POST['hasTimezoneMismatch'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'merchantAuthentication\'] = \''.$_POST['merchantAuthentication'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'loyaltyMemberType\'] = \''.$_POST['loyaltyMemberType'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'buyerExtended\'] = \''.$_POST['buyerExtended'].'\';'.$nextLine);
+    $_SESSION['merchantAuthentication'] = '';
+    $_SESSION['loyaltyMemberType'] = '';
+    $_SESSION['buyerExtended'] = '';
+
 	fwrite($handle, $nextLine.'// private data'.$nextLine);
 	for ($i=1;$i<9;$i++) {
 	    fwrite($handle, '$_SESSION[\'pvdKey'.$i.'\'] = \''.$_POST['privateDataKey0'.$i].'\';'.$nextLine);
@@ -232,7 +246,14 @@ if(is_writable($configFile)){
 	fwrite($handle, '$_SESSION[\'orderCurrency\'] = \''.$_POST['orderCurrency'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderAmount\'] = \''.$_POST['orderAmount'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'deliveryTime\'] = \''.$_POST['deliveryTime'].'\';'.$nextLine);
-	fwrite($handle, '$_SESSION[\'deliveryMode\'] = \''.$_POST['deliveryMode'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'deliveryMode\'] = \''.$_POST['deliveryMode'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'discountAmount\'] = \''.$_POST['discountAmount'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'otaPackageType\'] = \''.$_POST['otaPackageType'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'otaDestinationCountry\'] = \''.$_POST['otaDestinationCountry'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'bookingReference\'] = \''.$_POST['bookingReference'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'orderDetail\'] = \''.$_POST['orderDetail'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'orderExtended\'] = \''.$_POST['orderExtended'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'orderOTA\'] = \''.$_POST['orderOTA'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailRef1\'] = \''.$_POST['orderDetailRef1'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailPrice1\'] = \''.$_POST['orderDetailPrice1'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailQuantity1\'] = \''.$_POST['orderDetailQuantity1'].'\';'.$nextLine);
@@ -243,6 +264,8 @@ if(is_writable($configFile)){
 	fwrite($handle, '$_SESSION[\'orderDetailBrand1\'] = \''.$_POST['orderDetailBrand1'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailAdditionalData1\'] = \''.$_POST['orderDetailAdditionalData1'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailTaxRate1\'] = \''.$_POST['orderDetailTaxRate1'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'orderDetailSellerType1\'] = \''.$_POST['orderDetailSellerType1'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'orderDetailSeller1\'] = \''.$_POST['orderDetailSeller1'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailRef2\'] = \''.$_POST['orderDetailRef2'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailPrice2\'] = \''.$_POST['orderDetailPrice2'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailQuantity2\'] = \''.$_POST['orderDetailQuantity2'].'\';'.$nextLine);
@@ -252,8 +275,9 @@ if(is_writable($configFile)){
 	fwrite($handle, '$_SESSION[\'orderDetailSubcategory2_2\'] = \''.$_POST['orderDetailSubcategory2_2'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailBrand2\'] = \''.$_POST['orderDetailBrand2'].'\';'.$nextLine);
 	fwrite($handle, '$_SESSION[\'orderDetailAdditionalData2\'] = \''.$_POST['orderDetailAdditionalData2'].'\';'.$nextLine);
-	fwrite($handle, '$_SESSION[\'orderDetailTaxRate2\'] = \''.$_POST['orderDetailTaxRate2'].'\';'.$nextLine);
-	
+    fwrite($handle, '$_SESSION[\'orderDetailTaxRate2\'] = \''.$_POST['orderDetailTaxRate2'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'orderDetailSellerType2\'] = \''.$_POST['orderDetailSellerType2'].'\';'.$nextLine);
+    fwrite($handle, '$_SESSION[\'orderDetailSeller2\'] = \''.$_POST['orderDetailSeller2'].'\';'.$nextLine);
 	fwrite($handle, "?> \n");
 	fclose($handle);
 }else{

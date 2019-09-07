@@ -8,3 +8,5 @@ $array['3DSecure']['cavv'] = $_POST['cavv'];
 $array['3DSecure']['cavvAlgorithm'] = $_POST['cavvAlgorithm'];
 $array['3DSecure']['vadsResult'] = $_POST['vadsResult'];
 $array['3DSecure']['typeSecurisation'] = $_POST['typeSecurisation'];
+$array['3DSecure']['resultContainer'] = $_POST['resultContainer'];
+$array['3DSecure']['authenticationResult'] = $_POST['authenticationResult'];

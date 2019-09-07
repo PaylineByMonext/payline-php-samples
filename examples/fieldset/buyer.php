@@ -50,8 +50,17 @@
         document.getElementById('isFromTor').value= '';
         document.getElementById('isEmulator').value= '';
         document.getElementById('isRooted').value= '';
-        document.getElementById('hasTimezoneMismatch').value= '';				
-	}
+        document.getElementById('hasTimezoneMismatch').value= '';
+        document.getElementById('shippingStreetNumber').value= '';
+        document.getElementById('shippingAddressCreateDate').value= '';
+        document.getElementById('shippingEmail').value= '';
+        document.getElementById('billingEmail').value= '';
+        document.getElementById('billingAddressCreateDate').value= '';
+        document.getElementById('billingStreetNumber').value= '';
+        document.getElementById('buyerExtended').value= '';
+        document.getElementById('merchantAuthentication').value= '';
+        document.getElementById('loyaltyMemberType').value= '';
+    }
 </script>
 
 <fieldset>
@@ -175,9 +184,17 @@
 						</select>
 			        </div>
 			        <div class="row">
-			            <label for="billingAddressPhone">Phone</label>
-			            <input type="text" name="billingAddressPhone" id="billingAddressPhone" value="<?php echo $_SESSION['billingAddressPhone'] ?>" />
+			            <label for="billingStreetNumber">Street number</label>
+			            <input type="text" name="billingStreetNumber" id="billingStreetNumber" value="<?php echo $_SESSION['billingStreetNumber'] ?>" />
 			        </div>
+                    <div class="row">
+                        <label for="billingAddressCreateDate">Address create date</label>
+                        <input type="text" name="billingAddressCreateDate" id="billingAddressCreateDate" value="<?php echo $_SESSION['billingAddressCreateDate'] ?>" />
+                    </div>
+                    <div class="row">
+                        <label for="billingEmail">Email</label>
+                        <input type="text" name="billingEmail" id="billingEmail" value="<?php echo $_SESSION['billingEmail'] ?>" />
+                    </div>
 			    </fieldset>
 			</td>
 			<td>
@@ -261,6 +278,18 @@
 			            <label for="shippingAddressPhone">Phone</label>
 			            <input type="text" name="shippingAddressPhone" id="shippingAddressPhone" value="<?php echo $_SESSION['shippingAddressPhone'] ?>" />
 			        </div>
+                    <div class="row">
+                        <label for="shippingStreetNumber">Street number</label>
+                        <input type="text" name="shippingStreetNumber" id="shippingStreetNumber" value="<?php echo $_SESSION['shippingStreetNumber'] ?>" />
+                    </div>
+                    <div class="row">
+                        <label for="shippingAddressCreateDate">Address create date</label>
+                        <input type="text" name="shippingAddressCreateDate" id="shippingAddressCreateDate" value="<?php echo $_SESSION['shippingAddressCreateDate'] ?>" />
+                    </div>
+                    <div class="row">
+                        <label for="shippingEmail">Email</label>
+                        <input type="text" name="shippingEmail" id="shippingEmail" value="<?php echo $_SESSION['shippingEmail'] ?>" />
+                    </div>
 			    </fieldset>
 			</td>
 		</tr>
@@ -377,4 +406,16 @@
 		<input type="text" name="hasTimezoneMismatch" id="hasTimezoneMismatch" value="<?php echo $_SESSION['hasTimezoneMismatch'] ?>" />
 		<span class="help">(Y/N)</span>
 	</div>
+    <div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
+        <label for="buyerExtended">buyerExtended</label>
+        <input type="text" name="buyerExtended" id="buyerExtended" value="<?php echo $_SESSION['buyerExtended'] ?>" />
+    </div>
+    <div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
+        <label for="loyaltyMemberType">loyaltyMemberType</label>
+        <input type="text" name="loyaltyMemberType" id="loyaltyMemberType" value="<?php echo $_SESSION['loyaltyMemberType'] ?>" />
+    </div>
+    <div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
+        <label for="merchantAuthentication">merchantAuthentication</label>
+        <input type="text" name="merchantAuthentication" id="merchantAuthentication" value="<?php echo $_SESSION['merchantAuthentication'] ?>" />
+    </div>
 </fieldset>

@@ -61,4 +61,8 @@
 			?>
 		</select>
 	</div>
+    <div class="row">
+        <label for="billingRank">Billing bank</label>
+        <input type="text" name="billingRank" id="billingRank" value="" />
+    </div>
 </fieldset>

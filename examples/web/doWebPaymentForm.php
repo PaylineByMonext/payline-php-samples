@@ -11,7 +11,8 @@
 	include '../fieldset/owner.php';
 	include '../fieldset/recurring.php';
 	include '../fieldset/merchantName.php';
-	include '../fieldset/subMerchant.php';	
+	include '../fieldset/subMerchant.php';
+    include '../fieldset/threeDSInfo.php';
 	?>
     <fieldset>
     	<div class="row">

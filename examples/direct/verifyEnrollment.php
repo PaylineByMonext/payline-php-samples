@@ -6,6 +6,12 @@ $array['version'] = $_POST['version'];
 
 include '../arraySet/payment.php';
 include '../arraySet/card.php';
+include '../arraySet/order.php';
+include '../arraySet/orderDetails.php';
+include '../arraySet/buyer.php';
+include '../arraySet/recurring.php';
+include '../arraySet/subMerchant.php';
+include '../arraySet/threeDSInfo.php';
 
 // MD
 $array['mdFieldValue'] = $_POST['mdFieldValue'];
@@ -14,6 +20,7 @@ $array['mdFieldValue'] = $_POST['mdFieldValue'];
 $array['userAgent'] = $_POST['UsrAgent'];
 
 // ORDER
+// old ref
 $array['orderRef'] = $_POST['orderRef'];
 
 // WALLET

@@ -69,7 +69,7 @@ function deleteCss(){
 			<select name="WS_VERSION" id="WS_VERSION">				
 				<option value='0'>- select -</option>
 				<?php
-				for($v=1;$v<19;$v++){
+				for($v=1;$v<22;$v++){
 				    echo "<option value='$v'"; if($_SESSION['WS_VERSION']==$v) echo "selected"; echo ">$v</option>";				    
 				}
 				?>
@@ -376,6 +376,10 @@ function deleteCss(){
 			<label for="CUSTOM_PAYMENT_PAGE_CODE">Custom page code</label>
 			<input type="text" name="CUSTOM_PAYMENT_PAGE_CODE" id="CUSTOM_PAYMENT_PAGE_CODE" value="<?php echo $_SESSION['CUSTOM_PAYMENT_PAGE_CODE']?>">
 		</div>
+        <div class="row">
+            <label for="cumulatedAmount">Cumulated amount</label>
+            <input type="text" name="cumulatedAmount" id="cumulatedAmount"  value="<?php echo $_SESSION['cumulatedAmount']?>">
+        </div>
 	</fieldset>
 	<?php include '../fieldset/urls.php';?>
 	<?php include '../fieldset/walletUrls.php';?>
