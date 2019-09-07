@@ -45,6 +45,7 @@ $_SESSION['WLT_NOTIFICATION_URL'] = '';
 $_SESSION['WLT_CANCEL_URL'] = 'http://127.0.0.1/git/payline-php-samples/examples/demos/wallet.php?e=getWebWallet';
 $_SESSION['CUSTOM_WIDGET_CSS'] = null;
 $_SESSION['CUSTOM_WIDGET_JS'] = null;
+$_SESSION['cumulatedAmount'] = '';
 
 // buyer info
 $_SESSION['buyerLegalStatus'] = '1';
@@ -99,6 +100,15 @@ $_SESSION['isFromTor'] = 'mm';
 $_SESSION['isEmulator'] = 'mm';
 $_SESSION['isRooted'] = 'mm';
 $_SESSION['hasTimezoneMismatch'] = 'mm';
+$_SESSION['merchantAuthentication'] = '';
+$_SESSION['loyaltyMemberType'] = '';
+$_SESSION['buyerExtended'] = '';
+$_SESSION['billingStreetNumber'] = '';
+$_SESSION['billingEmail'] = '';
+$_SESSION['billingAddressCreateDate'] = '';
+$_SESSION['shippingEmail'] = '';
+$_SESSION['shippingStreetNumber'] = '';
+$_SESSION['shippingAddressCreateDate'] = '';
 
 // private data
 $_SESSION['pvdKey1'] = 'cartId';
@@ -126,6 +136,13 @@ $_SESSION['orderCurrency'] = '978';
 $_SESSION['orderAmount'] = '990';
 $_SESSION['deliveryTime'] = '';
 $_SESSION['deliveryMode'] = '';
+$_SESSION['discountAmount'] = '';
+$_SESSION['otaPackageType'] = '';
+$_SESSION['otaDestinationCountry'] = '';
+$_SESSION['bookingReference'] = '';
+$_SESSION['orderDetail'] = '';
+$_SESSION['orderExtended'] = '';
+$_SESSION['orderOTA'] = '';
 $_SESSION['orderDetailRef1'] = '';
 $_SESSION['orderDetailPrice1'] = '';
 $_SESSION['orderDetailQuantity1'] = '';
@@ -136,6 +153,8 @@ $_SESSION['orderDetailSubcategory2_1'] = '';
 $_SESSION['orderDetailBrand1'] = '';
 $_SESSION['orderDetailAdditionalData1'] = '';
 $_SESSION['orderDetailTaxRate1'] = '';
+$_SESSION['orderDetailSellerType1'] = '';
+$_SESSION['orderDetailSeller1'] = '';
 $_SESSION['orderDetailRef2'] = '';
 $_SESSION['orderDetailPrice2'] = '';
 $_SESSION['orderDetailQuantity2'] = '';
@@ -146,4 +165,6 @@ $_SESSION['orderDetailSubcategory2_2'] = '';
 $_SESSION['orderDetailBrand2'] = '';
 $_SESSION['orderDetailAdditionalData2'] = '';
 $_SESSION['orderDetailTaxRate2'] = '';
+$_SESSION['orderDetailSellerType2'] = '';
+$_SESSION['orderDetailSeller2'] = '';
 ?> 

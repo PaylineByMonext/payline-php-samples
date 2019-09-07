@@ -8,3 +8,4 @@ $array['payment']['differedActionDate'] = $_POST['differedActionDate'];
 $array['payment']['contractNumber'] = $_POST['paymentContractNumber'];
 $array['payment']['softDescriptor'] = $_POST['paymentSoftDescriptor'];
 $array['payment']['cardBrand'] = $_POST['cardBrand'];
+$array['payment']['cumulatedAmount'] = $_POST['cumulatedAmount'];

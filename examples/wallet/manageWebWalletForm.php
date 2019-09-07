@@ -31,7 +31,8 @@
 	include '../fieldset/privateDataList.php';
 	include '../fieldset/walletUrls.php';
 	include '../fieldset/merchantName.php';
-	?>
+    include '../fieldset/threeDSInfo.php';
+    ?>
 	<fieldset>
     	<h4>User Experience : redirection / lightbox / inside the shop</h4>
     		<div class="row">

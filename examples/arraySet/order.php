@@ -24,6 +24,8 @@ if($_POST['orderDetailRef1'] != '' && $_POST['orderDetailPrice1'] != ''){
     $item1['subcategory1'] = $_POST['orderDetailSubcategory1_1'];
     $item1['subcategory2'] = $_POST['orderDetailSubcategory2_1'];
     $item1['additionalData'] = $_POST['orderDetailAdditionalData1'];
+    $item1['seller'] = $_POST['orderDetailSeller1'];
+    $item1['sellerType'] = $_POST['orderDetailSellerType1'];
     $item1['taxRate'] = $_POST['orderDetailTaxRate1'];
     $payline->addOrderDetail($item1);
 }
@@ -40,5 +42,7 @@ if($_POST['orderDetailRef2'] != '' && $_POST['orderDetailPrice2'] != '' ){
     $item2['subcategory2'] = $_POST['orderDetailSubcategory2_2'];
     $item2['additionalData'] = $_POST['orderDetailAdditionalData2'];
     $item2['taxRate'] = $_POST['orderDetailTaxRate2'];
+    $item2['seller'] = $_POST['orderDetailSeller2'];
+    $item2['sellerType'] = $_POST['orderDetailSellerType2'];
     $payline->addOrderDetail($item2);
 }

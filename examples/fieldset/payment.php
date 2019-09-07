@@ -76,4 +76,9 @@
 		</select>
 	</div>
 
+    <div class="row" <?php if($displayedPage == 'widgetPayment') echo "style='display:none'";?>>
+        <label for="cumulatedAmount">Cumulated amount</label>
+        <input type="text" name="cumulatedAmount" id="cumulatedAmount"  value="">
+    </div>
+
 </fieldset>
