@@ -184,6 +184,10 @@
 						</select>
 			        </div>
 			        <div class="row">
+			            <label for="billingAddressPhone">Phone</label>
+			            <input type="text" name="billingAddressPhone" id="billingAddressPhone" value="<?php echo $_SESSION['billingAddressPhone'] ?>" />
+			        </div>
+			        <div class="row">
 			            <label for="billingStreetNumber">Street number</label>
 			            <input type="text" name="billingStreetNumber" id="billingStreetNumber" value="<?php echo $_SESSION['billingStreetNumber'] ?>" />
 			        </div>
