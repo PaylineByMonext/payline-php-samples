@@ -69,7 +69,7 @@ function deleteCss(){
 			<select name="WS_VERSION" id="WS_VERSION">				
 				<option value='0'>- select -</option>
 				<?php
-				for($v=1;$v<22;$v++){
+				for($v=1;$v<30;$v++){
 				    echo "<option value='$v'"; if($_SESSION['WS_VERSION']==$v) echo "selected"; echo ">$v</option>";				    
 				}
 				?>
