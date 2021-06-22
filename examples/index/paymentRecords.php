@@ -31,8 +31,10 @@ while($line = fgets($handle)){
   $lineEx = explode('#', $line);
   $paymentRecordInfo = array();
   foreach ($lineEx as $data){
-      $dataEx = explode('=', $data);
-      $paymentRecordInfo[$dataEx[0]] = $dataEx[1];
+      if (stripos($data, '=') !== false) {
+        $dataEx = explode('=', $data);
+        $paymentRecordInfo[$dataEx[0]] = $dataEx[1];
+      }
   }
   $trColor = '#FFFFFF';
   if($tr%2 != 0){
